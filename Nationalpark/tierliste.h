@@ -11,11 +11,11 @@ public:
     Tierliste(){};
     ~Tierliste(){};
     void insertAnimal(Spezies* animal);
-    void printInfoOfAllAnimals();
+    //void printInfoOfAllAnimals();
     int sizeList();
     void binaerSpeichern();
     void binaerLaden();
-    void testDateiErzeugen();
+    //void testDateiErzeugen();
 };
 
 #endif // TIERLISTE_H

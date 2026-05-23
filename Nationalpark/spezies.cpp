@@ -1,4 +1,4 @@
-#include "spezies.h"
+/*#include "spezies.h"
 
 void Spezies::setAnzahl(int &anzahl){
     m_anzahl = anzahl;
@@ -7,3 +7,4 @@ void Spezies::setAnzahl(int &anzahl){
 int Spezies::getAnzahl(){
     return m_anzahl;
 }
+*/

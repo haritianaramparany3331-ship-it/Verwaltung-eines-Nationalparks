@@ -36,14 +36,14 @@ void streamFehlerBehandeln(std::ifstream &in){
 
 void Tierliste::insertAnimal(Spezies* animal){
     fauna.push_back(animal);
-    std::cout<<"Erfolgreich hinzugefuegt"<<std::endl;
+    //std::cout<<"Erfolgreich hinzugefuegt"<<std::endl;
 }
 
 int Tierliste::sizeList(){
     return fauna.size();
 }
 
-void Tierliste::printInfoOfAllAnimals(){
+/*void Tierliste::printInfoOfAllAnimals(){
     if (fauna.empty()) std::cout<<"Leer"<<std::endl;
     int numeration = 1;
     for (Spezies *spezies : fauna){
@@ -53,6 +53,7 @@ void Tierliste::printInfoOfAllAnimals(){
         numeration++;
     }
 }
+*/
 
 void Tierliste::binaerSpeichern(){
     std::ofstream out("datei.bin", std::ios::binary);
@@ -79,23 +80,37 @@ void Tierliste::binaerLaden(){
 
         std::string bezeichnung;
         stringBinaerLesen(in, bezeichnung);
-        bool gefaehrdet;
-        binaerLesen(in, gefaehrdet);
-        bool raubtier;
-        binaerLesen(in, raubtier);
+        //bool gefaehrdet;
+        //binaerLesen(in, gefaehrdet);
+        //bool raubtier;
+        //binaerLesen(in, raubtier);
+        int alter;
+        binaerLesen(in, alter);
 
         if (typ==1){
-            s = Saeugetier::deserialize(in, bezeichnung, gefaehrdet, raubtier);
+            s = Saeugetier::deserialize(in,
+                                        bezeichnung,
+                                        //gefaehrdet,
+                                        //raubtier,
+                                        alter);
             insertAnimal(s);
             std::cout<<"Tier vom Typ Saeugetier in die Liste hinzugefuegt"<<std::endl;
         }
         else if (typ==2){
-            s = Reptil::deserialize(in, bezeichnung, gefaehrdet, raubtier);
+            s = Reptil::deserialize(in,
+                                    bezeichnung,
+                                    //gefaehrdet,
+                                    //raubtier,
+                                    alter);
             insertAnimal(s);
             std::cout<<"Tier vom Typ Reptil in die Liste hinzugefuegt"<<std::endl;
         }
         else if (typ==3){
-            s = Vogel::deserialize(in, bezeichnung, gefaehrdet, raubtier);
+            s = Vogel::deserialize(in,
+                                   bezeichnung,
+                                   //gefaehrdet,
+                                   //raubtier,
+                                   alter);
             insertAnimal(s);
             std::cout<<"Tier vom Typ Vogel in die Liste hinzugefuegt"<<std::endl;
         }
@@ -108,7 +123,7 @@ void Tierliste::binaerLaden(){
     in.close();
 }
 
-void Tierliste::testDateiErzeugen(){
+/*void Tierliste::testDateiErzeugen(){
     std::ofstream test("datei.bin");
     int testZahl = 999;
     test.write((char*) &testZahl, sizeof(int));
@@ -116,5 +131,6 @@ void Tierliste::testDateiErzeugen(){
     std::cout<<"Neu speichern und laden, um die korrupte Datei zu ueberschreiben"<<std::endl;
     test.close();
 }
+*/
 
 

@@ -6,16 +6,24 @@ class Spezies
 {
 protected:
     std::string m_bezeichnung;
-    bool m_gefaehrdet;
-    bool m_raubtier;
-    int m_anzahl;
+    //bool m_gefaehrdet;
+    //bool m_raubtier;
+    //int m_anzahl;
+    int m_alter;
 public:
-    Spezies(std::string bezeichnung, bool gefaehrdet, bool raubtier) : m_bezeichnung(bezeichnung), m_gefaehrdet(gefaehrdet), m_raubtier(raubtier){};
+    Spezies(std::string bezeichnung,
+            //bool gefaehrdet,
+            //bool raubtier
+            int alter)
+        : m_bezeichnung(bezeichnung),
+        //m_gefaehrdet(gefaehrdet),
+        //m_raubtier(raubtier),
+        m_alter(alter){};
     virtual ~Spezies(){};
-    void setAnzahl(int &anzahl);
-    int getAnzahl();
+    //void setAnzahl(int &anzahl);
+    //int getAnzahl();
     virtual void serialize(std::ofstream &out) = 0;
-    virtual void display() = 0;
+    //virtual void display() = 0;
 };
 
 #endif // SPEZIES_H

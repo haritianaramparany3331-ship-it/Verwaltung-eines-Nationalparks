@@ -1,0 +1,189 @@
+------Header------
+#ifndef APPLICATION_H
+#define APPLICATION_H
+#include "tierliste.h"
+
+class Application
+{
+private:
+    Tierliste animalList;
+public:
+    Application(){};
+    ~Application(){};
+    void userInterfaceAnzeigen();
+};
+
+#endif // APPLICATION_H
+
+------cpp-Datei------
+#include "application.h"
+#include <iostream>
+#include <limits>
+#include "tierliste.h"
+#include "spezies.h"
+#include "saeugetier.h"
+#include "vogel.h"
+#include "reptil.h"
+
+template <typename T>
+
+void einlesenUndFehlerBehandeln(T &wahl){
+    std::cin>> wahl;
+    while (std::cin.fail()){
+        std::cout<<"Falsche Eingabe, noch einmal bitte: ";
+        std::cin.clear();
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        std::cin>> wahl;
+    }
+}
+
+void tierWaehlen(int &tierArtWahl){
+    std::string name;
+    std::cout<<"1- Saeugetier"<<std::endl
+              <<"2- Vogel"<<std::endl
+              <<"3- Reptil"<<std::endl
+              <<"Welche Art von Tier wollen Sie anlegen? (1/2/3)"<<std::endl
+              <<"Ihre Wahl: ";
+    einlesenUndFehlerBehandeln<int>(tierArtWahl);
+    std::cout<<std::endl;
+    while(tierArtWahl != 1 && tierArtWahl != 2 && tierArtWahl != 3){
+        std::cout<<"Falsche Eingabe, noch einmal bitte: ";
+        einlesenUndFehlerBehandeln<int>(tierArtWahl);
+        std::cout<<std::endl;
+    }
+}
+
+void commonParameterInitialisieren(std::string &bez, bool &gefaehrdet, bool &raubtier){
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    std::cout<<"Bezeichnung: ";
+    std::getline(std::cin, bez);
+    std::cout<<std::endl;
+    std::cout<<"Gefahrdet? (0/1): ";
+    einlesenUndFehlerBehandeln<bool>(gefaehrdet);
+    std::cout<<std::endl;
+    std::cout<<"Raubtier? (0/1): ";
+    einlesenUndFehlerBehandeln<bool>(raubtier);
+    std::cout<<std::endl;
+}
+
+void reptilParameterInitialisieren(bool &giftig, double &optimaleTemp, bool &wechselwarm){
+    std::cout<<"Giftig? (0/1): ";
+    einlesenUndFehlerBehandeln<bool>(giftig);
+    std::cout<<std::endl;
+    std::cout<<"Optimale Temperatur: ";
+    einlesenUndFehlerBehandeln<double>(optimaleTemp);
+    std::cout<<std::endl;
+    std::cout<<"Wechselwarm? (0/1): ";
+    einlesenUndFehlerBehandeln<bool>(wechselwarm);
+    std::cout<<std::endl;
+}
+
+void saeugetierParameterInitialisieren(bool &rudeltier, int &tragzeit, double &durschnittsgewicht){
+    std::cout<<"Rudeltier? (0/1): ";
+    einlesenUndFehlerBehandeln<bool>(rudeltier);
+    std::cout<<std::endl;
+    std::cout<<"Tragzeit: ";
+    einlesenUndFehlerBehandeln<int>(tragzeit);
+    std::cout<<std::endl;
+    std::cout<<"Durschnittsgewicht: ";
+    einlesenUndFehlerBehandeln<double>(durschnittsgewicht);
+    std::cout<<std::endl;
+}
+
+void vogelParameterInitialisieren(bool &zugvogel, double &flugreichweite, double &fluegelspannweite){
+    std::cout<<"Zugvogel? (0/1): ";
+    einlesenUndFehlerBehandeln<bool>(zugvogel);
+    std::cout<<std::endl;
+    std::cout<<"Flugreichweite: ";
+    einlesenUndFehlerBehandeln<double>(flugreichweite);
+    std::cout<<std::endl;
+    std::cout<<"Fluegelspannweite: ";
+    einlesenUndFehlerBehandeln<double>(fluegelspannweite);
+    std::cout<<std::endl;
+}
+
+void Application::userInterfaceAnzeigen(){
+    int wahl = -1;
+    int numberOfSpecies = 0;
+    while (wahl != 0){
+        std::cout<<"1- Tier anlegen"<<std::endl
+                  <<"2- Alle Tiere anzeigen"<<std::endl
+                  <<"3- Binaer speichern"<<std::endl
+                  <<"4- Binaer laden"<<std::endl
+                  <<"5- Kaputte binaere Testdatei erzeugen"<<std::endl
+                  <<"0- Beenden"<<std::endl;
+        std::cout<<"Waehlen Sie zwischen den 6 Moeglichkeiten (1/2/3/4/5/0)"<<std::endl
+                  <<"Ihre Wahl: ";
+        einlesenUndFehlerBehandeln<int>(wahl);
+        while(wahl<0 || wahl>5){
+            std::cout<<"Falsche Eingabe, noch einmal bitte: ";
+            einlesenUndFehlerBehandeln<int>(wahl);
+            std::cout<<std::endl;
+        }
+        std::cout<<std::endl;
+        Spezies *tier = nullptr;
+        switch(wahl){
+        case(1):{
+            int tierArtWahl;
+            std::string bez;
+            bool gef;
+            bool rau;
+            commonParameterInitialisieren(bez, gef, rau);
+            tierWaehlen(tierArtWahl);
+            if (tierArtWahl==1){
+                bool rudeltier;
+                int tragzeit;
+                double durschnittsgewicht;
+                saeugetierParameterInitialisieren(rudeltier, tragzeit, durschnittsgewicht);
+                tier = new Saeugetier(bez, gef, rau, rudeltier, tragzeit, durschnittsgewicht);
+                animalList.insertAnimal(tier);
+                tier->setAnzahl(++numberOfSpecies);
+            }
+            else if(tierArtWahl==2){
+                bool zugvogel;
+                double flugreichweite;
+                double fluegelspannweite;
+                vogelParameterInitialisieren(zugvogel, flugreichweite, fluegelspannweite);
+                tier = new Vogel(bez, gef, rau, zugvogel, flugreichweite, fluegelspannweite);
+                animalList.insertAnimal(tier);
+                tier->setAnzahl(++numberOfSpecies);
+            }
+            else{
+                bool giftig;
+                double optimaleTemperatur;
+                bool wechselwarm;
+                reptilParameterInitialisieren(giftig, optimaleTemperatur, wechselwarm);
+                tier = new Reptil(bez, gef, rau, giftig, optimaleTemperatur, wechselwarm);
+                animalList.insertAnimal(tier);
+                tier->setAnzahl(++numberOfSpecies);
+            }
+            break;
+        }
+        case(2):{
+            animalList.printInfoOfAllAnimals();
+            break;
+        }
+        case(3):{
+            animalList.binaerSpeichern();
+
+            break;
+        }
+        case(4):{
+            animalList.binaerLaden();
+
+            break;
+        }
+        default:{
+            animalList.testDateiErzeugen();
+
+            break;
+        }
+        }
+
+        std::cout<<"-------------------------------------------------------"<<std::endl;
+    }
+
+    if (wahl == 0){
+        std::cout<<"Programm beendet"<<std::endl;
+    }
+}

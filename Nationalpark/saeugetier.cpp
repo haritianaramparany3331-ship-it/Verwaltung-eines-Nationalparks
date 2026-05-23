@@ -2,7 +2,7 @@
 #include <fstream>
 #include "hilffunktionen.cpp"
 
-void Saeugetier::display(){
+/*void Saeugetier::display(){
     std::cout<<"Tier: "<<m_bezeichnung<<std::endl
               <<"Art: Saeugetier"<<std::endl
               <<"Rudeltier? "<<m_rudelTier<<std::endl
@@ -12,26 +12,43 @@ void Saeugetier::display(){
               <<"Raubtier? "<<m_raubtier<<std::endl
               <<"Anzahl der Tieren im Park: "<<m_anzahl<<std::endl;
 }
+*/
 
 void Saeugetier::serialize(std::ofstream &out){
     int typ = 1;
     binaerSchreiben(out, typ);
     stringBinaerSchreiben(out, m_bezeichnung);
-    binaerSchreiben(out, m_gefaehrdet);
-    binaerSchreiben(out, m_raubtier);
-    binaerSchreiben(out, m_rudelTier);
-    binaerSchreiben(out, m_tragzeit);
-    binaerSchreiben(out, m_durschnittsgewicht);
+    //binaerSchreiben(out, m_gefaehrdet);
+    //binaerSchreiben(out, m_raubtier);
+    binaerSchreiben(out, m_alter);
+    stringBinaerSchreiben(out, m_fellfarbe);
+    //binaerSchreiben(out, m_rudelTier);
+    //binaerSchreiben(out, m_tragzeit);
+    //binaerSchreiben(out, m_durschnittsgewicht);
     std::cout<<"Tier vom Typ Saeugetier binaer gespeichert in datei.bin"<<std::endl;
 }
 
-Spezies* Saeugetier::deserialize(std::ifstream &in, std::string &bezeichnung, bool &gefaehrdet, bool &raubtier){
-    bool rudeltier;
-    binaerLesen(in, rudeltier);
-    int tragzeit;
-    binaerLesen(in, tragzeit);
-    double durschnittsgewicht;
-    binaerLesen(in, durschnittsgewicht);
-    return new Saeugetier(bezeichnung, gefaehrdet, raubtier, rudeltier, tragzeit, durschnittsgewicht);
+Spezies* Saeugetier::deserialize(std::ifstream &in,
+                                 std::string &bezeichnung,
+                                 //bool &gefaehrdet,
+                                 //bool &raubtier,
+                                 int &alter){
+    std::string fellfarbe;
+    stringBinaerLesen(in, fellfarbe);
+    //bool rudeltier;
+    //binaerLesen(in, rudeltier);
+    //int tragzeit;
+    //binaerLesen(in, tragzeit);
+    //double durschnittsgewicht;
+    //binaerLesen(in, durschnittsgewicht);
+    return new Saeugetier(bezeichnung,
+                          //gefaehrdet,
+                          //raubtier,
+                          alter,
+                          fellfarbe
+                          //rudeltier,
+                          //tragzeit,
+                          //durschnittsgewicht
+                          );
 }
 

@@ -5,7 +5,6 @@ CONFIG -= app_bundle
 CONFIG -= qt
 
 SOURCES += \
-        application.cpp \
         hilffunktionen.cpp \
         reptil.cpp \
         saeugetier.cpp \
@@ -14,7 +13,6 @@ SOURCES += \
         vogel.cpp
 
 HEADERS += \
-    application.h \
     reptil.h \
     saeugetier.h \
     spezies.h \

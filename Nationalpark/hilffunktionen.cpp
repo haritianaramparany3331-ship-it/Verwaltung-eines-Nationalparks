@@ -15,3 +15,10 @@ template <typename T>
 void binaerLesen(std::ifstream &in, T &data){
     in.read((char*) &data, sizeof(T));
 }
+
+void stringBinaerLesen(std::ifstream &in, std::string &string){
+    size_t stringSize;
+    in.read((char*) &stringSize, sizeof(size_t));
+    string.resize(stringSize);
+    in.read(&string[0], stringSize);
+}

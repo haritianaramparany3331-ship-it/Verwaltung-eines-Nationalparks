@@ -1,5 +1,12 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include <iostream>
+#include <limits>
+#include "tierliste.h"
+#include "spezies.h"
+#include "saeugetier.h"
+#include "vogel.h"
+#include "reptil.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -144,9 +151,116 @@ QScrollBar::handle:vertical:hover {
 }
 
 )");
+
+    ui->tierlisteListView.
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
 }
+
+void MainWindow::on_saeugetierPushButton_clicked()
+{
+    QString q_bezeichnung = ui->nameWildtierLineEdit->text();
+    bool valid = true;
+    bool ok1, ok2, ok3;
+    q_bezeichnung.toDouble(&ok1);
+    if (ok1 || q_bezeichnung.isEmpty()){
+        ui->nameWildtierLineEdit->setText("Falsch");
+        valid = false;
+    }
+    std::string bezeichnung = q_bezeichnung.toStdString();
+
+    QString q_alter = ui->alterWildtierLineEdit->text();
+    q_alter.toDouble(&ok2);
+    if (!ok2 || q_bezeichnung.isEmpty()){
+        ui->alterWildtierLineEdit->setText("Falsch");
+        valid = false;
+    }
+    int alter = q_alter.toInt();
+
+    QString q_fellfarbe = ui->fellfarbeLineEdit->text();
+    q_fellfarbe.toDouble(&ok3);
+    if (ok3 || q_fellfarbe.isEmpty()){
+        ui->fellfarbeLineEdit->setText("Falsch");
+        valid = false;
+    }
+    std::string fellfarbe = q_fellfarbe.toStdString();
+
+    if (valid){
+        Saeugetier *s = new Saeugetier(bezeichnung, alter, fellfarbe);
+        animalList.insertAnimal(s);
+    }
+}
+
+
+void MainWindow::on_vogelPushButton_clicked()
+{
+    QString q_bezeichnung = ui->nameWildtierLineEdit->text();
+    bool valid = true;
+    bool ok1, ok2, ok3;
+    q_bezeichnung.toDouble(&ok1);
+    if (ok1 || q_bezeichnung.isEmpty()){
+        ui->nameWildtierLineEdit->setText("Falsch");
+        valid = false;
+    }
+    std::string bezeichnung = q_bezeichnung.toStdString();
+
+    QString q_alter = ui->alterWildtierLineEdit->text();
+    q_alter.toDouble(&ok2);
+    if (!ok2 || q_alter.isEmpty()){
+        ui->alterWildtierLineEdit->setText("Falsch");
+        valid = false;
+    }
+    int alter = q_alter.toInt();
+
+    QString q_fluegelspannweite = ui->fluegelspannweiteLineEdit->text();
+    q_fluegelspannweite.toDouble(&ok3);
+    if (!ok3 || q_fluegelspannweite.isEmpty()){
+        ui->fluegelspannweiteLineEdit->setText("Falsch");
+        valid = false;
+    }
+    double fluegelspannweite = q_fluegelspannweite.toDouble();
+
+    if (valid){
+        Vogel *v = new Vogel(bezeichnung, alter, fluegelspannweite);
+        animalList.insertAnimal(v);
+    }
+}
+
+
+void MainWindow::on_reptilPushButton_clicked()
+{
+    QString q_bezeichnung = ui->nameWildtierLineEdit->text();
+    bool valid = true;
+    bool ok1, ok2, ok3;
+    q_bezeichnung.toDouble(&ok1);
+    if (ok1 || q_bezeichnung.isEmpty()){
+        ui->nameWildtierLineEdit->setText("Falsch");
+        valid = false;
+    }
+    std::string bezeichnung = q_bezeichnung.toStdString();
+
+    QString q_alter = ui->alterWildtierLineEdit->text();
+    q_alter.toDouble(&ok2);
+    if (!ok2 || q_alter.isEmpty()){
+        ui->alterWildtierLineEdit->setText("Falsch");
+        valid = false;
+    }
+    int alter = q_alter.toInt();
+
+    QString q_giftig = ui->giftigLineEdit->text();
+    double checkBool = q_giftig.toDouble(&ok3);
+    if (!ok3 || (checkBool != 0 && checkBool != 1) || q_giftig.isEmpty()){
+        ui->giftigLineEdit->setText("Falsch");
+        valid = false;
+    }
+    bool giftig = (checkBool == 1);
+
+    if (valid){
+        Reptil *r = new Reptil(bezeichnung, alter, giftig);
+        animalList.insertAnimal(r);
+    }
+}
+
