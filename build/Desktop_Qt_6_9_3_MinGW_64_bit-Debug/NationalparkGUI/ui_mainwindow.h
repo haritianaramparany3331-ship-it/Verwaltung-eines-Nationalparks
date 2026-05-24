@@ -15,7 +15,7 @@
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
-#include <QtWidgets/QListView>
+#include <QtWidgets/QListWidget>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
@@ -59,7 +59,7 @@ public:
     QPushButton *reptilPushButton;
     QGroupBox *tiereVerwaltungGroupBox;
     QVBoxLayout *verticalLayout_4;
-    QListView *tierlisteListView;
+    QListWidget *TierlisteListWidget;
     QPushButton *binaerSpeichernPushButton;
     QPushButton *binaerLadenPushButton;
     QGroupBox *personalEingabeGroupBox;
@@ -105,7 +105,7 @@ public:
     QPushButton *wissenschaftlerinPushButton;
     QGroupBox *personalVerwaltungGroupBox;
     QVBoxLayout *verticalLayout_8;
-    QListView *personalListeListView;
+    QListWidget *personalListeListWidget;
     QPushButton *csvSpeichernPushButton;
     QPushButton *csvLadenPushButton;
     QMenuBar *menubar;
@@ -115,7 +115,7 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName("MainWindow");
-        MainWindow->resize(1000, 600);
+        MainWindow->resize(1184, 639);
         MainWindow->setStyleSheet(QString::fromUtf8("QWidget {\n"
 "    background-color: #F4F7F2;\n"
 "    color: #1E1E1E;\n"
@@ -349,10 +349,10 @@ public:
         tiereVerwaltungGroupBox->setSizePolicy(sizePolicy);
         verticalLayout_4 = new QVBoxLayout(tiereVerwaltungGroupBox);
         verticalLayout_4->setObjectName("verticalLayout_4");
-        tierlisteListView = new QListView(tiereVerwaltungGroupBox);
-        tierlisteListView->setObjectName("tierlisteListView");
+        TierlisteListWidget = new QListWidget(tiereVerwaltungGroupBox);
+        TierlisteListWidget->setObjectName("TierlisteListWidget");
 
-        verticalLayout_4->addWidget(tierlisteListView);
+        verticalLayout_4->addWidget(TierlisteListWidget);
 
         binaerSpeichernPushButton = new QPushButton(tiereVerwaltungGroupBox);
         binaerSpeichernPushButton->setObjectName("binaerSpeichernPushButton");
@@ -573,10 +573,10 @@ public:
         personalVerwaltungGroupBox->setSizePolicy(sizePolicy);
         verticalLayout_8 = new QVBoxLayout(personalVerwaltungGroupBox);
         verticalLayout_8->setObjectName("verticalLayout_8");
-        personalListeListView = new QListView(personalVerwaltungGroupBox);
-        personalListeListView->setObjectName("personalListeListView");
+        personalListeListWidget = new QListWidget(personalVerwaltungGroupBox);
+        personalListeListWidget->setObjectName("personalListeListWidget");
 
-        verticalLayout_8->addWidget(personalListeListView);
+        verticalLayout_8->addWidget(personalListeListWidget);
 
         csvSpeichernPushButton = new QPushButton(personalVerwaltungGroupBox);
         csvSpeichernPushButton->setObjectName("csvSpeichernPushButton");
@@ -594,7 +594,7 @@ public:
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
-        menubar->setGeometry(QRect(0, 0, 1000, 19));
+        menubar->setGeometry(QRect(0, 0, 1184, 19));
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName("statusbar");

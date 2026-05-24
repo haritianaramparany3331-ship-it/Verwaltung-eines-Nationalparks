@@ -5,8 +5,8 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 CONFIG += c++17
 
 INCLUDEPATH += ../Nationalpark
-LIBS += -LC:/Users/harit/Documents/Programmation/C++/NationalparkProjekt/Nationalpark/build/Desktop_Qt_6_9_3_MinGW_64_bit-Debug/debug -lNationalpark
-
+LIBS += -L$$OUT_PWD/../Nationalpark/debug -lNationalpark
+PRE_TARGETDEPS += $$OUT_PWD/../Nationalpark/debug/libNationalpark.a
 
 # You can make your code fail to compile if it uses deprecated APIs.
 # In order to do so, uncomment the following line.

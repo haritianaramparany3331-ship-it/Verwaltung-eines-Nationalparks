@@ -35,6 +35,7 @@ public:
                                 //bool &raubtier,
                                 int &alter);
     //void display() override;
+    std::string getInfo() override;
 };
 
 #endif // SAEUGETIER_H

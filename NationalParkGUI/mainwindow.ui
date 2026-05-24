@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1000</width>
-    <height>600</height>
+    <width>1184</width>
+    <height>639</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -288,7 +288,7 @@ QGroupBox::title {
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_4">
        <item>
-        <widget class="QListView" name="tierlisteListView"/>
+        <widget class="QListWidget" name="TierlisteListWidget"/>
        </item>
        <item>
         <widget class="QPushButton" name="binaerSpeichernPushButton">
@@ -552,7 +552,7 @@ QGroupBox::title {
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_8">
        <item>
-        <widget class="QListView" name="personalListeListView"/>
+        <widget class="QListWidget" name="personalListeListWidget"/>
        </item>
        <item>
         <widget class="QPushButton" name="csvSpeichernPushButton">
@@ -578,7 +578,7 @@ QGroupBox::title {
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1000</width>
+     <width>1184</width>
      <height>19</height>
     </rect>
    </property>

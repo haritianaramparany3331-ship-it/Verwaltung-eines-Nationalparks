@@ -17,6 +17,7 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+    void aktualisiereListWidget();
 
 private slots:
     void on_saeugetierPushButton_clicked();

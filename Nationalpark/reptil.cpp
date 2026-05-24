@@ -14,6 +14,13 @@
 }
 */
 
+std::string Reptil::getInfo(){
+    return "Name: "+m_bezeichnung+
+           "\nAlter: "+std::to_string(m_alter)+
+           "\nTyp: Reptil"+
+           "\nGiftig? "+std::to_string(m_giftig);
+}
+
 void Reptil::serialize(std::ofstream &out){
     int typ = 2;
     binaerSchreiben(out, typ);

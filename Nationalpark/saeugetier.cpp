@@ -14,6 +14,13 @@
 }
 */
 
+std::string Saeugetier::getInfo(){
+    return "Name: "+m_bezeichnung+
+           "\nAlter: "+std::to_string(m_alter)+
+           "\nTyp: Saeugetier"+
+           "\nFellfarbe: "+m_fellfarbe;
+}
+
 void Saeugetier::serialize(std::ofstream &out){
     int typ = 1;
     binaerSchreiben(out, typ);

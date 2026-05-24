@@ -86,29 +86,62 @@ QPushButton[danger="true"]:hover {
 }
 
 /* =========================
-   📋 LIST VIEW
+   📋 LIST WIDGET
 ========================= */
 
-QListView {
+QListWidget {
     background-color: white;
-    border: 1px solid #C9D1C8;
-    border-radius: 8px;
-    padding: 4px;
-    outline: none;
-}
-
-QListView::item {
+    border: 1px solid #D6DDD5;
+    border-radius: 10px;
     padding: 6px;
-    border-radius: 4px;
+    outline: none;
+    font-size: 13px;
 }
 
-QListView::item:selected {
+/* einzelne Items */
+QListWidget::item {
+    background-color: transparent;
+    padding: 8px;
+    margin: 2px 0px;
+    border-radius: 6px;
+}
+
+/* Hover Effekt */
+QListWidget::item:hover {
+    background-color: #E7F0EA;
+}
+
+/* Ausgewähltes Item */
+QListWidget::item:selected {
+    background-color: #2F5D50;
+    color: white;
+}
+
+/* Optional: wenn selected aber unfocused */
+QListWidget::item:selected:!active {
     background-color: #7BAE7F;
     color: white;
 }
 
-QListView::item:hover {
-    background-color: #E7F0EA;
+/* Scrollbar */
+QScrollBar:vertical {
+    background: #F4F7F2;
+    width: 10px;
+    border-radius: 5px;
+}
+
+QScrollBar::handle:vertical {
+    background: #7BAE7F;
+    border-radius: 5px;
+}
+
+QScrollBar::handle:vertical:hover {
+    background: #2F5D50;
+}
+
+QScrollBar::add-line:vertical,
+QScrollBar::sub-line:vertical {
+    height: 0px;
 }
 
 /* =========================
@@ -152,7 +185,7 @@ QScrollBar::handle:vertical:hover {
 
 )");
 
-    ui->tierlisteListView.
+    //ui->tierlisteListView.
 }
 
 MainWindow::~MainWindow()
@@ -191,6 +224,7 @@ void MainWindow::on_saeugetierPushButton_clicked()
     if (valid){
         Saeugetier *s = new Saeugetier(bezeichnung, alter, fellfarbe);
         animalList.insertAnimal(s);
+        aktualisiereListWidget();
     }
 }
 
@@ -226,6 +260,7 @@ void MainWindow::on_vogelPushButton_clicked()
     if (valid){
         Vogel *v = new Vogel(bezeichnung, alter, fluegelspannweite);
         animalList.insertAnimal(v);
+        aktualisiereListWidget();
     }
 }
 
@@ -261,6 +296,15 @@ void MainWindow::on_reptilPushButton_clicked()
     if (valid){
         Reptil *r = new Reptil(bezeichnung, alter, giftig);
         animalList.insertAnimal(r);
+        aktualisiereListWidget();
+    }
+}
+
+void MainWindow::aktualisiereListWidget(){
+    ui->TierlisteListWidget->clear();
+    for (auto &tier : animalList.getFauna()){
+        QListWidgetItem *listWidgetItem = new QListWidgetItem(QString::fromStdString(tier->getInfo()));
+        ui->TierlisteListWidget->addItem(listWidgetItem);
     }
 }
 

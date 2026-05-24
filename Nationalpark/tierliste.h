@@ -16,6 +16,7 @@ public:
     void binaerSpeichern();
     void binaerLaden();
     //void testDateiErzeugen();
+    std::vector<Spezies*> getFauna() const;
 };
 
 #endif // TIERLISTE_H

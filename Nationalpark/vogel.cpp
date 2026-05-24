@@ -14,6 +14,13 @@
 }
 */
 
+std::string Vogel::getInfo(){
+    return "Name: "+m_bezeichnung+
+           "\nAlter: "+std::to_string(m_alter)+
+           "\nTyp: Vogel"+
+           "\nFluegelspannweite: "+std::to_string(m_fluegelspannweite);
+}
+
 void Vogel::serialize(std::ofstream &out){
     int typ = 3;
     binaerSchreiben(out, typ);

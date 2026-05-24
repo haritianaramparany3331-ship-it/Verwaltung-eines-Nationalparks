@@ -1,12 +1,11 @@
 #include <fstream>
 
 template <typename T>
-
 void binaerSchreiben(std::ofstream &out, T &data){
     out.write((char*) &data, sizeof(T));
 }
 
-static void stringBinaerSchreiben(std::ofstream &out, std::string &strData){
+inline void stringBinaerSchreiben(std::ofstream &out, std::string &strData){
     size_t strDataSize = strData.size();
     out.write((char*) &strDataSize, sizeof(size_t));
     out.write(strData.c_str(), strDataSize);
@@ -16,7 +15,7 @@ void binaerLesen(std::ifstream &in, T &data){
     in.read((char*) &data, sizeof(T));
 }
 
-void stringBinaerLesen(std::ifstream &in, std::string &string){
+inline void stringBinaerLesen(std::ifstream &in, std::string &string){
     size_t stringSize;
     in.read((char*) &stringSize, sizeof(size_t));
     string.resize(stringSize);

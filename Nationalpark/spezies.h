@@ -24,6 +24,9 @@ public:
     //int getAnzahl();
     virtual void serialize(std::ofstream &out) = 0;
     //virtual void display() = 0;
+    std::string getBezeichnung() const;
+    int getAlter() const;
+    virtual std::string getInfo() = 0;
 };
 
 #endif // SPEZIES_H

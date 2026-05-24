@@ -15,7 +15,7 @@ public:
           int alter,
           //bool zugvogel,
           //double flugreichweite,
-          bool fluegelspannweite)
+          double fluegelspannweite)
         : Spezies(bezeichnung,
                   //gefaehrdet,
                   //raubtier,
@@ -31,6 +31,7 @@ public:
                                 //bool &raubtier,
                                 int &alter);
     //void display() override;
+    std::string getInfo() override;
 };
 
 #endif // VOGEL_H
