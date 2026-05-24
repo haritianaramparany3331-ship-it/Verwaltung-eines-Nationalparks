@@ -26,6 +26,10 @@ private slots:
 
     void on_reptilPushButton_clicked();
 
+    void on_binaerSpeichernPushButton_clicked();
+
+    void on_binaerLadenPushButton_clicked();
+
 private:
     Ui::MainWindow *ui;
     Tierliste animalList;

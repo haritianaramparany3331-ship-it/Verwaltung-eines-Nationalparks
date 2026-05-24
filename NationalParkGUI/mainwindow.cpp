@@ -225,6 +225,9 @@ void MainWindow::on_saeugetierPushButton_clicked()
         Saeugetier *s = new Saeugetier(bezeichnung, alter, fellfarbe);
         animalList.insertAnimal(s);
         aktualisiereListWidget();
+        ui->nameWildtierLineEdit->clear();
+        ui->alterWildtierLineEdit->clear();
+        ui->fellfarbeLineEdit->clear();
     }
 }
 
@@ -261,6 +264,9 @@ void MainWindow::on_vogelPushButton_clicked()
         Vogel *v = new Vogel(bezeichnung, alter, fluegelspannweite);
         animalList.insertAnimal(v);
         aktualisiereListWidget();
+        ui->nameWildtierLineEdit->clear();
+        ui->alterWildtierLineEdit->clear();
+        ui->fluegelspannweiteLineEdit->clear();
     }
 }
 
@@ -297,6 +303,9 @@ void MainWindow::on_reptilPushButton_clicked()
         Reptil *r = new Reptil(bezeichnung, alter, giftig);
         animalList.insertAnimal(r);
         aktualisiereListWidget();
+        ui->nameWildtierLineEdit->clear();
+        ui->alterWildtierLineEdit->clear();
+        ui->giftigLineEdit->clear();
     }
 }
 
@@ -306,5 +315,19 @@ void MainWindow::aktualisiereListWidget(){
         QListWidgetItem *listWidgetItem = new QListWidgetItem(QString::fromStdString(tier->getInfo()));
         ui->TierlisteListWidget->addItem(listWidgetItem);
     }
+}
+
+
+void MainWindow::on_binaerSpeichernPushButton_clicked()
+{
+    animalList.binaerSpeichern();
+    aktualisiereListWidget();
+}
+
+
+void MainWindow::on_binaerLadenPushButton_clicked()
+{
+    animalList.binaerLaden();
+    aktualisiereListWidget();
 }
 
