@@ -6,24 +6,10 @@
 #include <reptil.h>
 #include <vogel.h>
 #include <spezies.h>
-#include "hilffunktionen.cpp"
+#include "hilffunktionen.h"
 
 std::vector<Spezies*> Tierliste::getFauna() const{
     return fauna;
-}
-
-void streamFehlerBehandeln(std::ofstream &out){
-    if(!out){
-        std::cout<<"Datei nicht geoeffnet"<<std::endl;
-        return;
-    }
-}
-
-void streamFehlerBehandeln(std::ifstream &in){
-    if(!in){
-        std::cout<<"Datei nicht geoeffnet"<<std::endl;
-        return;
-    }
 }
 
 void Tierliste::insertAnimal(Spezies* animal){

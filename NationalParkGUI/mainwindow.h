@@ -38,6 +38,18 @@ private slots:
 
     void on_wissenschaftlerinPushButton_clicked();
 
+    void on_csvSpeichernPushButton_clicked();
+
+    void on_csvLadenPushButton_clicked();
+
+    void on_actionPersonal_csv_triggered();
+
+    void on_actionFull_Screen_triggered();
+
+    void on_actionMinimize_triggered();
+
+    void on_actionNormal_triggered();
+
 private:
     Ui::MainWindow *ui;
     Tierliste animalList;

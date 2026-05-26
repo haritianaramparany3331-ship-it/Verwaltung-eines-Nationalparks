@@ -1,6 +1,6 @@
 #include "saeugetier.h"
 #include <fstream>
-#include "hilffunktionen.cpp"
+#include "hilffunktionen.h"
 
 /*void Saeugetier::display(){
     std::cout<<"Tier: "<<m_bezeichnung<<std::endl

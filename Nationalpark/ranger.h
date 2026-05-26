@@ -24,6 +24,7 @@ public:
         m_einsatzbereich(einsatzbereich){};
 
     std::string getInfo() override;
+    void serialize(std::ofstream &out) override;
 };
 
 #endif // RANGER_H

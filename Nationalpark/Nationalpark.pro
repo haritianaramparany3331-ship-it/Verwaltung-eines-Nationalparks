@@ -19,6 +19,7 @@ SOURCES += \
 
 HEADERS += \
     angestellter.h \
+    hilffunktionen.h \
     personalliste.h \
     ranger.h \
     reptil.h \
@@ -28,3 +29,6 @@ HEADERS += \
     verwaltung.h \
     vogel.h \
     wissenschaftler.h
+
+DISTFILES += \
+    ../build/Desktop_Qt_6_9_3_MinGW_64_bit-Debug/NationalparkGUI/Personal.csv

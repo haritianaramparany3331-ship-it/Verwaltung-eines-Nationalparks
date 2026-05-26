@@ -1,7 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include <iostream>
-#include <limits>
 #include "tierliste.h"
 #include "spezies.h"
 #include "saeugetier.h"
@@ -12,7 +11,9 @@
 #include "ranger.h"
 #include "verwaltung.h"
 #include "wissenschaftler.h"
-#include "hilffunktionenGUI.cpp"
+#include "hilffunktionenGUI.h"
+#include <QDesktopServices>
+#include <QUrl>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -20,6 +21,7 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     setWindowTitle("Wildtier- & Personalverwaltung");
+    this->showMaximized();
     this->setStyleSheet(R"(
 QWidget {
     background-color: #F4F7F2;
@@ -218,6 +220,7 @@ void MainWindow::on_saeugetierPushButton_clicked()
         ui->nameWildtierLineEdit->clear();
         ui->alterWildtierLineEdit->clear();
         ui->fellfarbeLineEdit->clear();
+        ui->statusbar->showMessage("Tier vom Typ Saeugetier in die Liste hinzugefuegt", 2000);
     }
 }
 
@@ -241,6 +244,7 @@ void MainWindow::on_vogelPushButton_clicked()
         ui->nameWildtierLineEdit->clear();
         ui->alterWildtierLineEdit->clear();
         ui->fluegelspannweiteLineEdit->clear();
+        ui->statusbar->showMessage("Tier vom Typ Vogel in die Liste hinzugefuegt", 2000);
     }
 }
 
@@ -264,6 +268,7 @@ void MainWindow::on_reptilPushButton_clicked()
         ui->nameWildtierLineEdit->clear();
         ui->alterWildtierLineEdit->clear();
         ui->giftigLineEdit->clear();
+        ui->statusbar->showMessage("Tier vom Typ Reptil in die Liste hinzugefuegt", 2000);
     }
 }
 
@@ -288,6 +293,7 @@ void MainWindow::on_binaerSpeichernPushButton_clicked()
 {
     animalList.binaerSpeichern();
     aktualisiereWildtierListWidget();
+    ui->statusbar->showMessage("Liste in datei.bin gespeichert", 2000);
 }
 
 
@@ -295,6 +301,7 @@ void MainWindow::on_binaerLadenPushButton_clicked()
 {
     animalList.binaerLaden();
     aktualisiereWildtierListWidget();
+    ui->statusbar->showMessage("Liste von datei.bin geholt", 2000);
 }
 
 
@@ -333,6 +340,7 @@ void MainWindow::on_rangerPushButton_clicked()
         ui->gehaltLineEdit->clear();
         ui->revierLineEdit->clear();
         ui->einsatzbereichLineEdit->clear();
+        ui->statusbar->showMessage("Angestellter vom Typ Ranger in die Liste hinzugefuegt", 2000);
     }
 }
 
@@ -371,6 +379,7 @@ void MainWindow::on_verwaltungPushButton_clicked()
         ui->gehaltLineEdit->clear();
         ui->abteilungLineEdit->clear();
         ui->bueroLineEdit->clear();
+        ui->statusbar->showMessage("Angestellter vom Typ Verwalter in die Liste hinzugefuegt", 2000);
     }
 }
 
@@ -410,6 +419,48 @@ void MainWindow::on_wissenschaftlerinPushButton_clicked()
         ui->gehaltLineEdit->clear();
         ui->fachgebietLineEdit->clear();
         ui->anzahlStudienLineEdit->clear();
+        ui->statusbar->showMessage("Angestellter vom Typ Wissenschaftler in die Liste hinzugefuegt", 2000);
     }
+}
+
+
+void MainWindow::on_csvSpeichernPushButton_clicked()
+{
+    personalList.csvSpeichern();
+    ui->statusbar->showMessage("Liste in Personal.csv gespeichert", 2000);
+}
+
+
+
+void MainWindow::on_csvLadenPushButton_clicked()
+{
+    personalList.csvLaden();
+    aktualisierePersonalListWidget();
+    ui->statusbar->showMessage("Liste von Personal.csv geholt", 2000);
+}
+
+
+void MainWindow::on_actionPersonal_csv_triggered()
+{
+    QDesktopServices::openUrl(QUrl::fromLocalFile("Personal.csv"));
+    ui->statusbar->showMessage("Oeffnen von Personal.csv", 2000);
+}
+
+
+void MainWindow::on_actionFull_Screen_triggered()
+{
+    showMaximized();
+}
+
+
+void MainWindow::on_actionMinimize_triggered()
+{
+    showMinimized();
+}
+
+
+void MainWindow::on_actionNormal_triggered()
+{
+    showNormal();
 }
 

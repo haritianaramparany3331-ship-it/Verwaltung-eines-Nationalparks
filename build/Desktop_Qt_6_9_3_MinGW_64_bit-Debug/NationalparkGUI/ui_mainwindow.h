@@ -10,6 +10,7 @@
 #define UI_MAINWINDOW_H
 
 #include <QtCore/QVariant>
+#include <QtGui/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QGroupBox>
 #include <QtWidgets/QHBoxLayout>
@@ -17,6 +18,7 @@
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QListWidget>
 #include <QtWidgets/QMainWindow>
+#include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QSpacerItem>
@@ -29,6 +31,10 @@ QT_BEGIN_NAMESPACE
 class Ui_MainWindow
 {
 public:
+    QAction *actionPersonal_csv;
+    QAction *actionFull_Screen;
+    QAction *actionMinimize;
+    QAction *actionNormal;
     QWidget *centralwidget;
     QHBoxLayout *horizontalLayout;
     QGroupBox *wildtierEingabeGroupBox;
@@ -112,13 +118,20 @@ public:
     QPushButton *csvSpeichernPushButton;
     QPushButton *csvLadenPushButton;
     QMenuBar *menubar;
+    QMenu *menuDatei;
+    QMenu *menuView;
     QStatusBar *statusbar;
 
     void setupUi(QMainWindow *MainWindow)
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName("MainWindow");
-        MainWindow->resize(1184, 639);
+        MainWindow->resize(1184, 675);
+        QSizePolicy sizePolicy(QSizePolicy::Policy::Preferred, QSizePolicy::Policy::Preferred);
+        sizePolicy.setHorizontalStretch(0);
+        sizePolicy.setVerticalStretch(0);
+        sizePolicy.setHeightForWidth(MainWindow->sizePolicy().hasHeightForWidth());
+        MainWindow->setSizePolicy(sizePolicy);
         MainWindow->setStyleSheet(QString::fromUtf8("QWidget {\n"
 "    background-color: #F4F7F2;\n"
 "    color: #1E1E1E;\n"
@@ -200,27 +213,35 @@ public:
 "    padding: 0 5px 0 5px;\n"
 "}\n"
 ""));
+        actionPersonal_csv = new QAction(MainWindow);
+        actionPersonal_csv->setObjectName("actionPersonal_csv");
+        actionFull_Screen = new QAction(MainWindow);
+        actionFull_Screen->setObjectName("actionFull_Screen");
+        actionMinimize = new QAction(MainWindow);
+        actionMinimize->setObjectName("actionMinimize");
+        actionNormal = new QAction(MainWindow);
+        actionNormal->setObjectName("actionNormal");
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName("centralwidget");
         horizontalLayout = new QHBoxLayout(centralwidget);
         horizontalLayout->setObjectName("horizontalLayout");
         wildtierEingabeGroupBox = new QGroupBox(centralwidget);
         wildtierEingabeGroupBox->setObjectName("wildtierEingabeGroupBox");
-        QSizePolicy sizePolicy(QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Preferred);
-        sizePolicy.setHorizontalStretch(0);
-        sizePolicy.setVerticalStretch(0);
-        sizePolicy.setHeightForWidth(wildtierEingabeGroupBox->sizePolicy().hasHeightForWidth());
-        wildtierEingabeGroupBox->setSizePolicy(sizePolicy);
+        QSizePolicy sizePolicy1(QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Preferred);
+        sizePolicy1.setHorizontalStretch(0);
+        sizePolicy1.setVerticalStretch(0);
+        sizePolicy1.setHeightForWidth(wildtierEingabeGroupBox->sizePolicy().hasHeightForWidth());
+        wildtierEingabeGroupBox->setSizePolicy(sizePolicy1);
         wildtierEingabeGroupBox->setStyleSheet(QString::fromUtf8(""));
         verticalLayout = new QVBoxLayout(wildtierEingabeGroupBox);
         verticalLayout->setObjectName("verticalLayout");
         gemAttWildtierGroupBox = new QGroupBox(wildtierEingabeGroupBox);
         gemAttWildtierGroupBox->setObjectName("gemAttWildtierGroupBox");
-        QSizePolicy sizePolicy1(QSizePolicy::Policy::Preferred, QSizePolicy::Policy::Expanding);
-        sizePolicy1.setHorizontalStretch(0);
-        sizePolicy1.setVerticalStretch(0);
-        sizePolicy1.setHeightForWidth(gemAttWildtierGroupBox->sizePolicy().hasHeightForWidth());
-        gemAttWildtierGroupBox->setSizePolicy(sizePolicy1);
+        QSizePolicy sizePolicy2(QSizePolicy::Policy::Preferred, QSizePolicy::Policy::Expanding);
+        sizePolicy2.setHorizontalStretch(0);
+        sizePolicy2.setVerticalStretch(0);
+        sizePolicy2.setHeightForWidth(gemAttWildtierGroupBox->sizePolicy().hasHeightForWidth());
+        gemAttWildtierGroupBox->setSizePolicy(sizePolicy2);
         verticalLayout_2 = new QVBoxLayout(gemAttWildtierGroupBox);
         verticalLayout_2->setObjectName("verticalLayout_2");
         horizontalLayout_2 = new QHBoxLayout();
@@ -242,11 +263,8 @@ public:
         horizontalLayout_3->setObjectName("horizontalLayout_3");
         alterWildtierLabel = new QLabel(gemAttWildtierGroupBox);
         alterWildtierLabel->setObjectName("alterWildtierLabel");
-        QSizePolicy sizePolicy2(QSizePolicy::Policy::Preferred, QSizePolicy::Policy::Preferred);
-        sizePolicy2.setHorizontalStretch(0);
-        sizePolicy2.setVerticalStretch(0);
-        sizePolicy2.setHeightForWidth(alterWildtierLabel->sizePolicy().hasHeightForWidth());
-        alterWildtierLabel->setSizePolicy(sizePolicy2);
+        sizePolicy.setHeightForWidth(alterWildtierLabel->sizePolicy().hasHeightForWidth());
+        alterWildtierLabel->setSizePolicy(sizePolicy);
 
         horizontalLayout_3->addWidget(alterWildtierLabel);
 
@@ -272,8 +290,8 @@ public:
 
         spezAttWildtierGroupBox = new QGroupBox(wildtierEingabeGroupBox);
         spezAttWildtierGroupBox->setObjectName("spezAttWildtierGroupBox");
-        sizePolicy1.setHeightForWidth(spezAttWildtierGroupBox->sizePolicy().hasHeightForWidth());
-        spezAttWildtierGroupBox->setSizePolicy(sizePolicy1);
+        sizePolicy2.setHeightForWidth(spezAttWildtierGroupBox->sizePolicy().hasHeightForWidth());
+        spezAttWildtierGroupBox->setSizePolicy(sizePolicy2);
         verticalLayout_3 = new QVBoxLayout(spezAttWildtierGroupBox);
         verticalLayout_3->setObjectName("verticalLayout_3");
         horizontalLayout_4 = new QHBoxLayout();
@@ -348,8 +366,8 @@ public:
 
         tiereVerwaltungGroupBox = new QGroupBox(centralwidget);
         tiereVerwaltungGroupBox->setObjectName("tiereVerwaltungGroupBox");
-        sizePolicy.setHeightForWidth(tiereVerwaltungGroupBox->sizePolicy().hasHeightForWidth());
-        tiereVerwaltungGroupBox->setSizePolicy(sizePolicy);
+        sizePolicy1.setHeightForWidth(tiereVerwaltungGroupBox->sizePolicy().hasHeightForWidth());
+        tiereVerwaltungGroupBox->setSizePolicy(sizePolicy1);
         verticalLayout_4 = new QVBoxLayout(tiereVerwaltungGroupBox);
         verticalLayout_4->setObjectName("verticalLayout_4");
         TierlisteListWidget = new QListWidget(tiereVerwaltungGroupBox);
@@ -372,14 +390,14 @@ public:
 
         personalEingabeGroupBox = new QGroupBox(centralwidget);
         personalEingabeGroupBox->setObjectName("personalEingabeGroupBox");
-        sizePolicy.setHeightForWidth(personalEingabeGroupBox->sizePolicy().hasHeightForWidth());
-        personalEingabeGroupBox->setSizePolicy(sizePolicy);
+        sizePolicy1.setHeightForWidth(personalEingabeGroupBox->sizePolicy().hasHeightForWidth());
+        personalEingabeGroupBox->setSizePolicy(sizePolicy1);
         verticalLayout_5 = new QVBoxLayout(personalEingabeGroupBox);
         verticalLayout_5->setObjectName("verticalLayout_5");
         gemAttPersonalGroupBox = new QGroupBox(personalEingabeGroupBox);
         gemAttPersonalGroupBox->setObjectName("gemAttPersonalGroupBox");
-        sizePolicy1.setHeightForWidth(gemAttPersonalGroupBox->sizePolicy().hasHeightForWidth());
-        gemAttPersonalGroupBox->setSizePolicy(sizePolicy1);
+        sizePolicy2.setHeightForWidth(gemAttPersonalGroupBox->sizePolicy().hasHeightForWidth());
+        gemAttPersonalGroupBox->setSizePolicy(sizePolicy2);
         verticalLayout_6 = new QVBoxLayout(gemAttPersonalGroupBox);
         verticalLayout_6->setObjectName("verticalLayout_6");
         horizontalLayout_7 = new QHBoxLayout();
@@ -446,8 +464,8 @@ public:
         horizontalLayout_17->setObjectName("horizontalLayout_17");
         stundenzahlLabel = new QLabel(gemAttPersonalGroupBox);
         stundenzahlLabel->setObjectName("stundenzahlLabel");
-        sizePolicy2.setHeightForWidth(stundenzahlLabel->sizePolicy().hasHeightForWidth());
-        stundenzahlLabel->setSizePolicy(sizePolicy2);
+        sizePolicy.setHeightForWidth(stundenzahlLabel->sizePolicy().hasHeightForWidth());
+        stundenzahlLabel->setSizePolicy(sizePolicy);
 
         horizontalLayout_17->addWidget(stundenzahlLabel);
 
@@ -468,8 +486,8 @@ public:
 
         spezAttPersonalGroupBox = new QGroupBox(personalEingabeGroupBox);
         spezAttPersonalGroupBox->setObjectName("spezAttPersonalGroupBox");
-        sizePolicy1.setHeightForWidth(spezAttPersonalGroupBox->sizePolicy().hasHeightForWidth());
-        spezAttPersonalGroupBox->setSizePolicy(sizePolicy1);
+        sizePolicy2.setHeightForWidth(spezAttPersonalGroupBox->sizePolicy().hasHeightForWidth());
+        spezAttPersonalGroupBox->setSizePolicy(sizePolicy2);
         verticalLayout_7 = new QVBoxLayout(spezAttPersonalGroupBox);
         verticalLayout_7->setObjectName("verticalLayout_7");
         horizontalLayout_11 = new QHBoxLayout();
@@ -589,8 +607,8 @@ public:
 
         personalVerwaltungGroupBox = new QGroupBox(centralwidget);
         personalVerwaltungGroupBox->setObjectName("personalVerwaltungGroupBox");
-        sizePolicy.setHeightForWidth(personalVerwaltungGroupBox->sizePolicy().hasHeightForWidth());
-        personalVerwaltungGroupBox->setSizePolicy(sizePolicy);
+        sizePolicy1.setHeightForWidth(personalVerwaltungGroupBox->sizePolicy().hasHeightForWidth());
+        personalVerwaltungGroupBox->setSizePolicy(sizePolicy1);
         verticalLayout_8 = new QVBoxLayout(personalVerwaltungGroupBox);
         verticalLayout_8->setObjectName("verticalLayout_8");
         personalListeListWidget = new QListWidget(personalVerwaltungGroupBox);
@@ -615,10 +633,21 @@ public:
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
         menubar->setGeometry(QRect(0, 0, 1184, 19));
+        menuDatei = new QMenu(menubar);
+        menuDatei->setObjectName("menuDatei");
+        menuView = new QMenu(menubar);
+        menuView->setObjectName("menuView");
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName("statusbar");
         MainWindow->setStatusBar(statusbar);
+
+        menubar->addAction(menuDatei->menuAction());
+        menubar->addAction(menuView->menuAction());
+        menuDatei->addAction(actionPersonal_csv);
+        menuView->addAction(actionFull_Screen);
+        menuView->addAction(actionMinimize);
+        menuView->addAction(actionNormal);
 
         retranslateUi(MainWindow);
 
@@ -628,6 +657,10 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
+        actionPersonal_csv->setText(QCoreApplication::translate("MainWindow", "Personal.csv", nullptr));
+        actionFull_Screen->setText(QCoreApplication::translate("MainWindow", "Full Screen", nullptr));
+        actionMinimize->setText(QCoreApplication::translate("MainWindow", "Minimize", nullptr));
+        actionNormal->setText(QCoreApplication::translate("MainWindow", "Normal", nullptr));
         wildtierEingabeGroupBox->setTitle(QCoreApplication::translate("MainWindow", "Wildtier - Eingabe", nullptr));
         gemAttWildtierGroupBox->setTitle(QCoreApplication::translate("MainWindow", "Gemeinsame Attribute", nullptr));
         nameWildtierLabel->setText(QCoreApplication::translate("MainWindow", "Name:", nullptr));
@@ -662,6 +695,8 @@ public:
         personalVerwaltungGroupBox->setTitle(QCoreApplication::translate("MainWindow", "Personal - Verwaltung", nullptr));
         csvSpeichernPushButton->setText(QCoreApplication::translate("MainWindow", "Personen speichern (CSV)", nullptr));
         csvLadenPushButton->setText(QCoreApplication::translate("MainWindow", "Personen laden (CSV)", nullptr));
+        menuDatei->setTitle(QCoreApplication::translate("MainWindow", "Datei", nullptr));
+        menuView->setTitle(QCoreApplication::translate("MainWindow", "View", nullptr));
     } // retranslateUi
 
 };

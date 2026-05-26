@@ -1,4 +1,5 @@
 debug/angestellter.o
+debug/hilffunktionen.o
 debug/personalliste.o
 debug/ranger.o
 debug/reptil.o

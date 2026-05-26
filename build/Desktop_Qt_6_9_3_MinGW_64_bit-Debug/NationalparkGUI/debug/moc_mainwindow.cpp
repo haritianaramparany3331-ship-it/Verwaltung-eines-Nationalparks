@@ -47,7 +47,13 @@ template <> constexpr inline auto MainWindow::qt_create_metaobjectdata<qt_meta_t
         "on_binaerLadenPushButton_clicked",
         "on_rangerPushButton_clicked",
         "on_verwaltungPushButton_clicked",
-        "on_wissenschaftlerinPushButton_clicked"
+        "on_wissenschaftlerinPushButton_clicked",
+        "on_csvSpeichernPushButton_clicked",
+        "on_csvLadenPushButton_clicked",
+        "on_actionPersonal_csv_triggered",
+        "on_actionFull_Screen_triggered",
+        "on_actionMinimize_triggered",
+        "on_actionNormal_triggered"
     };
 
     QtMocHelpers::UintData qt_methods {
@@ -67,6 +73,18 @@ template <> constexpr inline auto MainWindow::qt_create_metaobjectdata<qt_meta_t
         QtMocHelpers::SlotData<void()>(8, 2, QMC::AccessPrivate, QMetaType::Void),
         // Slot 'on_wissenschaftlerinPushButton_clicked'
         QtMocHelpers::SlotData<void()>(9, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'on_csvSpeichernPushButton_clicked'
+        QtMocHelpers::SlotData<void()>(10, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'on_csvLadenPushButton_clicked'
+        QtMocHelpers::SlotData<void()>(11, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'on_actionPersonal_csv_triggered'
+        QtMocHelpers::SlotData<void()>(12, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'on_actionFull_Screen_triggered'
+        QtMocHelpers::SlotData<void()>(13, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'on_actionMinimize_triggered'
+        QtMocHelpers::SlotData<void()>(14, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'on_actionNormal_triggered'
+        QtMocHelpers::SlotData<void()>(15, 2, QMC::AccessPrivate, QMetaType::Void),
     };
     QtMocHelpers::UintData qt_properties {
     };
@@ -98,6 +116,12 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 5: _t->on_rangerPushButton_clicked(); break;
         case 6: _t->on_verwaltungPushButton_clicked(); break;
         case 7: _t->on_wissenschaftlerinPushButton_clicked(); break;
+        case 8: _t->on_csvSpeichernPushButton_clicked(); break;
+        case 9: _t->on_csvLadenPushButton_clicked(); break;
+        case 10: _t->on_actionPersonal_csv_triggered(); break;
+        case 11: _t->on_actionFull_Screen_triggered(); break;
+        case 12: _t->on_actionMinimize_triggered(); break;
+        case 13: _t->on_actionNormal_triggered(); break;
         default: ;
         }
     }
@@ -123,14 +147,14 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 8)
+        if (_id < 14)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 8;
+        _id -= 14;
     }
     if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 8)
+        if (_id < 14)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 8;
+        _id -= 14;
     }
     return _id;
 }

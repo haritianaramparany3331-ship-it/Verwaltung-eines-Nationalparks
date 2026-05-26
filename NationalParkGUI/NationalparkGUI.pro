@@ -18,6 +18,7 @@ SOURCES += \
     mainwindow.cpp
 
 HEADERS += \
+    hilffunktionenGUI.h \
     mainwindow.h
 
 FORMS += \

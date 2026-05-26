@@ -1,6 +1,6 @@
 #include "vogel.h"
 #include <fstream>
-#include "hilffunktionen.cpp"
+#include "hilffunktionen.h"
 
 /*void Vogel::display(){
     std::cout <<"Tier: "<<m_bezeichnung<<std::endl

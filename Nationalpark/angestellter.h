@@ -21,8 +21,10 @@ public:
         m_personalnummer(personalnummer),
         m_stundenzahl(stundenzahl),
         m_gehalt(gehalt){};
+    virtual ~Angestellter(){};
 
     virtual std::string getInfo() = 0;
+    virtual void serialize(std::ofstream &out) = 0;
 };
 
 #endif // ANGESTELLTER_H

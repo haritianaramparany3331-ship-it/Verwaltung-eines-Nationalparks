@@ -1,4 +1,5 @@
 release/angestellter.o
+release/hilffunktionen.o
 release/personalliste.o
 release/ranger.o
 release/reptil.o

@@ -24,6 +24,7 @@ public:
         m_buero(buero){};
 
     std::string getInfo() override;
+    void serialize(std::ofstream &out) override;
 };
 
 #endif // VERWALTUNG_H

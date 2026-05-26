@@ -24,6 +24,7 @@ public:
         m_anzahlStudien(anzahlStudien){};
 
     std::string getInfo() override;
+    void serialize(std::ofstream &out) override;
 };
 
 #endif // WISSENSCHAFTLER_H
