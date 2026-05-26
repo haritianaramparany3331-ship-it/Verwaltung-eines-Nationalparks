@@ -39,7 +39,7 @@ QLineEdit {
     background-color: white;
     border: 1px solid #C9D1C8;
     border-radius: 6px;
-    padding: 6px;
+    padding: 2px;
     selection-background-color: #7BAE7F;
 }
 
