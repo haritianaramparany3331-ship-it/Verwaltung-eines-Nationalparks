@@ -1,5 +1,7 @@
 #include "ranger.h"
-#include <fstream>
+#include <json.hpp>
+
+using namespace nlohmann;
 
 std::string Ranger::getInfo(){
     return "Vorname: " + m_vorname+
@@ -9,17 +11,13 @@ std::string Ranger::getInfo(){
            "\nStundenzahl: " + std::to_string(m_stundenzahl)+
            "\nGehalt: " + std::to_string(m_gehalt)+
            "\nRevier: " + m_revier+
-           "\nEinsatzbereich: " + m_einsatzbereich;
+           "\nEinsatzbereich: " + m_einsatzbereich+"\n";
 }
 
-void Ranger::serialize(std::ofstream &out){
-    std::string typ = "Ranger";
-    out << typ << ","
-        << m_vorname << ","
-        << m_nachname << ","
-        << m_personalnummer << ","
-        << m_stundenzahl << ","
-        << m_gehalt << ","
-        << m_revier << ","
-        << m_einsatzbereich << "\n";
+json Ranger::toJson() const{
+    json ranger = Angestellter::toJson();
+    ranger["typ"] = "Ranger";
+    ranger["revier"] = m_revier;
+    ranger["einsatzbereich"] = m_einsatzbereich;
+    return ranger;
 }

@@ -1,0 +1,25 @@
+[
+    {
+        "alter": 12,
+        "anzahl": 12,
+        "bezeichnung": "hari",
+        "durschnittsgewicht": 12.0,
+        "fellfarbe": "blau",
+        "gefaehrdet": false,
+        "raubtier": true,
+        "rudeltier": false,
+        "tragzeit": 12,
+        "typ": "Saeugetier"
+    },
+    {
+        "alter": 12,
+        "anzahl": 12,
+        "bezeichnung": "jiji",
+        "fluegelspannweite": 123.0,
+        "flugreichweite": 234.0,
+        "gefaehrdet": true,
+        "raubtier": true,
+        "typ": "Vogel",
+        "zugvogel": true
+    }
+]

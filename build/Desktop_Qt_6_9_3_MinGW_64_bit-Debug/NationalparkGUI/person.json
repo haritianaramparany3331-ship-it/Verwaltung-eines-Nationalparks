@@ -1,0 +1,22 @@
+[
+    {
+        "fachgebiet": "we",
+        "gehalt": 456.0,
+        "nachname": "Koto",
+        "personalnummer": 1123,
+        "studienanzahl": 3,
+        "stundenzahl": 12,
+        "typ": "Wissenschaftler",
+        "vorname": "Fetsy"
+    },
+    {
+        "fachgebiet": "ert",
+        "gehalt": 234.0,
+        "nachname": "wrf",
+        "personalnummer": 2345,
+        "studienanzahl": 2,
+        "stundenzahl": 23,
+        "typ": "Wissenschaftler",
+        "vorname": "rt"
+    }
+]

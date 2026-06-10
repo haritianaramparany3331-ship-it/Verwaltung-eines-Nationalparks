@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1184</width>
-    <height>675</height>
+    <width>526</width>
+    <height>248</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -21,509 +21,239 @@
   </property>
   <property name="styleSheet">
    <string notr="true">QWidget {
-    background-color: #F4F7F2;
-    color: #1E1E1E;
-    font-family: Arial;
-    font-size: 12px;
 }
 
-QLabel {
-    color: #1E1E1E;
-    font-weight: 500;
-}
-
-QLineEdit {
-    background-color: white;
-    border: 1px solid #C9D1C8;
-    border-radius: 6px;
-    padding: 6px;
-    selection-background-color: #7BAE7F;
-}
-
-QLineEdit:focus {
-    border: 2px solid #2F5D50;
-    background-color: #FFFFFF;
-}
-
-QPushButton {
-    background-color: #2F5D50;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    padding: 6px 12px;
-    font-weight: 600;
-}
-
-QPushButton:hover {
-    background-color: #3F6F60;
-}
-
-QPushButton:pressed {
-    background-color: #24463D;
-}
-
-QListView {
-    background-color: white;
-    border: 1px solid #C9D1C8;
-    border-radius: 8px;
-    padding: 4px;
-    outline: none;
-}
-
-QListView::item {
-    padding: 6px;
-    border-radius: 4px;
-}
-
-QListView::item:selected {
-    background-color: #7BAE7F;
-    color: white;
-}
-
-QListView::item:hover {
-    background-color: #E7F0EA;
-}
-
-QGroupBox {
-    border: 1px solid #C9D1C8;
-    border-radius: 10px;
-    margin-top: 10px;
-    padding: 10px;
-    font-weight: bold;
-    color: #2F5D50;
-    background-color: #F9FBF8;
-}
-
-QGroupBox::title {
-    subcontrol-origin: margin;
-    left: 10px;
-    padding: 0 5px 0 5px;
-}
 </string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QHBoxLayout" name="horizontalLayout">
+   <layout class="QVBoxLayout" name="verticalLayout">
     <item>
-     <widget class="QGroupBox" name="wildtierEingabeGroupBox">
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
+     <widget class="QStackedWidget" name="stackedWidget">
+      <property name="currentIndex">
+       <number>2</number>
       </property>
-      <property name="styleSheet">
-       <string notr="true"/>
-      </property>
-      <property name="title">
-       <string>Wildtier - Eingabe</string>
-      </property>
-      <layout class="QVBoxLayout" name="verticalLayout">
-       <item>
-        <widget class="QGroupBox" name="gemAttWildtierGroupBox">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="title">
-          <string>Gemeinsame Attribute</string>
-         </property>
-         <layout class="QVBoxLayout" name="verticalLayout_2">
+      <widget class="QWidget" name="hauptseite">
+       <layout class="QVBoxLayout" name="verticalLayout_3">
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_2">
           <item>
-           <layout class="QHBoxLayout" name="horizontalLayout_2">
-            <item>
-             <widget class="QLabel" name="nameWildtierLabel">
-              <property name="text">
-               <string>Name:</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QLineEdit" name="nameWildtierLineEdit"/>
-            </item>
-           </layout>
-          </item>
-          <item>
-           <layout class="QHBoxLayout" name="horizontalLayout_3">
-            <item>
-             <widget class="QLabel" name="alterWildtierLabel">
-              <property name="sizePolicy">
-               <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-                <horstretch>0</horstretch>
-                <verstretch>0</verstretch>
-               </sizepolicy>
-              </property>
-              <property name="text">
-               <string>Alter:</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QLineEdit" name="alterWildtierLineEdit">
-              <property name="sizePolicy">
-               <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-                <horstretch>0</horstretch>
-                <verstretch>0</verstretch>
-               </sizepolicy>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </item>
-          <item>
-           <spacer name="verticalSpacer">
+           <spacer name="horizontalSpacer">
             <property name="orientation">
-             <enum>Qt::Orientation::Vertical</enum>
+             <enum>Qt::Orientation::Horizontal</enum>
             </property>
             <property name="sizeHint" stdset="0">
              <size>
-              <width>20</width>
-              <height>81</height>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <layout class="QVBoxLayout" name="verticalLayout_2">
+            <item>
+             <spacer name="verticalSpacer">
+              <property name="orientation">
+               <enum>Qt::Orientation::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item>
+             <widget class="QLabel" name="nationalparkManagerLabel">
+              <property name="text">
+               <string>Nationalpark Manager</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="verticalSpacer_3">
+              <property name="orientation">
+               <enum>Qt::Orientation::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout">
+              <item>
+               <widget class="QPushButton" name="tierverwaltungPushButton">
+                <property name="text">
+                 <string>Tierverwaltung</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="personenverwaltungPushButton">
+                <property name="text">
+                 <string>Personenverwaltung</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <spacer name="verticalSpacer_2">
+              <property name="orientation">
+               <enum>Qt::Orientation::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_2">
+            <property name="orientation">
+             <enum>Qt::Orientation::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
              </size>
             </property>
            </spacer>
           </item>
          </layout>
-        </widget>
-       </item>
-       <item>
-        <widget class="QGroupBox" name="spezAttWildtierGroupBox">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="title">
-          <string>Spezifische Attribute</string>
-         </property>
-         <layout class="QVBoxLayout" name="verticalLayout_3">
-          <item>
-           <layout class="QHBoxLayout" name="horizontalLayout_4">
-            <item>
-             <widget class="QLabel" name="fellFarbeLabel">
-              <property name="text">
-               <string>Fellfarbe:</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QLineEdit" name="fellfarbeLineEdit"/>
-            </item>
-           </layout>
-          </item>
-          <item>
-           <layout class="QHBoxLayout" name="horizontalLayout_5">
-            <item>
-             <widget class="QLabel" name="fluegelspannweiteLabel">
-              <property name="text">
-               <string>Flügelspannweite:</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QLineEdit" name="fluegelspannweiteLineEdit"/>
-            </item>
-           </layout>
-          </item>
-          <item>
-           <layout class="QHBoxLayout" name="horizontalLayout_6">
-            <item>
-             <widget class="QLabel" name="gifitgLabel">
-              <property name="text">
-               <string>Ist giftig:</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QLineEdit" name="giftigLineEdit"/>
-            </item>
-           </layout>
-          </item>
-          <item>
-           <spacer name="verticalSpacer_2">
-            <property name="orientation">
-             <enum>Qt::Orientation::Vertical</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>20</width>
-              <height>54</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
-         </layout>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="saeugetierPushButton">
-         <property name="text">
-          <string>Neues Saeugetier</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="vogelPushButton">
-         <property name="text">
-          <string>Neuer Vogel</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="reptilPushButton">
-         <property name="text">
-          <string>Neues Reptil</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </widget>
-    </item>
-    <item>
-     <widget class="QGroupBox" name="tiereVerwaltungGroupBox">
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
-      </property>
-      <property name="title">
-       <string>Tiere - Verwaltung</string>
-      </property>
-      <layout class="QVBoxLayout" name="verticalLayout_4">
-       <item>
-        <widget class="QListWidget" name="TierlisteListWidget"/>
-       </item>
-       <item>
-        <widget class="QPushButton" name="binaerSpeichernPushButton">
-         <property name="text">
-          <string>Tiere speichern (binär)</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="binaerLadenPushButton">
-         <property name="text">
-          <string>Tiere laden (binär)</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </widget>
-    </item>
-    <item>
-     <widget class="QGroupBox" name="personalEingabeGroupBox">
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
-      </property>
-      <property name="title">
-       <string>Personal - Eingabe</string>
-      </property>
-      <layout class="QVBoxLayout" name="verticalLayout_5">
-       <item>
-        <widget class="QGroupBox" name="gemAttPersonalGroupBox">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="title">
-          <string>Gemeinsame Attribute</string>
-         </property>
-         <layout class="QVBoxLayout" name="verticalLayout_6">
-          <item>
-           <layout class="QHBoxLayout" name="horizontalLayout_7">
-            <item>
-             <widget class="QLabel" name="vornameLabel">
-              <property name="text">
-               <string>Vorname:</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QLineEdit" name="vornameLineEdit"/>
-            </item>
-           </layout>
-          </item>
-          <item>
-           <layout class="QHBoxLayout" name="horizontalLayout_8">
-            <item>
-             <widget class="QLabel" name="nachnameLabel">
-              <property name="text">
-               <string>Nachname:</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QLineEdit" name="nachnameLineEdit"/>
-            </item>
-           </layout>
-          </item>
-          <item>
-           <layout class="QHBoxLayout" name="horizontalLayout_9">
-            <item>
-             <widget class="QLabel" name="persoNumLabel">
-              <property name="text">
-               <string>Personalnummer:</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QLineEdit" name="persoNumLineEdit"/>
-            </item>
-           </layout>
-          </item>
-          <item>
-           <layout class="QHBoxLayout" name="horizontalLayout_10">
-            <item>
-             <widget class="QLabel" name="gehaltLabel">
-              <property name="text">
-               <string>Gehalt:</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QLineEdit" name="gehaltLineEdit"/>
-            </item>
-           </layout>
-          </item>
-          <item>
-           <layout class="QHBoxLayout" name="horizontalLayout_17">
-            <item>
-             <widget class="QLabel" name="stundenzahlLabel">
-              <property name="sizePolicy">
-               <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-                <horstretch>0</horstretch>
-                <verstretch>0</verstretch>
-               </sizepolicy>
-              </property>
-              <property name="text">
-               <string>Stundenzahl:</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QLineEdit" name="stundenzahlLineEdit"/>
-            </item>
-           </layout>
-          </item>
-          <item>
-           <spacer name="verticalSpacer_3">
-            <property name="orientation">
-             <enum>Qt::Orientation::Vertical</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>20</width>
-              <height>9</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
-         </layout>
-        </widget>
-       </item>
-       <item>
-        <widget class="QGroupBox" name="spezAttPersonalGroupBox">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="title">
-          <string>Spezifische Attribute</string>
-         </property>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tierverwaltungsseite">
+       <layout class="QHBoxLayout" name="horizontalLayout_4">
+        <item>
          <layout class="QVBoxLayout" name="verticalLayout_7">
           <item>
-           <layout class="QHBoxLayout" name="horizontalLayout_11">
-            <item>
-             <widget class="QLabel" name="revierLabel">
-              <property name="text">
-               <string>Revier:</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QLineEdit" name="revierLineEdit"/>
-            </item>
-           </layout>
+           <widget class="QPushButton" name="zurueckInTierverwaltungsseitePushButton">
+            <property name="text">
+             <string>Zurück</string>
+            </property>
+           </widget>
           </item>
           <item>
-           <layout class="QHBoxLayout" name="horizontalLayout_12">
-            <item>
-             <widget class="QLabel" name="einsatzbereichLabel">
-              <property name="text">
-               <string>Einsatzbereich:</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QLineEdit" name="einsatzbereichLineEdit"/>
-            </item>
-           </layout>
+           <widget class="QPushButton" name="neuInTierverwaltungsseitePushButton">
+            <property name="text">
+             <string>Neu</string>
+            </property>
+           </widget>
           </item>
           <item>
-           <layout class="QHBoxLayout" name="horizontalLayout_13">
-            <item>
-             <widget class="QLabel" name="abteilungLabel">
-              <property name="text">
-               <string>Abteilung:</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QLineEdit" name="abteilungLineEdit"/>
-            </item>
-           </layout>
+           <widget class="QPushButton" name="tierLadenPushButton">
+            <property name="text">
+             <string>Tier laden (JSON)</string>
+            </property>
+           </widget>
           </item>
           <item>
-           <layout class="QHBoxLayout" name="horizontalLayout_14">
-            <item>
-             <widget class="QLabel" name="bueroLabel">
-              <property name="text">
-               <string>Büro:</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QLineEdit" name="bueroLineEdit"/>
-            </item>
-           </layout>
+           <widget class="QPushButton" name="tierSpeichernPushButton">
+            <property name="text">
+             <string>Tier speichern (JSON)</string>
+            </property>
+           </widget>
           </item>
           <item>
-           <layout class="QHBoxLayout" name="horizontalLayout_15">
-            <item>
-             <widget class="QLabel" name="fachgebietLabel">
-              <property name="text">
-               <string>Fachgebiet:</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QLineEdit" name="fachgebietLineEdit"/>
-            </item>
-           </layout>
+           <spacer name="verticalSpacer_5">
+            <property name="orientation">
+             <enum>Qt::Orientation::Vertical</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>20</width>
+              <height>40</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <spacer name="horizontalSpacer_5">
+          <property name="orientation">
+           <enum>Qt::Orientation::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>38</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout_6">
+          <item>
+           <widget class="QLabel" name="tiereImParkLabel">
+            <property name="text">
+             <string>Tiere im Park:</string>
+            </property>
+           </widget>
           </item>
           <item>
-           <layout class="QHBoxLayout" name="horizontalLayout_16">
-            <item>
-             <widget class="QLabel" name="anzahlStudienLabel">
-              <property name="text">
-               <string>Anzahl Studien:</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QLineEdit" name="anzahlStudienLineEdit"/>
-            </item>
-           </layout>
+           <widget class="QListWidget" name="tierListWidget"/>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <spacer name="horizontalSpacer_6">
+          <property name="orientation">
+           <enum>Qt::Orientation::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>38</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="page_4">
+       <layout class="QHBoxLayout" name="horizontalLayout_3">
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout_4">
+          <item>
+           <widget class="QPushButton" name="zurueckInPersonenverwaltungsseitePushButoon">
+            <property name="text">
+             <string>Zurück</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="neuInPersonenVerwaltungsseitePushButton">
+            <property name="text">
+             <string>Neu</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="personenLadenPushButton">
+            <property name="text">
+             <string>Personen laden (JSON)</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="personenSpeichernPushButton">
+            <property name="text">
+             <string>Personen speichern (JSON)</string>
+            </property>
+           </widget>
           </item>
           <item>
            <spacer name="verticalSpacer_4">
@@ -533,107 +263,144 @@ QGroupBox::title {
             <property name="sizeHint" stdset="0">
              <size>
               <width>20</width>
-              <height>119</height>
+              <height>40</height>
              </size>
             </property>
            </spacer>
           </item>
          </layout>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="rangerPushButton">
-         <property name="text">
-          <string>Neuer Ranger</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="verwaltungPushButton">
-         <property name="text">
-          <string>Neue Verwaltung</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="wissenschaftlerinPushButton">
-         <property name="text">
-          <string>Neue Wissenschaftlerin</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </widget>
-    </item>
-    <item>
-     <widget class="QGroupBox" name="personalVerwaltungGroupBox">
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
-      </property>
-      <property name="title">
-       <string>Personal - Verwaltung</string>
-      </property>
-      <layout class="QVBoxLayout" name="verticalLayout_8">
-       <item>
-        <widget class="QListWidget" name="personalListeListWidget"/>
-       </item>
-       <item>
-        <widget class="QPushButton" name="csvSpeichernPushButton">
-         <property name="text">
-          <string>Personen speichern (CSV)</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="csvLadenPushButton">
-         <property name="text">
-          <string>Personen laden (CSV)</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
+        </item>
+        <item>
+         <spacer name="horizontalSpacer_3">
+          <property name="orientation">
+           <enum>Qt::Orientation::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>27</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout_5">
+          <item>
+           <widget class="QLabel" name="mitarbeiterImParkLabel">
+            <property name="text">
+             <string>Mitarbeiter im Park:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QListWidget" name="personenListWidget"/>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <spacer name="horizontalSpacer_4">
+          <property name="orientation">
+           <enum>Qt::Orientation::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>27</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </widget>
      </widget>
     </item>
    </layout>
   </widget>
-  <widget class="QMenuBar" name="menubar">
+  <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1184</width>
+     <width>526</width>
      <height>19</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuDatei">
     <property name="title">
-     <string>Datei</string>
+     <string>File</string>
     </property>
-    <addaction name="actionPersonal_csv"/>
+    <widget class="QMenu" name="menuDateien">
+     <property name="title">
+      <string>Dateien öffnen</string>
+     </property>
+     <addaction name="actiontier_json"/>
+     <addaction name="actionperson_json"/>
+    </widget>
+    <widget class="QMenu" name="menuLaden_JSON">
+     <property name="title">
+      <string>Laden (JSON)</string>
+     </property>
+     <addaction name="actionTiere_laden_JSON"/>
+     <addaction name="actionPersonen_laden_JSON"/>
+    </widget>
+    <widget class="QMenu" name="menuSpeichern_JSON">
+     <property name="title">
+      <string>Speichern (JSON)</string>
+     </property>
+     <addaction name="actionTiere_speichern_JSON"/>
+     <addaction name="actionPersonen_speichern_JSON"/>
+    </widget>
+    <widget class="QMenu" name="menuType_Here">
+     <property name="title">
+      <string>Type Here</string>
+     </property>
+    </widget>
+    <addaction name="menuDateien"/>
+    <addaction name="menuLaden_JSON"/>
+    <addaction name="menuSpeichern_JSON"/>
+    <addaction name="actionBeenden"/>
+    <addaction name="menuType_Here"/>
    </widget>
-   <widget class="QMenu" name="menuView">
+   <widget class="QMenu" name="menuFenster">
     <property name="title">
      <string>View</string>
     </property>
-    <addaction name="actionFull_Screen"/>
+    <addaction name="actionFull_screen"/>
     <addaction name="actionMinimize"/>
     <addaction name="actionNormal"/>
    </widget>
    <addaction name="menuDatei"/>
-   <addaction name="menuView"/>
+   <addaction name="menuFenster"/>
   </widget>
-  <widget class="QStatusBar" name="statusbar"/>
-  <action name="actionPersonal_csv">
+  <widget class="QStatusBar" name="statusBar"/>
+  <action name="actionTiere_laden_JSON">
    <property name="text">
-    <string>Personal.csv</string>
+    <string>Tiere</string>
    </property>
   </action>
-  <action name="actionFull_Screen">
+  <action name="actionTiere_speichern_JSON">
    <property name="text">
-    <string>Full Screen</string>
+    <string>Tiere</string>
+   </property>
+  </action>
+  <action name="actionPersonen_laden_JSON">
+   <property name="text">
+    <string>Personen</string>
+   </property>
+  </action>
+  <action name="actionPersonen_speichern_JSON">
+   <property name="text">
+    <string>Personen</string>
+   </property>
+  </action>
+  <action name="actionBeenden">
+   <property name="text">
+    <string>Beenden</string>
+   </property>
+  </action>
+  <action name="actionFull_screen">
+   <property name="text">
+    <string>Full screen</string>
    </property>
   </action>
   <action name="actionMinimize">
@@ -644,6 +411,16 @@ QGroupBox::title {
   <action name="actionNormal">
    <property name="text">
     <string>Normal</string>
+   </property>
+  </action>
+  <action name="actiontier_json">
+   <property name="text">
+    <string>tier.json</string>
+   </property>
+  </action>
+  <action name="actionperson_json">
+   <property name="text">
+    <string>person.json</string>
    </property>
   </action>
  </widget>

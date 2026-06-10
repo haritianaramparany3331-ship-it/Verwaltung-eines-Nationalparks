@@ -9,17 +9,13 @@ std::string Verwaltung::getInfo(){
            "\nStundenzahl: " + std::to_string(m_stundenzahl)+
            "\nGehalt: " + std::to_string(m_gehalt)+
            "\nAbteilung: " + m_abteilung+
-           "\nBüro: " + m_buero;
+           "\nBüro: " + m_buero + "\n";
 }
 
-void Verwaltung::serialize(std::ofstream &out){
-    std::string typ = "Verwalter";
-    out << typ << ","
-        << m_vorname << ","
-        << m_nachname << ","
-        << m_personalnummer << ","
-        << m_stundenzahl << ","
-        << m_gehalt << ","
-        << m_abteilung << ","
-        << m_buero << "\n";
+json Verwaltung::toJson() const{
+    json verwaltung = Angestellter::toJson();
+    verwaltung["typ"] = "Verwalter";
+    verwaltung["abteilung"] = m_abteilung;
+    verwaltung["buero"] = m_buero;
+    return verwaltung;
 }

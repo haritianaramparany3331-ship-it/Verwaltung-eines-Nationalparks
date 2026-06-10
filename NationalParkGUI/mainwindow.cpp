@@ -14,6 +14,10 @@
 #include "hilffunktionenGUI.h"
 #include <QDesktopServices>
 #include <QUrl>
+#include <QApplication>
+#include <QMessageBox>
+#include "tierbearbeitendialog.h"
+#include "personbearbeiten.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -22,178 +26,6 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     setWindowTitle("Wildtier- & Personalverwaltung");
     this->showMaximized();
-    this->setStyleSheet(R"(
-QWidget {
-    background-color: #F4F7F2;
-    color: #1E1E1E;
-    font-family: Arial;
-    font-size: 12px;
-}
-
-QLabel {
-    color: #1E1E1E;
-    font-weight: 500;
-}
-
-QLineEdit {
-    background-color: white;
-    border: 1px solid #C9D1C8;
-    border-radius: 6px;
-    padding: 2px;
-    selection-background-color: #7BAE7F;
-}
-
-QLineEdit:focus {
-    border: 2px solid #2F5D50;
-    background-color: #FFFFFF;
-}
-
-QPushButton {
-    background-color: #2F5D50;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    padding: 6px 12px;
-    font-weight: 600;
-}
-
-QPushButton:hover {
-    background-color: #3F6F60;
-}
-
-QPushButton:pressed {
-    background-color: #24463D;
-}
-
-/* =========================
-   🟡 SECONDARY BUTTON STYLE
-   (optional class usage)
-========================= */
-
-QPushButton[secondary="true"] {
-    background-color: transparent;
-    color: #2F5D50;
-    border: 2px solid #2F5D50;
-}
-
-QPushButton[secondary="true"]:hover {
-    background-color: #E7F0EA;
-}
-
-/* =========================
-   🔴 DANGER BUTTON (DELETE)
-========================= */
-
-QPushButton[danger="true"] {
-    background-color: #C0392B;
-    color: white;
-}
-
-QPushButton[danger="true"]:hover {
-    background-color: #A93226;
-}
-
-/* =========================
-   📋 LIST WIDGET
-========================= */
-
-QListWidget {
-    background-color: white;
-    border: 1px solid #D6DDD5;
-    border-radius: 10px;
-    padding: 6px;
-    outline: none;
-    font-size: 13px;
-}
-
-/* einzelne Items */
-QListWidget::item {
-    background-color: transparent;
-    padding: 8px;
-    margin: 2px 0px;
-    border-radius: 6px;
-}
-
-/* Hover Effekt */
-QListWidget::item:hover {
-    background-color: #E7F0EA;
-}
-
-/* Ausgewähltes Item */
-QListWidget::item:selected {
-    background-color: #2F5D50;
-    color: white;
-}
-
-/* Optional: wenn selected aber unfocused */
-QListWidget::item:selected:!active {
-    background-color: #7BAE7F;
-    color: white;
-}
-
-/* Scrollbar */
-QScrollBar:vertical {
-    background: #F4F7F2;
-    width: 10px;
-    border-radius: 5px;
-}
-
-QScrollBar::handle:vertical {
-    background: #7BAE7F;
-    border-radius: 5px;
-}
-
-QScrollBar::handle:vertical:hover {
-    background: #2F5D50;
-}
-
-QScrollBar::add-line:vertical,
-QScrollBar::sub-line:vertical {
-    height: 0px;
-}
-
-/* =========================
-   📦 GROUP BOX
-========================= */
-
-QGroupBox {
-    border: 1px solid #C9D1C8;
-    border-radius: 10px;
-    margin-top: 10px;
-    padding: 10px;
-    font-weight: bold;
-    color: #2F5D50;
-    background-color: #F9FBF8;
-}
-
-QGroupBox::title {
-    subcontrol-origin: margin;
-    left: 10px;
-    padding: 0 5px 0 5px;
-}
-
-/* =========================
-   📏 SCROLLBAR (CLEAN LOOK)
-========================= */
-
-QScrollBar:vertical {
-    background: #F4F7F2;
-    width: 10px;
-    border-radius: 5px;
-}
-
-QScrollBar::handle:vertical {
-    background: #7BAE7F;
-    border-radius: 5px;
-}
-
-QScrollBar::handle:vertical:hover {
-    background: #2F5D50;
-}
-
-)");
-
-    //ui->tierlisteListView.
 }
 
 MainWindow::~MainWindow()
@@ -201,266 +33,190 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::on_saeugetierPushButton_clicked()
-{
-    bool valid = true;
-    std::string bezeichnung;
-    aufStringPruefen(ui->nameWildtierLineEdit, valid, bezeichnung);
-
-    int alter;
-    aufIntZahlPruefen(ui->alterWildtierLineEdit, valid, alter);
-
-    std::string fellfarbe;
-    aufStringPruefen(ui->fellfarbeLineEdit, valid, fellfarbe);
-
-    if (valid){
-        Saeugetier *s = new Saeugetier(bezeichnung, alter, fellfarbe);
-        animalList.insertAnimal(s);
-        aktualisiereWildtierListWidget();
-        ui->nameWildtierLineEdit->clear();
-        ui->alterWildtierLineEdit->clear();
-        ui->fellfarbeLineEdit->clear();
-        ui->statusbar->showMessage("Tier vom Typ Saeugetier in die Liste hinzugefuegt", 2000);
-    }
-}
-
-
-void MainWindow::on_vogelPushButton_clicked()
-{
-    bool valid = true;
-    std::string bezeichnung;
-    aufStringPruefen(ui->nameWildtierLineEdit, valid, bezeichnung);
-
-    int alter;
-    aufIntZahlPruefen(ui->alterWildtierLineEdit, valid, alter);
-
-    double fluegelspannweite;
-    aufDoubleZahlPruefen(ui->fluegelspannweiteLineEdit, valid, fluegelspannweite);
-
-    if (valid){
-        Vogel *v = new Vogel(bezeichnung, alter, fluegelspannweite);
-        animalList.insertAnimal(v);
-        aktualisiereWildtierListWidget();
-        ui->nameWildtierLineEdit->clear();
-        ui->alterWildtierLineEdit->clear();
-        ui->fluegelspannweiteLineEdit->clear();
-        ui->statusbar->showMessage("Tier vom Typ Vogel in die Liste hinzugefuegt", 2000);
-    }
-}
-
-
-void MainWindow::on_reptilPushButton_clicked()
-{
-    bool valid = true;
-    std::string bezeichnung;
-    aufStringPruefen(ui->nameWildtierLineEdit, valid, bezeichnung);
-
-    int alter;
-    aufIntZahlPruefen(ui->alterWildtierLineEdit, valid, alter);
-
-    bool giftig;
-    aufBoolPruefen(ui->giftigLineEdit, valid, giftig);
-
-    if (valid){
-        Reptil *r = new Reptil(bezeichnung, alter, giftig);
-        animalList.insertAnimal(r);
-        aktualisiereWildtierListWidget();
-        ui->nameWildtierLineEdit->clear();
-        ui->alterWildtierLineEdit->clear();
-        ui->giftigLineEdit->clear();
-        ui->statusbar->showMessage("Tier vom Typ Reptil in die Liste hinzugefuegt", 2000);
-    }
-}
-
 void MainWindow::aktualisiereWildtierListWidget(){
-    ui->TierlisteListWidget->clear();
+    ui->tierListWidget->clear();
     for (auto &tier : animalList.getFauna()){
         QListWidgetItem *listWidgetItem = new QListWidgetItem(QString::fromStdString(tier->getInfo()));
-        ui->TierlisteListWidget->addItem(listWidgetItem);
+        ui->tierListWidget->addItem(listWidgetItem);
     }
+    ui->statusBar->showMessage("Liste aktualisiert", 2000);
 }
 
 void MainWindow::aktualisierePersonalListWidget(){
-    ui->personalListeListWidget->clear();
+    ui->personenListWidget->clear();
     for (auto &personal : personalList.getPersonal()){
         QListWidgetItem *listWidgetItem = new QListWidgetItem(QString::fromStdString(personal->getInfo()));
-        ui->personalListeListWidget->addItem(listWidgetItem);
+        ui->personenListWidget->addItem(listWidgetItem);
     }
+    ui->statusBar->showMessage("Liste aktualisiert", 2000);
 }
 
-
-void MainWindow::on_binaerSpeichernPushButton_clicked()
+void MainWindow::on_actionTiere_laden_JSON_triggered()
 {
-    animalList.binaerSpeichern();
+    animalList.tierJsonLaden();
     aktualisiereWildtierListWidget();
-    ui->statusbar->showMessage("Liste in datei.bin gespeichert", 2000);
+    ui->statusBar->showMessage("Tiere von tier.json geladen", 2000);
 }
 
 
-void MainWindow::on_binaerLadenPushButton_clicked()
+void MainWindow::on_actionTiere_speichern_JSON_triggered()
 {
-    animalList.binaerLaden();
-    aktualisiereWildtierListWidget();
-    ui->statusbar->showMessage("Liste von datei.bin geholt", 2000);
+    animalList.tierJsonSpeichern();
+    ui->statusBar->showMessage("Tiere in tier.json gespeichert", 2000);
 }
 
 
-void MainWindow::on_rangerPushButton_clicked()
+void MainWindow::on_actionPersonen_laden_JSON_triggered()
 {
-    bool valid = true;
-    std::string nachname;
-    aufStringPruefen(ui->nachnameLineEdit, valid, nachname);
-
-    std::string vorname;
-    aufStringPruefen(ui->vornameLineEdit, valid, vorname);
-
-    int personalnummer;
-    aufIntZahlPruefen(ui->persoNumLineEdit, valid, personalnummer);
-
-    int stundenzahl;
-    aufIntZahlPruefen(ui->stundenzahlLineEdit, valid, stundenzahl);
-
-    double gehalt;
-    aufDoubleZahlPruefen(ui->gehaltLineEdit, valid, gehalt);
-
-    std::string revier;
-    aufStringPruefen(ui->revierLineEdit, valid, revier);
-
-    std::string einsatzbereich;
-    aufStringPruefen(ui->einsatzbereichLineEdit, valid, einsatzbereich);
-
-    if (valid){
-        Ranger *r = new Ranger(nachname, vorname, personalnummer, stundenzahl, gehalt, revier, einsatzbereich);
-        personalList.insertPersonal(r);
-        aktualisierePersonalListWidget();
-        ui->nachnameLineEdit->clear();
-        ui->vornameLineEdit->clear();
-        ui->persoNumLineEdit->clear();
-        ui->stundenzahlLineEdit->clear();
-        ui->gehaltLineEdit->clear();
-        ui->revierLineEdit->clear();
-        ui->einsatzbereichLineEdit->clear();
-        ui->statusbar->showMessage("Angestellter vom Typ Ranger in die Liste hinzugefuegt", 2000);
-    }
-}
-
-void MainWindow::on_verwaltungPushButton_clicked()
-{
-    bool valid = true;
-    std::string nachname;
-    aufStringPruefen(ui->nachnameLineEdit, valid, nachname);
-
-    std::string vorname;
-    aufStringPruefen(ui->vornameLineEdit, valid, vorname);
-
-    int personalnummer;
-    aufIntZahlPruefen(ui->persoNumLineEdit, valid, personalnummer);
-
-    int stundenzahl;
-    aufIntZahlPruefen(ui->stundenzahlLineEdit, valid, stundenzahl);
-
-    double gehalt;
-    aufDoubleZahlPruefen(ui->gehaltLineEdit, valid, gehalt);
-
-    std::string abteilung;
-    aufStringPruefen(ui->abteilungLineEdit, valid, abteilung);
-
-    std::string buero;
-    aufStringPruefen(ui->bueroLineEdit, valid, buero);
-
-    if (valid){
-        Verwaltung *v = new Verwaltung(nachname, vorname, personalnummer, stundenzahl, gehalt, abteilung, buero);
-        personalList.insertPersonal(v);
-        aktualisierePersonalListWidget();
-        ui->nachnameLineEdit->clear();
-        ui->vornameLineEdit->clear();
-        ui->persoNumLineEdit->clear();
-        ui->stundenzahlLineEdit->clear();
-        ui->gehaltLineEdit->clear();
-        ui->abteilungLineEdit->clear();
-        ui->bueroLineEdit->clear();
-        ui->statusbar->showMessage("Angestellter vom Typ Verwalter in die Liste hinzugefuegt", 2000);
-    }
-}
-
-
-void MainWindow::on_wissenschaftlerinPushButton_clicked()
-{
-    bool valid = true;
-    std::string nachname;
-    aufStringPruefen(ui->nachnameLineEdit, valid, nachname);
-
-    std::string vorname;
-    aufStringPruefen(ui->vornameLineEdit, valid, vorname);
-
-    int personalnummer;
-    aufIntZahlPruefen(ui->persoNumLineEdit, valid, personalnummer);
-
-    int stundenzahl;
-    aufIntZahlPruefen(ui->stundenzahlLineEdit, valid, stundenzahl);
-
-    double gehalt;
-    aufDoubleZahlPruefen(ui->gehaltLineEdit, valid, gehalt);
-
-    std::string fachgebiet;
-    aufStringPruefen(ui->fachgebietLineEdit, valid, fachgebiet);
-
-    int studienanzahl;
-    aufIntZahlPruefen(ui->anzahlStudienLineEdit, valid, studienanzahl);
-
-    if (valid){
-        Wissenschaftler *w = new Wissenschaftler(nachname, vorname, personalnummer, stundenzahl, gehalt, fachgebiet, studienanzahl);
-        personalList.insertPersonal(w);
-        aktualisierePersonalListWidget();
-        ui->nachnameLineEdit->clear();
-        ui->vornameLineEdit->clear();
-        ui->persoNumLineEdit->clear();
-        ui->stundenzahlLineEdit->clear();
-        ui->gehaltLineEdit->clear();
-        ui->fachgebietLineEdit->clear();
-        ui->anzahlStudienLineEdit->clear();
-        ui->statusbar->showMessage("Angestellter vom Typ Wissenschaftler in die Liste hinzugefuegt", 2000);
-    }
-}
-
-
-void MainWindow::on_csvSpeichernPushButton_clicked()
-{
-    personalList.csvSpeichern();
-    ui->statusbar->showMessage("Liste in Personal.csv gespeichert", 2000);
-}
-
-
-
-void MainWindow::on_csvLadenPushButton_clicked()
-{
-    personalList.csvLaden();
+    personalList.personJsonLaden();
     aktualisierePersonalListWidget();
-    ui->statusbar->showMessage("Liste von Personal.csv geholt", 2000);
+    ui->statusBar->showMessage("Personal von person.json geholt", 2000);
 }
 
 
-void MainWindow::on_actionPersonal_csv_triggered()
+void MainWindow::on_actionPersonen_speichern_JSON_triggered()
 {
-    QDesktopServices::openUrl(QUrl::fromLocalFile("Personal.csv"));
-    ui->statusbar->showMessage("Oeffnen von Personal.csv", 2000);
+    personalList.personJsonSpeichern();
+    ui->statusBar->showMessage("Personal in person.json gespeichert", 2000);
 }
 
 
-void MainWindow::on_actionFull_Screen_triggered()
+void MainWindow::on_actionBeenden_triggered()
+{
+    QMessageBox::StandardButton antwort = QMessageBox::question(
+        this,
+        "Beenden",
+        "Wirklich beenden?",
+        QMessageBox::Yes | QMessageBox::No
+        );
+
+    if (antwort == QMessageBox::Yes) {
+        QApplication::quit();
+    }
+}
+
+
+void MainWindow::on_actionFull_screen_triggered()
 {
     showMaximized();
+    ui->statusBar->showMessage("Resized in full screen", 2000);
 }
 
 
 void MainWindow::on_actionMinimize_triggered()
 {
     showMinimized();
+    ui->statusBar->showMessage("Minimized", 2000);
 }
 
 
 void MainWindow::on_actionNormal_triggered()
 {
     showNormal();
+    ui->statusBar->showMessage("Resized in normal", 2000);
+}
+
+
+void MainWindow::on_actiontier_json_triggered()
+{
+    bool erfolg = QDesktopServices::openUrl(
+        QUrl::fromLocalFile("tier.json")
+        );
+
+    if (erfolg) {
+        ui->statusBar->showMessage("tier.json geöffnet", 2000);
+    } else {
+        ui->statusBar->showMessage("Fehler: tier.json nicht gefunden", 2000);
+    }
+}
+
+
+void MainWindow::on_actionperson_json_triggered()
+{
+    bool erfolg = QDesktopServices::openUrl(
+        QUrl::fromLocalFile("person.json")
+        );
+
+    if (erfolg) {
+        ui->statusBar->showMessage("person.json geöffnet", 2000);
+    } else {
+        ui->statusBar->showMessage("Fehler: person.json nicht gefunden", 2000);
+    }
+}
+
+void MainWindow::on_tierverwaltungPushButton_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(1);
+}
+
+
+void MainWindow::on_personenverwaltungPushButton_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(2);
+}
+
+
+void MainWindow::on_zurueckInTierverwaltungsseitePushButton_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(0);
+}
+
+
+void MainWindow::on_zurueckInPersonenverwaltungsseitePushButoon_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(0);
+}
+
+
+void MainWindow::on_tierLadenPushButton_clicked()
+{
+    animalList.tierJsonLaden();
+    aktualisiereWildtierListWidget();
+    ui->statusBar->showMessage("Tiere von tier.json geladen", 2000);
+}
+
+
+void MainWindow::on_tierSpeichernPushButton_clicked()
+{
+    animalList.tierJsonSpeichern();
+    ui->statusBar->showMessage("Tiere in tier.json gespeichert", 2000);
+}
+
+
+void MainWindow::on_personenLadenPushButton_clicked()
+{
+    personalList.personJsonLaden();
+    aktualisierePersonalListWidget();
+    ui->statusBar->showMessage("Personal von person.json geholt", 2000);
+}
+
+
+void MainWindow::on_personenSpeichernPushButton_clicked()
+{
+    personalList.personJsonSpeichern();
+    ui->statusBar->showMessage("Personal in person.json gespeichert", 2000);
+}
+
+void MainWindow::on_neuInPersonenVerwaltungsseitePushButton_clicked()
+{
+    personBearbeiten *personenFenster = new personBearbeiten(this);
+    if (personenFenster->exec() == QDialog::Accepted){
+        Angestellter *a = personenFenster->getNeuePerson();
+        if (a != nullptr) personalList.getPersonal().push_back(a);
+    }
+    ui->statusBar->showMessage("Neue Person hinzugefügt", 2000);
+    aktualisierePersonalListWidget();
+}
+
+
+void MainWindow::on_neuInTierverwaltungsseitePushButton_clicked()
+{
+    tierBearbeitenDialog *tierFenster = new tierBearbeitenDialog(this);
+    if (tierFenster->exec() == QDialog::Accepted){
+        Spezies *s = tierFenster->getNeuesTier();
+        if (s != nullptr) animalList.getFauna().push_back(s);
+    }
+    ui->statusBar->showMessage("Neues Tier hinzugefügt", 2000);
+    aktualisiereWildtierListWidget();
 }
 

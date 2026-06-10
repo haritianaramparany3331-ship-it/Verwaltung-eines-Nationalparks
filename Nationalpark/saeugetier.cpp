@@ -16,46 +16,23 @@
 
 std::string Saeugetier::getInfo(){
     return "Name: "+m_bezeichnung+
-           "\nAlter: "+std::to_string(m_alter)+
            "\nTyp: Saeugetier"+
-           "\nFellfarbe: "+m_fellfarbe;
+           "\nGefaehrdet? "+std::to_string(m_gefaehrdet)+
+           "\nRaubtier? "+std::to_string(m_raubtier)+
+           "\nAnzahl: "+std::to_string(m_anzahl)+
+           "\nAlter: "+std::to_string(m_alter)+
+           "\nRudeltier? "+std::to_string(m_rudelTier)+
+           "\nTragzeit: "+std::to_string(m_tragzeit)+
+           "\nDurschnittsgewicht: "+std::to_string(m_durschnittsgewicht)+
+           "\nFellfarbe: "+m_fellfarbe+"\n";
 }
 
-void Saeugetier::serialize(std::ofstream &out){
-    int typ = 1;
-    binaerSchreiben(out, typ);
-    stringBinaerSchreiben(out, m_bezeichnung);
-    //binaerSchreiben(out, m_gefaehrdet);
-    //binaerSchreiben(out, m_raubtier);
-    binaerSchreiben(out, m_alter);
-    stringBinaerSchreiben(out, m_fellfarbe);
-    //binaerSchreiben(out, m_rudelTier);
-    //binaerSchreiben(out, m_tragzeit);
-    //binaerSchreiben(out, m_durschnittsgewicht);
-    std::cout<<"Tier vom Typ Saeugetier binaer gespeichert in datei.bin"<<std::endl;
+json Saeugetier::toJson() const{
+    json saeugetier = Spezies::toJson();
+    saeugetier["typ"] = "Saeugetier";
+    saeugetier["rudeltier"] = m_rudelTier;
+    saeugetier["tragzeit"] = m_tragzeit;
+    saeugetier["durschnittsgewicht"] = m_durschnittsgewicht;
+    saeugetier["fellfarbe"] = m_fellfarbe;
+    return saeugetier;
 }
-
-Spezies* Saeugetier::deserialize(std::ifstream &in,
-                                 std::string &bezeichnung,
-                                 //bool &gefaehrdet,
-                                 //bool &raubtier,
-                                 int &alter){
-    std::string fellfarbe;
-    stringBinaerLesen(in, fellfarbe);
-    //bool rudeltier;
-    //binaerLesen(in, rudeltier);
-    //int tragzeit;
-    //binaerLesen(in, tragzeit);
-    //double durschnittsgewicht;
-    //binaerLesen(in, durschnittsgewicht);
-    return new Saeugetier(bezeichnung,
-                          //gefaehrdet,
-                          //raubtier,
-                          alter,
-                          fellfarbe
-                          //rudeltier,
-                          //tragzeit,
-                          //durschnittsgewicht
-                          );
-}
-

@@ -16,43 +16,21 @@
 
 std::string Vogel::getInfo(){
     return "Name: "+m_bezeichnung+
-           "\nAlter: "+std::to_string(m_alter)+
            "\nTyp: Vogel"+
-           "\nFluegelspannweite: "+std::to_string(m_fluegelspannweite);
+           "\nGefaehrdet? "+std::to_string(m_gefaehrdet)+
+           "\nRaubtier? "+std::to_string(m_raubtier)+
+           "\nAnzahl: "+std::to_string(m_anzahl)+
+           "\nAlter: "+std::to_string(m_alter)+
+           "\nZugvogel? "+std::to_string(m_zugvogel)+
+           "\nFlugreichweite: "+std::to_string(m_flugreichweite)+
+           "\nFluegelspannweite: "+std::to_string(m_fluegelspannweite)+"\n";
 }
 
-void Vogel::serialize(std::ofstream &out){
-    int typ = 3;
-    binaerSchreiben(out, typ);
-    stringBinaerSchreiben(out, m_bezeichnung);
-    //binaerSchreiben(out, m_gefaehrdet);
-    //binaerSchreiben(out, m_raubtier);
-    binaerSchreiben(out, m_alter);
-    //binaerSchreiben(out, m_zugvogel);
-    //binaerSchreiben(out, m_flugreichweite);
-    binaerSchreiben(out, m_fluegelspannweite);
-    std::cout<<"Tier vom Typ Vogel binaer gespeichert in datei.bin"<<std::endl;
+json Vogel::toJson() const{
+    json vogel = Spezies::toJson();
+    vogel["typ"] = "Vogel";
+    vogel["zugvogel"] = m_zugvogel;
+    vogel["flugreichweite"] = m_flugreichweite;
+    vogel["fluegelspannweite"] = m_fluegelspannweite;
+    return vogel;
 }
-
-Spezies* Vogel::deserialize(std::ifstream &in,
-                            std::string &bezeichnung,
-                            //bool &gefaehrdet,
-                            //bool &raubtier,
-                            int &alter){
-    //bool zugvogel;
-    //binaerLesen(in, zugvogel);
-    //double flugreichweite;
-    //binaerLesen(in, flugreichweite);
-    double fluegelspannweite;
-    binaerLesen(in, fluegelspannweite);
-    return new Vogel(bezeichnung,
-                     //gefaehrdet,
-                     //raubtier,
-                     alter,
-                     //zugvogel,
-                     //flugreichweite,
-                     fluegelspannweite);
-}
-
-
-

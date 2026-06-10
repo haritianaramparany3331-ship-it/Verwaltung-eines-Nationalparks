@@ -73,6 +73,7 @@ OBJECTS       = release/angestellter.o \
 
 DIST          = ../build/Desktop_Qt_6_9_3_MinGW_64_bit-Debug/NationalparkGUI/Personal.csv angestellter.h \
 		hilffunktionen.h \
+		json.hpp \
 		personalliste.h \
 		ranger.h \
 		reptil.h \
@@ -139,7 +140,8 @@ compiler_clean:
 
 ####### Compile
 
-release/angestellter.o: ../../../Nationalpark/angestellter.cpp ../../../Nationalpark/angestellter.h
+release/angestellter.o: ../../../Nationalpark/angestellter.cpp ../../../Nationalpark/angestellter.h \
+		../../../Nationalpark/json.hpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\angestellter.o ..\..\..\Nationalpark\angestellter.cpp
 
 release/hilffunktionen.o: ../../../Nationalpark/hilffunktionen.cpp ../../../Nationalpark/hilffunktionen.h
@@ -147,6 +149,7 @@ release/hilffunktionen.o: ../../../Nationalpark/hilffunktionen.cpp ../../../Nati
 
 release/personalliste.o: ../../../Nationalpark/personalliste.cpp ../../../Nationalpark/personalliste.h \
 		../../../Nationalpark/angestellter.h \
+		../../../Nationalpark/json.hpp \
 		../../../Nationalpark/ranger.h \
 		../../../Nationalpark/verwaltung.h \
 		../../../Nationalpark/wissenschaftler.h \
@@ -154,24 +157,28 @@ release/personalliste.o: ../../../Nationalpark/personalliste.cpp ../../../Nation
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\personalliste.o ..\..\..\Nationalpark\personalliste.cpp
 
 release/ranger.o: ../../../Nationalpark/ranger.cpp ../../../Nationalpark/ranger.h \
-		../../../Nationalpark/angestellter.h
+		../../../Nationalpark/angestellter.h \
+		../../../Nationalpark/json.hpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\ranger.o ..\..\..\Nationalpark\ranger.cpp
 
 release/reptil.o: ../../../Nationalpark/reptil.cpp ../../../Nationalpark/reptil.h \
 		../../../Nationalpark/spezies.h \
-		../../../Nationalpark/hilffunktionen.h
+		../../../Nationalpark/json.hpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\reptil.o ..\..\..\Nationalpark\reptil.cpp
 
 release/saeugetier.o: ../../../Nationalpark/saeugetier.cpp ../../../Nationalpark/saeugetier.h \
 		../../../Nationalpark/spezies.h \
+		../../../Nationalpark/json.hpp \
 		../../../Nationalpark/hilffunktionen.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\saeugetier.o ..\..\..\Nationalpark\saeugetier.cpp
 
-release/spezies.o: ../../../Nationalpark/spezies.cpp ../../../Nationalpark/spezies.h
+release/spezies.o: ../../../Nationalpark/spezies.cpp ../../../Nationalpark/spezies.h \
+		../../../Nationalpark/json.hpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\spezies.o ..\..\..\Nationalpark\spezies.cpp
 
 release/tierliste.o: ../../../Nationalpark/tierliste.cpp ../../../Nationalpark/tierliste.h \
 		../../../Nationalpark/spezies.h \
+		../../../Nationalpark/json.hpp \
 		../../../Nationalpark/saeugetier.h \
 		../../../Nationalpark/reptil.h \
 		../../../Nationalpark/vogel.h \
@@ -179,16 +186,19 @@ release/tierliste.o: ../../../Nationalpark/tierliste.cpp ../../../Nationalpark/t
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\tierliste.o ..\..\..\Nationalpark\tierliste.cpp
 
 release/verwaltung.o: ../../../Nationalpark/verwaltung.cpp ../../../Nationalpark/verwaltung.h \
-		../../../Nationalpark/angestellter.h
+		../../../Nationalpark/angestellter.h \
+		../../../Nationalpark/json.hpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\verwaltung.o ..\..\..\Nationalpark\verwaltung.cpp
 
 release/vogel.o: ../../../Nationalpark/vogel.cpp ../../../Nationalpark/vogel.h \
 		../../../Nationalpark/spezies.h \
+		../../../Nationalpark/json.hpp \
 		../../../Nationalpark/hilffunktionen.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\vogel.o ..\..\..\Nationalpark\vogel.cpp
 
 release/wissenschaftler.o: ../../../Nationalpark/wissenschaftler.cpp ../../../Nationalpark/wissenschaftler.h \
-		../../../Nationalpark/angestellter.h
+		../../../Nationalpark/angestellter.h \
+		../../../Nationalpark/json.hpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\wissenschaftler.o ..\..\..\Nationalpark\wissenschaftler.cpp
 
 ####### Install

@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "hilffunktionenGUI.h"
+#include <QLineEdit>
 
 void aufIntZahlPruefen(QLineEdit *lineEdit, bool &valid, int &attribut){
     bool ok;
@@ -45,3 +46,4 @@ void aufBoolPruefen(QLineEdit *lineEdit, bool &valid, bool &attribut){
     }
     attribut = (checkBool == 1);
 }
+

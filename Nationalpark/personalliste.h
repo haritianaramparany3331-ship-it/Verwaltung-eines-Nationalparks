@@ -11,9 +11,9 @@ public:
     Personalliste();
     void insertPersonal(Angestellter* angestellter);
     int sizePersonalList();
-    std::vector<Angestellter*> getPersonal() const;
-    void csvSpeichern();
-    void csvLaden();
+    std::vector<Angestellter*>& getPersonal();
+    void personJsonSpeichern();
+    void personJsonLaden();
 };
 
 #endif // PERSONALLISTE_H

@@ -20,6 +20,7 @@ SOURCES += \
 HEADERS += \
     angestellter.h \
     hilffunktionen.h \
+    json.hpp \
     personalliste.h \
     ranger.h \
     reptil.h \

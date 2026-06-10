@@ -1,0 +1,12 @@
+debug/hilffunktionenGUI.o
+debug/main.o
+debug/mainwindow.o
+debug/personbearbeiten.o
+debug/persondialog.o
+debug/tierbearbeitendialog.o
+debug/tierdialog.o
+debug/moc_mainwindow.o
+debug/moc_personbearbeiten.o
+debug/moc_persondialog.o
+debug/moc_tierbearbeitendialog.o
+debug/moc_tierdialog.o

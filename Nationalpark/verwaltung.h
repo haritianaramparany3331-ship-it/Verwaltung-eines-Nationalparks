@@ -24,7 +24,7 @@ public:
         m_buero(buero){};
 
     std::string getInfo() override;
-    void serialize(std::ofstream &out) override;
+    json toJson() const override;
 };
 
 #endif // VERWALTUNG_H

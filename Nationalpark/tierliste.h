@@ -13,10 +13,10 @@ public:
     void insertAnimal(Spezies* animal);
     //void printInfoOfAllAnimals();
     int sizeList();
-    void binaerSpeichern();
-    void binaerLaden();
+    void tierJsonSpeichern();
+    void tierJsonLaden();
     //void testDateiErzeugen();
-    std::vector<Spezies*> getFauna() const;
+    std::vector<Spezies*> &getFauna();
 };
 
 #endif // TIERLISTE_H

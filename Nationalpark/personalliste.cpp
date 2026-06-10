@@ -1,6 +1,5 @@
 #include "personalliste.h"
 #include <fstream>
-#include <sstream>
 #include "ranger.h"
 #include "verwaltung.h"
 #include "wissenschaftler.h"
@@ -8,7 +7,7 @@
 
 Personalliste::Personalliste() {}
 
-std::vector<Angestellter*> Personalliste::getPersonal() const{
+std::vector<Angestellter*>& Personalliste::getPersonal(){
     return personal;
 }
 
@@ -20,62 +19,77 @@ int Personalliste::sizePersonalList(){
     return personal.size();
 }
 
-void Personalliste::csvSpeichern(){
-    std::ofstream out("Personal.csv");
-    streamFehlerBehandeln(out);
+void Personalliste::personJsonSpeichern(){
+    json personenArray = json::array();
     for (auto &person : personal){
-        person->serialize(out);
+        personenArray.push_back(person->toJson());
     }
-    std::cout<<"Ende der Speicherung"<<std::endl;
+    std::ofstream out("person.json");
+    streamFehlerBehandeln(out);
+    out << std::setw(4) << personenArray << "\n";
     out.close();
 }
 
-void Personalliste::csvLaden(){
-    std::ifstream in("Personal.csv");
-    streamFehlerBehandeln(in);
-    for (Angestellter *person : personal){
+void Personalliste::personJsonLaden(){
+    for (auto &person : personal){
         delete person;
     }
-    personal.clear();
-    std::string zeile;
-    while(std::getline(in, zeile)){
-        if (zeile.empty()) continue;
-        std::stringstream ss(zeile);
-        std::string typ, vorname, nachname;
-        int personNum, stundenzahl;
-        double gehalt;
-        std::getline(ss, typ, ',');
-        std::getline(ss, vorname, ',');
-        std::getline(ss, nachname, ',');
-        ss >> personNum; ss.ignore(1, ',');
-        ss >> stundenzahl; ss.ignore(1, ',');
-        ss >> gehalt; ss.ignore(1, ',');
+    std::ifstream in("person.json");
+    streamFehlerBehandeln(in);
+    json personArray;
+    try{
+        in >> personArray;
+    }
+    catch(const json::parse_error &e){
+        std::cerr<< "Parsing Fehler" << e.what() << std::endl;
+    }
+
+    for (const auto &person : personArray){
+        std::string typ = person.at("typ");
+        std::string vorname = person.at("vorname");
+        std::string nachname = person.at("nachname");
+        int persoNum = person.at("personalnummer");
+        int stundenzahl = person.at("stundenzahl");
+        double gehalt = person.at("gehalt");
 
         if (typ == "Ranger"){
-            std::string revier, einsatzbereich;
-            std::getline(ss, revier, ',');
-            std::getline(ss, einsatzbereich);
-            Ranger *r = new Ranger(nachname, vorname, personNum, stundenzahl, gehalt, revier, einsatzbereich);
+            std::string revier = person.at("revier");
+            std::string einsatzbereich = person.at("einsatzbereich");
+            Ranger *r = new Ranger(nachname,
+                                   vorname,
+                                   persoNum,
+                                   stundenzahl,
+                                   gehalt,
+                                   revier,
+                                   einsatzbereich);
             personal.push_back(r);
         }
         else if (typ == "Verwalter"){
-            std::string abteilung, buero;
-            std::getline(ss, abteilung, ',');
-            std::getline(ss, buero);
-            Verwaltung *v = new Verwaltung(nachname, vorname, personNum, stundenzahl, gehalt, abteilung, buero);
+            std::string abteilung = person.at("abteilung");
+            std::string buero = person.at("buero");
+            Verwaltung *v = new Verwaltung(nachname,
+                                           vorname,
+                                           persoNum,
+                                           stundenzahl,
+                                           gehalt,
+                                           abteilung,
+                                           buero);
             personal.push_back(v);
         }
         else if (typ == "Wissenschaftler"){
-            std::string fachbereich;
-            int studienanzahl;
-            std::getline(ss, fachbereich, ',');
-            ss >> studienanzahl;
-            Wissenschaftler *w = new Wissenschaftler(nachname, vorname, personNum, stundenzahl, gehalt, fachbereich, studienanzahl);
+            std::string fachgebiet = person.at("fachgebiet");
+            int anzahlStudien = person.at("studienanzahl");
+            Wissenschaftler *w = new Wissenschaftler(nachname,
+                                                     vorname,
+                                                     persoNum,
+                                                     stundenzahl,
+                                                     gehalt,
+                                                     fachgebiet,
+                                                     anzahlStudien);
             personal.push_back(w);
         }
         else{
-            std::cerr<<"Unbekannter Typ, FATAL"<<std::endl;
-            continue;
+            std::cerr << "FATAL: Unbekannter Typ"<<std::endl;
         }
     }
     in.close();

@@ -5,31 +5,28 @@
 class Vogel : public Spezies
 {
 private:
-    //bool m_zugvogel;
-    //double m_flugreichweite;
+    bool m_zugvogel;
+    double m_flugreichweite;
     double m_fluegelspannweite;
 public:
     Vogel(std::string bezeichnung,
-          //bool gefaehrdet,
-          //bool raubtier,
+          bool gefaehrdet,
+          bool raubtier,
+          int anzahl,
           int alter,
-          //bool zugvogel,
-          //double flugreichweite,
+          bool zugvogel,
+          double flugreichweite,
           double fluegelspannweite)
         : Spezies(bezeichnung,
-                  //gefaehrdet,
-                  //raubtier,
+                  gefaehrdet,
+                  raubtier,
+                  anzahl,
                   alter),
-        //m_zugvogel(zugvogel),
-        //m_flugreichweite(flugreichweite),
+        m_zugvogel(zugvogel),
+        m_flugreichweite(flugreichweite),
         m_fluegelspannweite(fluegelspannweite){};
     ~Vogel(){};
-    void serialize(std::ofstream &out) override;
-    static Spezies* deserialize(std::ifstream &in,
-                                std::string &bezeichnung,
-                                //bool &gefaehrdet,
-                                //bool &raubtier,
-                                int &alter);
+    json toJson() const override;
     //void display() override;
     std::string getInfo() override;
 };

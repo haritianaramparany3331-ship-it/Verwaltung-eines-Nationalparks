@@ -1,6 +1,4 @@
 #include "reptil.h"
-#include <fstream>
-#include "hilffunktionen.h"
 
 /*void Reptil::display(){
     std::cout<<"Tier: "<<m_bezeichnung<<std::endl
@@ -16,43 +14,24 @@
 
 std::string Reptil::getInfo(){
     return "Name: "+m_bezeichnung+
-           "\nAlter: "+std::to_string(m_alter)+
            "\nTyp: Reptil"+
-           "\nGiftig? "+std::to_string(m_giftig);
+           "\nGefaehrdet? "+std::to_string(m_gefaehrdet)+
+           "\nRaubtier? "+std::to_string(m_raubtier)+
+           "\nAnzahl: "+std::to_string(m_anzahl)+
+           "\nAlter: "+std::to_string(m_alter)+
+           "\nGiftig? "+std::to_string(m_giftig)+
+           "\nOptimale Temperatur: "+std::to_string(m_optimaleTemperatur)+
+           "\nWechselwarm? "+std::to_string(m_wechselwarm)+"\n";
 }
 
-void Reptil::serialize(std::ofstream &out){
-    int typ = 2;
-    binaerSchreiben(out, typ);
-    stringBinaerSchreiben(out, m_bezeichnung);
-    //binaerSchreiben(out, m_gefaehrdet);
-    //binaerSchreiben(out, m_raubtier);
-    binaerSchreiben(out, m_alter);
-    binaerSchreiben(out, m_giftig);
-    //binaerSchreiben(out, m_optimaleTemperatur);
-    //binaerSchreiben(out, m_wechselwarm);
-    std::cout<<"Tier vom Typ Reptil binaer gespeichert in datei.bin"<<std::endl;
+json Reptil::toJson() const{
+    json reptil = Spezies::toJson();
+    reptil["typ"] = "Reptil";
+    reptil["giftig"] = m_giftig;
+    reptil["optimale Temperatur"] = m_optimaleTemperatur;
+    reptil["wechselwarm"] = m_wechselwarm;
+    return reptil;
 }
 
-Spezies* Reptil::deserialize(std::ifstream &in,
-                             std::string &bezeichnung,
-                             //bool &gefaehrdet,
-                             //bool &raubtier,
-                             int &alter){
-    bool giftig;
-    binaerLesen(in, giftig);
-    //double optimaleTemperatur;
-    //binaerLesen(in, optimaleTemperatur);
-    //bool wechselwarm;
-    //binaerLesen(in, wechselwarm);
-    return new Reptil(bezeichnung,
-                      //gefaehrdet,
-                      //raubtier,
-                      alter,
-                      giftig
-                      //optimaleTemperatur,
-                      //wechselwarm
-                      );
-}
 
 

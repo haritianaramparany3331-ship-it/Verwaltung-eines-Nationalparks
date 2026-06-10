@@ -1,6 +1,9 @@
 #ifndef ANGESTELLTER_H
 #define ANGESTELLTER_H
 #include <iostream>
+#include <json.hpp>
+
+using namespace nlohmann;
 
 class Angestellter
 {
@@ -24,7 +27,7 @@ public:
     virtual ~Angestellter(){};
 
     virtual std::string getInfo() = 0;
-    virtual void serialize(std::ofstream &out) = 0;
+    virtual json toJson() const;
 };
 
 #endif // ANGESTELLTER_H

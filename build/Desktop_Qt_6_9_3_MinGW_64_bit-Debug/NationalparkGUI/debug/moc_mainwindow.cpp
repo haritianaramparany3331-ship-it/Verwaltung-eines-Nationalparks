@@ -39,52 +39,70 @@ template <> constexpr inline auto MainWindow::qt_create_metaobjectdata<qt_meta_t
     namespace QMC = QtMocConstants;
     QtMocHelpers::StringRefStorage qt_stringData {
         "MainWindow",
-        "on_saeugetierPushButton_clicked",
+        "on_tierverwaltungPushButton_clicked",
         "",
-        "on_vogelPushButton_clicked",
-        "on_reptilPushButton_clicked",
-        "on_binaerSpeichernPushButton_clicked",
-        "on_binaerLadenPushButton_clicked",
-        "on_rangerPushButton_clicked",
-        "on_verwaltungPushButton_clicked",
-        "on_wissenschaftlerinPushButton_clicked",
-        "on_csvSpeichernPushButton_clicked",
-        "on_csvLadenPushButton_clicked",
-        "on_actionPersonal_csv_triggered",
-        "on_actionFull_Screen_triggered",
+        "on_personenverwaltungPushButton_clicked",
+        "on_zurueckInTierverwaltungsseitePushButton_clicked",
+        "on_zurueckInPersonenverwaltungsseitePushButoon_clicked",
+        "on_tierLadenPushButton_clicked",
+        "on_tierSpeichernPushButton_clicked",
+        "on_personenLadenPushButton_clicked",
+        "on_personenSpeichernPushButton_clicked",
+        "on_actionTiere_laden_JSON_triggered",
+        "on_actionTiere_speichern_JSON_triggered",
+        "on_actionPersonen_laden_JSON_triggered",
+        "on_actionPersonen_speichern_JSON_triggered",
+        "on_actionBeenden_triggered",
+        "on_actionFull_screen_triggered",
         "on_actionMinimize_triggered",
-        "on_actionNormal_triggered"
+        "on_actionNormal_triggered",
+        "on_actiontier_json_triggered",
+        "on_actionperson_json_triggered",
+        "on_neuInPersonenVerwaltungsseitePushButton_clicked",
+        "on_neuInTierverwaltungsseitePushButton_clicked"
     };
 
     QtMocHelpers::UintData qt_methods {
-        // Slot 'on_saeugetierPushButton_clicked'
+        // Slot 'on_tierverwaltungPushButton_clicked'
         QtMocHelpers::SlotData<void()>(1, 2, QMC::AccessPrivate, QMetaType::Void),
-        // Slot 'on_vogelPushButton_clicked'
+        // Slot 'on_personenverwaltungPushButton_clicked'
         QtMocHelpers::SlotData<void()>(3, 2, QMC::AccessPrivate, QMetaType::Void),
-        // Slot 'on_reptilPushButton_clicked'
+        // Slot 'on_zurueckInTierverwaltungsseitePushButton_clicked'
         QtMocHelpers::SlotData<void()>(4, 2, QMC::AccessPrivate, QMetaType::Void),
-        // Slot 'on_binaerSpeichernPushButton_clicked'
+        // Slot 'on_zurueckInPersonenverwaltungsseitePushButoon_clicked'
         QtMocHelpers::SlotData<void()>(5, 2, QMC::AccessPrivate, QMetaType::Void),
-        // Slot 'on_binaerLadenPushButton_clicked'
+        // Slot 'on_tierLadenPushButton_clicked'
         QtMocHelpers::SlotData<void()>(6, 2, QMC::AccessPrivate, QMetaType::Void),
-        // Slot 'on_rangerPushButton_clicked'
+        // Slot 'on_tierSpeichernPushButton_clicked'
         QtMocHelpers::SlotData<void()>(7, 2, QMC::AccessPrivate, QMetaType::Void),
-        // Slot 'on_verwaltungPushButton_clicked'
+        // Slot 'on_personenLadenPushButton_clicked'
         QtMocHelpers::SlotData<void()>(8, 2, QMC::AccessPrivate, QMetaType::Void),
-        // Slot 'on_wissenschaftlerinPushButton_clicked'
+        // Slot 'on_personenSpeichernPushButton_clicked'
         QtMocHelpers::SlotData<void()>(9, 2, QMC::AccessPrivate, QMetaType::Void),
-        // Slot 'on_csvSpeichernPushButton_clicked'
+        // Slot 'on_actionTiere_laden_JSON_triggered'
         QtMocHelpers::SlotData<void()>(10, 2, QMC::AccessPrivate, QMetaType::Void),
-        // Slot 'on_csvLadenPushButton_clicked'
+        // Slot 'on_actionTiere_speichern_JSON_triggered'
         QtMocHelpers::SlotData<void()>(11, 2, QMC::AccessPrivate, QMetaType::Void),
-        // Slot 'on_actionPersonal_csv_triggered'
+        // Slot 'on_actionPersonen_laden_JSON_triggered'
         QtMocHelpers::SlotData<void()>(12, 2, QMC::AccessPrivate, QMetaType::Void),
-        // Slot 'on_actionFull_Screen_triggered'
+        // Slot 'on_actionPersonen_speichern_JSON_triggered'
         QtMocHelpers::SlotData<void()>(13, 2, QMC::AccessPrivate, QMetaType::Void),
-        // Slot 'on_actionMinimize_triggered'
+        // Slot 'on_actionBeenden_triggered'
         QtMocHelpers::SlotData<void()>(14, 2, QMC::AccessPrivate, QMetaType::Void),
-        // Slot 'on_actionNormal_triggered'
+        // Slot 'on_actionFull_screen_triggered'
         QtMocHelpers::SlotData<void()>(15, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'on_actionMinimize_triggered'
+        QtMocHelpers::SlotData<void()>(16, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'on_actionNormal_triggered'
+        QtMocHelpers::SlotData<void()>(17, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'on_actiontier_json_triggered'
+        QtMocHelpers::SlotData<void()>(18, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'on_actionperson_json_triggered'
+        QtMocHelpers::SlotData<void()>(19, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'on_neuInPersonenVerwaltungsseitePushButton_clicked'
+        QtMocHelpers::SlotData<void()>(20, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'on_neuInTierverwaltungsseitePushButton_clicked'
+        QtMocHelpers::SlotData<void()>(21, 2, QMC::AccessPrivate, QMetaType::Void),
     };
     QtMocHelpers::UintData qt_properties {
     };
@@ -108,20 +126,26 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
     auto *_t = static_cast<MainWindow *>(_o);
     if (_c == QMetaObject::InvokeMetaMethod) {
         switch (_id) {
-        case 0: _t->on_saeugetierPushButton_clicked(); break;
-        case 1: _t->on_vogelPushButton_clicked(); break;
-        case 2: _t->on_reptilPushButton_clicked(); break;
-        case 3: _t->on_binaerSpeichernPushButton_clicked(); break;
-        case 4: _t->on_binaerLadenPushButton_clicked(); break;
-        case 5: _t->on_rangerPushButton_clicked(); break;
-        case 6: _t->on_verwaltungPushButton_clicked(); break;
-        case 7: _t->on_wissenschaftlerinPushButton_clicked(); break;
-        case 8: _t->on_csvSpeichernPushButton_clicked(); break;
-        case 9: _t->on_csvLadenPushButton_clicked(); break;
-        case 10: _t->on_actionPersonal_csv_triggered(); break;
-        case 11: _t->on_actionFull_Screen_triggered(); break;
-        case 12: _t->on_actionMinimize_triggered(); break;
-        case 13: _t->on_actionNormal_triggered(); break;
+        case 0: _t->on_tierverwaltungPushButton_clicked(); break;
+        case 1: _t->on_personenverwaltungPushButton_clicked(); break;
+        case 2: _t->on_zurueckInTierverwaltungsseitePushButton_clicked(); break;
+        case 3: _t->on_zurueckInPersonenverwaltungsseitePushButoon_clicked(); break;
+        case 4: _t->on_tierLadenPushButton_clicked(); break;
+        case 5: _t->on_tierSpeichernPushButton_clicked(); break;
+        case 6: _t->on_personenLadenPushButton_clicked(); break;
+        case 7: _t->on_personenSpeichernPushButton_clicked(); break;
+        case 8: _t->on_actionTiere_laden_JSON_triggered(); break;
+        case 9: _t->on_actionTiere_speichern_JSON_triggered(); break;
+        case 10: _t->on_actionPersonen_laden_JSON_triggered(); break;
+        case 11: _t->on_actionPersonen_speichern_JSON_triggered(); break;
+        case 12: _t->on_actionBeenden_triggered(); break;
+        case 13: _t->on_actionFull_screen_triggered(); break;
+        case 14: _t->on_actionMinimize_triggered(); break;
+        case 15: _t->on_actionNormal_triggered(); break;
+        case 16: _t->on_actiontier_json_triggered(); break;
+        case 17: _t->on_actionperson_json_triggered(); break;
+        case 18: _t->on_neuInPersonenVerwaltungsseitePushButton_clicked(); break;
+        case 19: _t->on_neuInTierverwaltungsseitePushButton_clicked(); break;
         default: ;
         }
     }
@@ -147,14 +171,14 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 14)
+        if (_id < 20)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 14;
+        _id -= 20;
     }
     if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 14)
+        if (_id < 20)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 14;
+        _id -= 20;
     }
     return _id;
 }

@@ -9,17 +9,13 @@ std::string Wissenschaftler::getInfo(){
            "\nStundenzahl: " + std::to_string(m_stundenzahl)+
            "\nGehalt: " + std::to_string(m_gehalt)+
            "\nFachgebiet: " + m_fachgebiet+
-           "\nAnzahl von Studien: " + std::to_string(m_anzahlStudien);
+           "\nAnzahl von Studien: " + std::to_string(m_anzahlStudien)+"\n";
 }
 
-void Wissenschaftler::serialize(std::ofstream &out){
-    std::string typ = "Wissenschaftler";
-    out << typ << ","
-        << m_vorname << ","
-        << m_nachname << ","
-        << m_personalnummer << ","
-        << m_stundenzahl << ","
-        << m_gehalt << ","
-        << m_fachgebiet << ","
-        << m_anzahlStudien << "\n";
+json Wissenschaftler::toJson() const{
+    json wisstler = Angestellter::toJson();
+    wisstler["typ"] = "Wissenschaftler";
+    wisstler["fachgebiet"] = m_fachgebiet;
+    wisstler["studienanzahl"] = m_anzahlStudien;
+    return wisstler;
 }

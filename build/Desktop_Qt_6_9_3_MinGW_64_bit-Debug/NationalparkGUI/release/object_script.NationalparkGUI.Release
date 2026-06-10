@@ -1,0 +1,12 @@
+release/hilffunktionenGUI.o
+release/main.o
+release/mainwindow.o
+release/personbearbeiten.o
+release/persondialog.o
+release/tierbearbeitendialog.o
+release/tierdialog.o
+release/moc_mainwindow.o
+release/moc_personbearbeiten.o
+release/moc_persondialog.o
+release/moc_tierbearbeitendialog.o
+release/moc_tierdialog.o

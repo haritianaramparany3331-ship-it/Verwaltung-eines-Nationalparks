@@ -12,16 +12,15 @@
 #include <QtCore/QVariant>
 #include <QtGui/QAction>
 #include <QtWidgets/QApplication>
-#include <QtWidgets/QGroupBox>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLabel>
-#include <QtWidgets/QLineEdit>
 #include <QtWidgets/QListWidget>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QSpacerItem>
+#include <QtWidgets/QStackedWidget>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
@@ -31,625 +30,321 @@ QT_BEGIN_NAMESPACE
 class Ui_MainWindow
 {
 public:
-    QAction *actionPersonal_csv;
-    QAction *actionFull_Screen;
+    QAction *actionTiere_laden_JSON;
+    QAction *actionTiere_speichern_JSON;
+    QAction *actionPersonen_laden_JSON;
+    QAction *actionPersonen_speichern_JSON;
+    QAction *actionBeenden;
+    QAction *actionFull_screen;
     QAction *actionMinimize;
     QAction *actionNormal;
+    QAction *actiontier_json;
+    QAction *actionperson_json;
     QWidget *centralwidget;
-    QHBoxLayout *horizontalLayout;
-    QGroupBox *wildtierEingabeGroupBox;
     QVBoxLayout *verticalLayout;
-    QGroupBox *gemAttWildtierGroupBox;
-    QVBoxLayout *verticalLayout_2;
-    QHBoxLayout *horizontalLayout_2;
-    QLabel *nameWildtierLabel;
-    QLineEdit *nameWildtierLineEdit;
-    QHBoxLayout *horizontalLayout_3;
-    QLabel *alterWildtierLabel;
-    QLineEdit *alterWildtierLineEdit;
-    QSpacerItem *verticalSpacer;
-    QGroupBox *spezAttWildtierGroupBox;
+    QStackedWidget *stackedWidget;
+    QWidget *hauptseite;
     QVBoxLayout *verticalLayout_3;
-    QHBoxLayout *horizontalLayout_4;
-    QLabel *fellFarbeLabel;
-    QLineEdit *fellfarbeLineEdit;
-    QHBoxLayout *horizontalLayout_5;
-    QLabel *fluegelspannweiteLabel;
-    QLineEdit *fluegelspannweiteLineEdit;
-    QHBoxLayout *horizontalLayout_6;
-    QLabel *gifitgLabel;
-    QLineEdit *giftigLineEdit;
-    QSpacerItem *verticalSpacer_2;
-    QPushButton *saeugetierPushButton;
-    QPushButton *vogelPushButton;
-    QPushButton *reptilPushButton;
-    QGroupBox *tiereVerwaltungGroupBox;
-    QVBoxLayout *verticalLayout_4;
-    QListWidget *TierlisteListWidget;
-    QPushButton *binaerSpeichernPushButton;
-    QPushButton *binaerLadenPushButton;
-    QGroupBox *personalEingabeGroupBox;
-    QVBoxLayout *verticalLayout_5;
-    QGroupBox *gemAttPersonalGroupBox;
-    QVBoxLayout *verticalLayout_6;
-    QHBoxLayout *horizontalLayout_7;
-    QLabel *vornameLabel;
-    QLineEdit *vornameLineEdit;
-    QHBoxLayout *horizontalLayout_8;
-    QLabel *nachnameLabel;
-    QLineEdit *nachnameLineEdit;
-    QHBoxLayout *horizontalLayout_9;
-    QLabel *persoNumLabel;
-    QLineEdit *persoNumLineEdit;
-    QHBoxLayout *horizontalLayout_10;
-    QLabel *gehaltLabel;
-    QLineEdit *gehaltLineEdit;
-    QHBoxLayout *horizontalLayout_17;
-    QLabel *stundenzahlLabel;
-    QLineEdit *stundenzahlLineEdit;
+    QHBoxLayout *horizontalLayout_2;
+    QSpacerItem *horizontalSpacer;
+    QVBoxLayout *verticalLayout_2;
+    QSpacerItem *verticalSpacer;
+    QLabel *nationalparkManagerLabel;
     QSpacerItem *verticalSpacer_3;
-    QGroupBox *spezAttPersonalGroupBox;
+    QHBoxLayout *horizontalLayout;
+    QPushButton *tierverwaltungPushButton;
+    QPushButton *personenverwaltungPushButton;
+    QSpacerItem *verticalSpacer_2;
+    QSpacerItem *horizontalSpacer_2;
+    QWidget *tierverwaltungsseite;
+    QHBoxLayout *horizontalLayout_4;
     QVBoxLayout *verticalLayout_7;
-    QHBoxLayout *horizontalLayout_11;
-    QLabel *revierLabel;
-    QLineEdit *revierLineEdit;
-    QHBoxLayout *horizontalLayout_12;
-    QLabel *einsatzbereichLabel;
-    QLineEdit *einsatzbereichLineEdit;
-    QHBoxLayout *horizontalLayout_13;
-    QLabel *abteilungLabel;
-    QLineEdit *abteilungLineEdit;
-    QHBoxLayout *horizontalLayout_14;
-    QLabel *bueroLabel;
-    QLineEdit *bueroLineEdit;
-    QHBoxLayout *horizontalLayout_15;
-    QLabel *fachgebietLabel;
-    QLineEdit *fachgebietLineEdit;
-    QHBoxLayout *horizontalLayout_16;
-    QLabel *anzahlStudienLabel;
-    QLineEdit *anzahlStudienLineEdit;
+    QPushButton *zurueckInTierverwaltungsseitePushButton;
+    QPushButton *neuInTierverwaltungsseitePushButton;
+    QPushButton *tierLadenPushButton;
+    QPushButton *tierSpeichernPushButton;
+    QSpacerItem *verticalSpacer_5;
+    QSpacerItem *horizontalSpacer_5;
+    QVBoxLayout *verticalLayout_6;
+    QLabel *tiereImParkLabel;
+    QListWidget *tierListWidget;
+    QSpacerItem *horizontalSpacer_6;
+    QWidget *page_4;
+    QHBoxLayout *horizontalLayout_3;
+    QVBoxLayout *verticalLayout_4;
+    QPushButton *zurueckInPersonenverwaltungsseitePushButoon;
+    QPushButton *neuInPersonenVerwaltungsseitePushButton;
+    QPushButton *personenLadenPushButton;
+    QPushButton *personenSpeichernPushButton;
     QSpacerItem *verticalSpacer_4;
-    QPushButton *rangerPushButton;
-    QPushButton *verwaltungPushButton;
-    QPushButton *wissenschaftlerinPushButton;
-    QGroupBox *personalVerwaltungGroupBox;
-    QVBoxLayout *verticalLayout_8;
-    QListWidget *personalListeListWidget;
-    QPushButton *csvSpeichernPushButton;
-    QPushButton *csvLadenPushButton;
-    QMenuBar *menubar;
+    QSpacerItem *horizontalSpacer_3;
+    QVBoxLayout *verticalLayout_5;
+    QLabel *mitarbeiterImParkLabel;
+    QListWidget *personenListWidget;
+    QSpacerItem *horizontalSpacer_4;
+    QMenuBar *menuBar;
     QMenu *menuDatei;
-    QMenu *menuView;
-    QStatusBar *statusbar;
+    QMenu *menuDateien;
+    QMenu *menuLaden_JSON;
+    QMenu *menuSpeichern_JSON;
+    QMenu *menuType_Here;
+    QMenu *menuFenster;
+    QStatusBar *statusBar;
 
     void setupUi(QMainWindow *MainWindow)
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName("MainWindow");
-        MainWindow->resize(1184, 675);
+        MainWindow->resize(526, 248);
         QSizePolicy sizePolicy(QSizePolicy::Policy::Preferred, QSizePolicy::Policy::Preferred);
         sizePolicy.setHorizontalStretch(0);
         sizePolicy.setVerticalStretch(0);
         sizePolicy.setHeightForWidth(MainWindow->sizePolicy().hasHeightForWidth());
         MainWindow->setSizePolicy(sizePolicy);
         MainWindow->setStyleSheet(QString::fromUtf8("QWidget {\n"
-"    background-color: #F4F7F2;\n"
-"    color: #1E1E1E;\n"
-"    font-family: Arial;\n"
-"    font-size: 12px;\n"
 "}\n"
 "\n"
-"QLabel {\n"
-"    color: #1E1E1E;\n"
-"    font-weight: 500;\n"
-"}\n"
-"\n"
-"QLineEdit {\n"
-"    background-color: white;\n"
-"    border: 1px solid #C9D1C8;\n"
-"    border-radius: 6px;\n"
-"    padding: 6px;\n"
-"    selection-background-color: #7BAE7F;\n"
-"}\n"
-"\n"
-"QLineEdit:focus {\n"
-"    border: 2px solid #2F5D50;\n"
-"    background-color: #FFFFFF;\n"
-"}\n"
-"\n"
-"QPushButton {\n"
-"    background-color: #2F5D50;\n"
-"    color: white;\n"
-"    border: none;\n"
-"    border-radius: 8px;\n"
-"    padding: 6px 12px;\n"
-"    font-weight: 600;\n"
-"}\n"
-"\n"
-"QPushButton:hover {\n"
-"    background-color: #3F6F60;\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-"    background-color: #24463D;\n"
-"}\n"
-"\n"
-"QListView {\n"
-"    background-color: white;\n"
-"    border: 1px solid #C9D1C8;\n"
-"    border-radius: 8px;\n"
-"    padding: 4px;\n"
-"    outline: none;\n"
-"}\n"
-"\n"
-"QListView::item {\n"
-""
-                        "    padding: 6px;\n"
-"    border-radius: 4px;\n"
-"}\n"
-"\n"
-"QListView::item:selected {\n"
-"    background-color: #7BAE7F;\n"
-"    color: white;\n"
-"}\n"
-"\n"
-"QListView::item:hover {\n"
-"    background-color: #E7F0EA;\n"
-"}\n"
-"\n"
-"QGroupBox {\n"
-"    border: 1px solid #C9D1C8;\n"
-"    border-radius: 10px;\n"
-"    margin-top: 10px;\n"
-"    padding: 10px;\n"
-"    font-weight: bold;\n"
-"    color: #2F5D50;\n"
-"    background-color: #F9FBF8;\n"
-"}\n"
-"\n"
-"QGroupBox::title {\n"
-"    subcontrol-origin: margin;\n"
-"    left: 10px;\n"
-"    padding: 0 5px 0 5px;\n"
-"}\n"
 ""));
-        actionPersonal_csv = new QAction(MainWindow);
-        actionPersonal_csv->setObjectName("actionPersonal_csv");
-        actionFull_Screen = new QAction(MainWindow);
-        actionFull_Screen->setObjectName("actionFull_Screen");
+        actionTiere_laden_JSON = new QAction(MainWindow);
+        actionTiere_laden_JSON->setObjectName("actionTiere_laden_JSON");
+        actionTiere_speichern_JSON = new QAction(MainWindow);
+        actionTiere_speichern_JSON->setObjectName("actionTiere_speichern_JSON");
+        actionPersonen_laden_JSON = new QAction(MainWindow);
+        actionPersonen_laden_JSON->setObjectName("actionPersonen_laden_JSON");
+        actionPersonen_speichern_JSON = new QAction(MainWindow);
+        actionPersonen_speichern_JSON->setObjectName("actionPersonen_speichern_JSON");
+        actionBeenden = new QAction(MainWindow);
+        actionBeenden->setObjectName("actionBeenden");
+        actionFull_screen = new QAction(MainWindow);
+        actionFull_screen->setObjectName("actionFull_screen");
         actionMinimize = new QAction(MainWindow);
         actionMinimize->setObjectName("actionMinimize");
         actionNormal = new QAction(MainWindow);
         actionNormal->setObjectName("actionNormal");
+        actiontier_json = new QAction(MainWindow);
+        actiontier_json->setObjectName("actiontier_json");
+        actionperson_json = new QAction(MainWindow);
+        actionperson_json->setObjectName("actionperson_json");
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName("centralwidget");
-        horizontalLayout = new QHBoxLayout(centralwidget);
-        horizontalLayout->setObjectName("horizontalLayout");
-        wildtierEingabeGroupBox = new QGroupBox(centralwidget);
-        wildtierEingabeGroupBox->setObjectName("wildtierEingabeGroupBox");
-        QSizePolicy sizePolicy1(QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Preferred);
-        sizePolicy1.setHorizontalStretch(0);
-        sizePolicy1.setVerticalStretch(0);
-        sizePolicy1.setHeightForWidth(wildtierEingabeGroupBox->sizePolicy().hasHeightForWidth());
-        wildtierEingabeGroupBox->setSizePolicy(sizePolicy1);
-        wildtierEingabeGroupBox->setStyleSheet(QString::fromUtf8(""));
-        verticalLayout = new QVBoxLayout(wildtierEingabeGroupBox);
+        verticalLayout = new QVBoxLayout(centralwidget);
         verticalLayout->setObjectName("verticalLayout");
-        gemAttWildtierGroupBox = new QGroupBox(wildtierEingabeGroupBox);
-        gemAttWildtierGroupBox->setObjectName("gemAttWildtierGroupBox");
-        QSizePolicy sizePolicy2(QSizePolicy::Policy::Preferred, QSizePolicy::Policy::Expanding);
-        sizePolicy2.setHorizontalStretch(0);
-        sizePolicy2.setVerticalStretch(0);
-        sizePolicy2.setHeightForWidth(gemAttWildtierGroupBox->sizePolicy().hasHeightForWidth());
-        gemAttWildtierGroupBox->setSizePolicy(sizePolicy2);
-        verticalLayout_2 = new QVBoxLayout(gemAttWildtierGroupBox);
-        verticalLayout_2->setObjectName("verticalLayout_2");
+        stackedWidget = new QStackedWidget(centralwidget);
+        stackedWidget->setObjectName("stackedWidget");
+        hauptseite = new QWidget();
+        hauptseite->setObjectName("hauptseite");
+        verticalLayout_3 = new QVBoxLayout(hauptseite);
+        verticalLayout_3->setObjectName("verticalLayout_3");
         horizontalLayout_2 = new QHBoxLayout();
         horizontalLayout_2->setObjectName("horizontalLayout_2");
-        nameWildtierLabel = new QLabel(gemAttWildtierGroupBox);
-        nameWildtierLabel->setObjectName("nameWildtierLabel");
+        horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Minimum);
 
-        horizontalLayout_2->addWidget(nameWildtierLabel);
+        horizontalLayout_2->addItem(horizontalSpacer);
 
-        nameWildtierLineEdit = new QLineEdit(gemAttWildtierGroupBox);
-        nameWildtierLineEdit->setObjectName("nameWildtierLineEdit");
-
-        horizontalLayout_2->addWidget(nameWildtierLineEdit);
-
-
-        verticalLayout_2->addLayout(horizontalLayout_2);
-
-        horizontalLayout_3 = new QHBoxLayout();
-        horizontalLayout_3->setObjectName("horizontalLayout_3");
-        alterWildtierLabel = new QLabel(gemAttWildtierGroupBox);
-        alterWildtierLabel->setObjectName("alterWildtierLabel");
-        sizePolicy.setHeightForWidth(alterWildtierLabel->sizePolicy().hasHeightForWidth());
-        alterWildtierLabel->setSizePolicy(sizePolicy);
-
-        horizontalLayout_3->addWidget(alterWildtierLabel);
-
-        alterWildtierLineEdit = new QLineEdit(gemAttWildtierGroupBox);
-        alterWildtierLineEdit->setObjectName("alterWildtierLineEdit");
-        QSizePolicy sizePolicy3(QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Fixed);
-        sizePolicy3.setHorizontalStretch(0);
-        sizePolicy3.setVerticalStretch(0);
-        sizePolicy3.setHeightForWidth(alterWildtierLineEdit->sizePolicy().hasHeightForWidth());
-        alterWildtierLineEdit->setSizePolicy(sizePolicy3);
-
-        horizontalLayout_3->addWidget(alterWildtierLineEdit);
-
-
-        verticalLayout_2->addLayout(horizontalLayout_3);
-
-        verticalSpacer = new QSpacerItem(20, 81, QSizePolicy::Policy::Minimum, QSizePolicy::Policy::Expanding);
+        verticalLayout_2 = new QVBoxLayout();
+        verticalLayout_2->setObjectName("verticalLayout_2");
+        verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Policy::Minimum, QSizePolicy::Policy::Expanding);
 
         verticalLayout_2->addItem(verticalSpacer);
 
+        nationalparkManagerLabel = new QLabel(hauptseite);
+        nationalparkManagerLabel->setObjectName("nationalparkManagerLabel");
 
-        verticalLayout->addWidget(gemAttWildtierGroupBox);
+        verticalLayout_2->addWidget(nationalparkManagerLabel);
 
-        spezAttWildtierGroupBox = new QGroupBox(wildtierEingabeGroupBox);
-        spezAttWildtierGroupBox->setObjectName("spezAttWildtierGroupBox");
-        sizePolicy2.setHeightForWidth(spezAttWildtierGroupBox->sizePolicy().hasHeightForWidth());
-        spezAttWildtierGroupBox->setSizePolicy(sizePolicy2);
-        verticalLayout_3 = new QVBoxLayout(spezAttWildtierGroupBox);
-        verticalLayout_3->setObjectName("verticalLayout_3");
-        horizontalLayout_4 = new QHBoxLayout();
+        verticalSpacer_3 = new QSpacerItem(20, 40, QSizePolicy::Policy::Minimum, QSizePolicy::Policy::Expanding);
+
+        verticalLayout_2->addItem(verticalSpacer_3);
+
+        horizontalLayout = new QHBoxLayout();
+        horizontalLayout->setObjectName("horizontalLayout");
+        tierverwaltungPushButton = new QPushButton(hauptseite);
+        tierverwaltungPushButton->setObjectName("tierverwaltungPushButton");
+
+        horizontalLayout->addWidget(tierverwaltungPushButton);
+
+        personenverwaltungPushButton = new QPushButton(hauptseite);
+        personenverwaltungPushButton->setObjectName("personenverwaltungPushButton");
+
+        horizontalLayout->addWidget(personenverwaltungPushButton);
+
+
+        verticalLayout_2->addLayout(horizontalLayout);
+
+        verticalSpacer_2 = new QSpacerItem(20, 40, QSizePolicy::Policy::Minimum, QSizePolicy::Policy::Expanding);
+
+        verticalLayout_2->addItem(verticalSpacer_2);
+
+
+        horizontalLayout_2->addLayout(verticalLayout_2);
+
+        horizontalSpacer_2 = new QSpacerItem(40, 20, QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Minimum);
+
+        horizontalLayout_2->addItem(horizontalSpacer_2);
+
+
+        verticalLayout_3->addLayout(horizontalLayout_2);
+
+        stackedWidget->addWidget(hauptseite);
+        tierverwaltungsseite = new QWidget();
+        tierverwaltungsseite->setObjectName("tierverwaltungsseite");
+        horizontalLayout_4 = new QHBoxLayout(tierverwaltungsseite);
         horizontalLayout_4->setObjectName("horizontalLayout_4");
-        fellFarbeLabel = new QLabel(spezAttWildtierGroupBox);
-        fellFarbeLabel->setObjectName("fellFarbeLabel");
-
-        horizontalLayout_4->addWidget(fellFarbeLabel);
-
-        fellfarbeLineEdit = new QLineEdit(spezAttWildtierGroupBox);
-        fellfarbeLineEdit->setObjectName("fellfarbeLineEdit");
-
-        horizontalLayout_4->addWidget(fellfarbeLineEdit);
-
-
-        verticalLayout_3->addLayout(horizontalLayout_4);
-
-        horizontalLayout_5 = new QHBoxLayout();
-        horizontalLayout_5->setObjectName("horizontalLayout_5");
-        fluegelspannweiteLabel = new QLabel(spezAttWildtierGroupBox);
-        fluegelspannweiteLabel->setObjectName("fluegelspannweiteLabel");
-
-        horizontalLayout_5->addWidget(fluegelspannweiteLabel);
-
-        fluegelspannweiteLineEdit = new QLineEdit(spezAttWildtierGroupBox);
-        fluegelspannweiteLineEdit->setObjectName("fluegelspannweiteLineEdit");
-
-        horizontalLayout_5->addWidget(fluegelspannweiteLineEdit);
-
-
-        verticalLayout_3->addLayout(horizontalLayout_5);
-
-        horizontalLayout_6 = new QHBoxLayout();
-        horizontalLayout_6->setObjectName("horizontalLayout_6");
-        gifitgLabel = new QLabel(spezAttWildtierGroupBox);
-        gifitgLabel->setObjectName("gifitgLabel");
-
-        horizontalLayout_6->addWidget(gifitgLabel);
-
-        giftigLineEdit = new QLineEdit(spezAttWildtierGroupBox);
-        giftigLineEdit->setObjectName("giftigLineEdit");
-
-        horizontalLayout_6->addWidget(giftigLineEdit);
-
-
-        verticalLayout_3->addLayout(horizontalLayout_6);
-
-        verticalSpacer_2 = new QSpacerItem(20, 54, QSizePolicy::Policy::Minimum, QSizePolicy::Policy::Expanding);
-
-        verticalLayout_3->addItem(verticalSpacer_2);
-
-
-        verticalLayout->addWidget(spezAttWildtierGroupBox);
-
-        saeugetierPushButton = new QPushButton(wildtierEingabeGroupBox);
-        saeugetierPushButton->setObjectName("saeugetierPushButton");
-
-        verticalLayout->addWidget(saeugetierPushButton);
-
-        vogelPushButton = new QPushButton(wildtierEingabeGroupBox);
-        vogelPushButton->setObjectName("vogelPushButton");
-
-        verticalLayout->addWidget(vogelPushButton);
-
-        reptilPushButton = new QPushButton(wildtierEingabeGroupBox);
-        reptilPushButton->setObjectName("reptilPushButton");
-
-        verticalLayout->addWidget(reptilPushButton);
-
-
-        horizontalLayout->addWidget(wildtierEingabeGroupBox);
-
-        tiereVerwaltungGroupBox = new QGroupBox(centralwidget);
-        tiereVerwaltungGroupBox->setObjectName("tiereVerwaltungGroupBox");
-        sizePolicy1.setHeightForWidth(tiereVerwaltungGroupBox->sizePolicy().hasHeightForWidth());
-        tiereVerwaltungGroupBox->setSizePolicy(sizePolicy1);
-        verticalLayout_4 = new QVBoxLayout(tiereVerwaltungGroupBox);
-        verticalLayout_4->setObjectName("verticalLayout_4");
-        TierlisteListWidget = new QListWidget(tiereVerwaltungGroupBox);
-        TierlisteListWidget->setObjectName("TierlisteListWidget");
-
-        verticalLayout_4->addWidget(TierlisteListWidget);
-
-        binaerSpeichernPushButton = new QPushButton(tiereVerwaltungGroupBox);
-        binaerSpeichernPushButton->setObjectName("binaerSpeichernPushButton");
-
-        verticalLayout_4->addWidget(binaerSpeichernPushButton);
-
-        binaerLadenPushButton = new QPushButton(tiereVerwaltungGroupBox);
-        binaerLadenPushButton->setObjectName("binaerLadenPushButton");
-
-        verticalLayout_4->addWidget(binaerLadenPushButton);
-
-
-        horizontalLayout->addWidget(tiereVerwaltungGroupBox);
-
-        personalEingabeGroupBox = new QGroupBox(centralwidget);
-        personalEingabeGroupBox->setObjectName("personalEingabeGroupBox");
-        sizePolicy1.setHeightForWidth(personalEingabeGroupBox->sizePolicy().hasHeightForWidth());
-        personalEingabeGroupBox->setSizePolicy(sizePolicy1);
-        verticalLayout_5 = new QVBoxLayout(personalEingabeGroupBox);
-        verticalLayout_5->setObjectName("verticalLayout_5");
-        gemAttPersonalGroupBox = new QGroupBox(personalEingabeGroupBox);
-        gemAttPersonalGroupBox->setObjectName("gemAttPersonalGroupBox");
-        sizePolicy2.setHeightForWidth(gemAttPersonalGroupBox->sizePolicy().hasHeightForWidth());
-        gemAttPersonalGroupBox->setSizePolicy(sizePolicy2);
-        verticalLayout_6 = new QVBoxLayout(gemAttPersonalGroupBox);
-        verticalLayout_6->setObjectName("verticalLayout_6");
-        horizontalLayout_7 = new QHBoxLayout();
-        horizontalLayout_7->setObjectName("horizontalLayout_7");
-        vornameLabel = new QLabel(gemAttPersonalGroupBox);
-        vornameLabel->setObjectName("vornameLabel");
-
-        horizontalLayout_7->addWidget(vornameLabel);
-
-        vornameLineEdit = new QLineEdit(gemAttPersonalGroupBox);
-        vornameLineEdit->setObjectName("vornameLineEdit");
-
-        horizontalLayout_7->addWidget(vornameLineEdit);
-
-
-        verticalLayout_6->addLayout(horizontalLayout_7);
-
-        horizontalLayout_8 = new QHBoxLayout();
-        horizontalLayout_8->setObjectName("horizontalLayout_8");
-        nachnameLabel = new QLabel(gemAttPersonalGroupBox);
-        nachnameLabel->setObjectName("nachnameLabel");
-
-        horizontalLayout_8->addWidget(nachnameLabel);
-
-        nachnameLineEdit = new QLineEdit(gemAttPersonalGroupBox);
-        nachnameLineEdit->setObjectName("nachnameLineEdit");
-
-        horizontalLayout_8->addWidget(nachnameLineEdit);
-
-
-        verticalLayout_6->addLayout(horizontalLayout_8);
-
-        horizontalLayout_9 = new QHBoxLayout();
-        horizontalLayout_9->setObjectName("horizontalLayout_9");
-        persoNumLabel = new QLabel(gemAttPersonalGroupBox);
-        persoNumLabel->setObjectName("persoNumLabel");
-
-        horizontalLayout_9->addWidget(persoNumLabel);
-
-        persoNumLineEdit = new QLineEdit(gemAttPersonalGroupBox);
-        persoNumLineEdit->setObjectName("persoNumLineEdit");
-
-        horizontalLayout_9->addWidget(persoNumLineEdit);
-
-
-        verticalLayout_6->addLayout(horizontalLayout_9);
-
-        horizontalLayout_10 = new QHBoxLayout();
-        horizontalLayout_10->setObjectName("horizontalLayout_10");
-        gehaltLabel = new QLabel(gemAttPersonalGroupBox);
-        gehaltLabel->setObjectName("gehaltLabel");
-
-        horizontalLayout_10->addWidget(gehaltLabel);
-
-        gehaltLineEdit = new QLineEdit(gemAttPersonalGroupBox);
-        gehaltLineEdit->setObjectName("gehaltLineEdit");
-
-        horizontalLayout_10->addWidget(gehaltLineEdit);
-
-
-        verticalLayout_6->addLayout(horizontalLayout_10);
-
-        horizontalLayout_17 = new QHBoxLayout();
-        horizontalLayout_17->setObjectName("horizontalLayout_17");
-        stundenzahlLabel = new QLabel(gemAttPersonalGroupBox);
-        stundenzahlLabel->setObjectName("stundenzahlLabel");
-        sizePolicy.setHeightForWidth(stundenzahlLabel->sizePolicy().hasHeightForWidth());
-        stundenzahlLabel->setSizePolicy(sizePolicy);
-
-        horizontalLayout_17->addWidget(stundenzahlLabel);
-
-        stundenzahlLineEdit = new QLineEdit(gemAttPersonalGroupBox);
-        stundenzahlLineEdit->setObjectName("stundenzahlLineEdit");
-
-        horizontalLayout_17->addWidget(stundenzahlLineEdit);
-
-
-        verticalLayout_6->addLayout(horizontalLayout_17);
-
-        verticalSpacer_3 = new QSpacerItem(20, 9, QSizePolicy::Policy::Minimum, QSizePolicy::Policy::Expanding);
-
-        verticalLayout_6->addItem(verticalSpacer_3);
-
-
-        verticalLayout_5->addWidget(gemAttPersonalGroupBox);
-
-        spezAttPersonalGroupBox = new QGroupBox(personalEingabeGroupBox);
-        spezAttPersonalGroupBox->setObjectName("spezAttPersonalGroupBox");
-        sizePolicy2.setHeightForWidth(spezAttPersonalGroupBox->sizePolicy().hasHeightForWidth());
-        spezAttPersonalGroupBox->setSizePolicy(sizePolicy2);
-        verticalLayout_7 = new QVBoxLayout(spezAttPersonalGroupBox);
+        verticalLayout_7 = new QVBoxLayout();
         verticalLayout_7->setObjectName("verticalLayout_7");
-        horizontalLayout_11 = new QHBoxLayout();
-        horizontalLayout_11->setObjectName("horizontalLayout_11");
-        revierLabel = new QLabel(spezAttPersonalGroupBox);
-        revierLabel->setObjectName("revierLabel");
+        zurueckInTierverwaltungsseitePushButton = new QPushButton(tierverwaltungsseite);
+        zurueckInTierverwaltungsseitePushButton->setObjectName("zurueckInTierverwaltungsseitePushButton");
 
-        horizontalLayout_11->addWidget(revierLabel);
+        verticalLayout_7->addWidget(zurueckInTierverwaltungsseitePushButton);
 
-        revierLineEdit = new QLineEdit(spezAttPersonalGroupBox);
-        revierLineEdit->setObjectName("revierLineEdit");
+        neuInTierverwaltungsseitePushButton = new QPushButton(tierverwaltungsseite);
+        neuInTierverwaltungsseitePushButton->setObjectName("neuInTierverwaltungsseitePushButton");
 
-        horizontalLayout_11->addWidget(revierLineEdit);
+        verticalLayout_7->addWidget(neuInTierverwaltungsseitePushButton);
 
+        tierLadenPushButton = new QPushButton(tierverwaltungsseite);
+        tierLadenPushButton->setObjectName("tierLadenPushButton");
 
-        verticalLayout_7->addLayout(horizontalLayout_11);
+        verticalLayout_7->addWidget(tierLadenPushButton);
 
-        horizontalLayout_12 = new QHBoxLayout();
-        horizontalLayout_12->setObjectName("horizontalLayout_12");
-        einsatzbereichLabel = new QLabel(spezAttPersonalGroupBox);
-        einsatzbereichLabel->setObjectName("einsatzbereichLabel");
+        tierSpeichernPushButton = new QPushButton(tierverwaltungsseite);
+        tierSpeichernPushButton->setObjectName("tierSpeichernPushButton");
 
-        horizontalLayout_12->addWidget(einsatzbereichLabel);
+        verticalLayout_7->addWidget(tierSpeichernPushButton);
 
-        einsatzbereichLineEdit = new QLineEdit(spezAttPersonalGroupBox);
-        einsatzbereichLineEdit->setObjectName("einsatzbereichLineEdit");
+        verticalSpacer_5 = new QSpacerItem(20, 40, QSizePolicy::Policy::Minimum, QSizePolicy::Policy::Expanding);
 
-        horizontalLayout_12->addWidget(einsatzbereichLineEdit);
+        verticalLayout_7->addItem(verticalSpacer_5);
 
 
-        verticalLayout_7->addLayout(horizontalLayout_12);
+        horizontalLayout_4->addLayout(verticalLayout_7);
 
-        horizontalLayout_13 = new QHBoxLayout();
-        horizontalLayout_13->setObjectName("horizontalLayout_13");
-        abteilungLabel = new QLabel(spezAttPersonalGroupBox);
-        abteilungLabel->setObjectName("abteilungLabel");
+        horizontalSpacer_5 = new QSpacerItem(38, 20, QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Minimum);
 
-        horizontalLayout_13->addWidget(abteilungLabel);
+        horizontalLayout_4->addItem(horizontalSpacer_5);
 
-        abteilungLineEdit = new QLineEdit(spezAttPersonalGroupBox);
-        abteilungLineEdit->setObjectName("abteilungLineEdit");
+        verticalLayout_6 = new QVBoxLayout();
+        verticalLayout_6->setObjectName("verticalLayout_6");
+        tiereImParkLabel = new QLabel(tierverwaltungsseite);
+        tiereImParkLabel->setObjectName("tiereImParkLabel");
 
-        horizontalLayout_13->addWidget(abteilungLineEdit);
+        verticalLayout_6->addWidget(tiereImParkLabel);
 
+        tierListWidget = new QListWidget(tierverwaltungsseite);
+        tierListWidget->setObjectName("tierListWidget");
 
-        verticalLayout_7->addLayout(horizontalLayout_13);
-
-        horizontalLayout_14 = new QHBoxLayout();
-        horizontalLayout_14->setObjectName("horizontalLayout_14");
-        bueroLabel = new QLabel(spezAttPersonalGroupBox);
-        bueroLabel->setObjectName("bueroLabel");
-
-        horizontalLayout_14->addWidget(bueroLabel);
-
-        bueroLineEdit = new QLineEdit(spezAttPersonalGroupBox);
-        bueroLineEdit->setObjectName("bueroLineEdit");
-
-        horizontalLayout_14->addWidget(bueroLineEdit);
+        verticalLayout_6->addWidget(tierListWidget);
 
 
-        verticalLayout_7->addLayout(horizontalLayout_14);
+        horizontalLayout_4->addLayout(verticalLayout_6);
 
-        horizontalLayout_15 = new QHBoxLayout();
-        horizontalLayout_15->setObjectName("horizontalLayout_15");
-        fachgebietLabel = new QLabel(spezAttPersonalGroupBox);
-        fachgebietLabel->setObjectName("fachgebietLabel");
+        horizontalSpacer_6 = new QSpacerItem(38, 20, QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Minimum);
 
-        horizontalLayout_15->addWidget(fachgebietLabel);
+        horizontalLayout_4->addItem(horizontalSpacer_6);
 
-        fachgebietLineEdit = new QLineEdit(spezAttPersonalGroupBox);
-        fachgebietLineEdit->setObjectName("fachgebietLineEdit");
+        stackedWidget->addWidget(tierverwaltungsseite);
+        page_4 = new QWidget();
+        page_4->setObjectName("page_4");
+        horizontalLayout_3 = new QHBoxLayout(page_4);
+        horizontalLayout_3->setObjectName("horizontalLayout_3");
+        verticalLayout_4 = new QVBoxLayout();
+        verticalLayout_4->setObjectName("verticalLayout_4");
+        zurueckInPersonenverwaltungsseitePushButoon = new QPushButton(page_4);
+        zurueckInPersonenverwaltungsseitePushButoon->setObjectName("zurueckInPersonenverwaltungsseitePushButoon");
 
-        horizontalLayout_15->addWidget(fachgebietLineEdit);
+        verticalLayout_4->addWidget(zurueckInPersonenverwaltungsseitePushButoon);
 
+        neuInPersonenVerwaltungsseitePushButton = new QPushButton(page_4);
+        neuInPersonenVerwaltungsseitePushButton->setObjectName("neuInPersonenVerwaltungsseitePushButton");
 
-        verticalLayout_7->addLayout(horizontalLayout_15);
+        verticalLayout_4->addWidget(neuInPersonenVerwaltungsseitePushButton);
 
-        horizontalLayout_16 = new QHBoxLayout();
-        horizontalLayout_16->setObjectName("horizontalLayout_16");
-        anzahlStudienLabel = new QLabel(spezAttPersonalGroupBox);
-        anzahlStudienLabel->setObjectName("anzahlStudienLabel");
+        personenLadenPushButton = new QPushButton(page_4);
+        personenLadenPushButton->setObjectName("personenLadenPushButton");
 
-        horizontalLayout_16->addWidget(anzahlStudienLabel);
+        verticalLayout_4->addWidget(personenLadenPushButton);
 
-        anzahlStudienLineEdit = new QLineEdit(spezAttPersonalGroupBox);
-        anzahlStudienLineEdit->setObjectName("anzahlStudienLineEdit");
+        personenSpeichernPushButton = new QPushButton(page_4);
+        personenSpeichernPushButton->setObjectName("personenSpeichernPushButton");
 
-        horizontalLayout_16->addWidget(anzahlStudienLineEdit);
+        verticalLayout_4->addWidget(personenSpeichernPushButton);
 
+        verticalSpacer_4 = new QSpacerItem(20, 40, QSizePolicy::Policy::Minimum, QSizePolicy::Policy::Expanding);
 
-        verticalLayout_7->addLayout(horizontalLayout_16);
-
-        verticalSpacer_4 = new QSpacerItem(20, 119, QSizePolicy::Policy::Minimum, QSizePolicy::Policy::Expanding);
-
-        verticalLayout_7->addItem(verticalSpacer_4);
-
-
-        verticalLayout_5->addWidget(spezAttPersonalGroupBox);
-
-        rangerPushButton = new QPushButton(personalEingabeGroupBox);
-        rangerPushButton->setObjectName("rangerPushButton");
-
-        verticalLayout_5->addWidget(rangerPushButton);
-
-        verwaltungPushButton = new QPushButton(personalEingabeGroupBox);
-        verwaltungPushButton->setObjectName("verwaltungPushButton");
-
-        verticalLayout_5->addWidget(verwaltungPushButton);
-
-        wissenschaftlerinPushButton = new QPushButton(personalEingabeGroupBox);
-        wissenschaftlerinPushButton->setObjectName("wissenschaftlerinPushButton");
-
-        verticalLayout_5->addWidget(wissenschaftlerinPushButton);
+        verticalLayout_4->addItem(verticalSpacer_4);
 
 
-        horizontalLayout->addWidget(personalEingabeGroupBox);
+        horizontalLayout_3->addLayout(verticalLayout_4);
 
-        personalVerwaltungGroupBox = new QGroupBox(centralwidget);
-        personalVerwaltungGroupBox->setObjectName("personalVerwaltungGroupBox");
-        sizePolicy1.setHeightForWidth(personalVerwaltungGroupBox->sizePolicy().hasHeightForWidth());
-        personalVerwaltungGroupBox->setSizePolicy(sizePolicy1);
-        verticalLayout_8 = new QVBoxLayout(personalVerwaltungGroupBox);
-        verticalLayout_8->setObjectName("verticalLayout_8");
-        personalListeListWidget = new QListWidget(personalVerwaltungGroupBox);
-        personalListeListWidget->setObjectName("personalListeListWidget");
+        horizontalSpacer_3 = new QSpacerItem(27, 20, QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Minimum);
 
-        verticalLayout_8->addWidget(personalListeListWidget);
+        horizontalLayout_3->addItem(horizontalSpacer_3);
 
-        csvSpeichernPushButton = new QPushButton(personalVerwaltungGroupBox);
-        csvSpeichernPushButton->setObjectName("csvSpeichernPushButton");
+        verticalLayout_5 = new QVBoxLayout();
+        verticalLayout_5->setObjectName("verticalLayout_5");
+        mitarbeiterImParkLabel = new QLabel(page_4);
+        mitarbeiterImParkLabel->setObjectName("mitarbeiterImParkLabel");
 
-        verticalLayout_8->addWidget(csvSpeichernPushButton);
+        verticalLayout_5->addWidget(mitarbeiterImParkLabel);
 
-        csvLadenPushButton = new QPushButton(personalVerwaltungGroupBox);
-        csvLadenPushButton->setObjectName("csvLadenPushButton");
+        personenListWidget = new QListWidget(page_4);
+        personenListWidget->setObjectName("personenListWidget");
 
-        verticalLayout_8->addWidget(csvLadenPushButton);
+        verticalLayout_5->addWidget(personenListWidget);
 
 
-        horizontalLayout->addWidget(personalVerwaltungGroupBox);
+        horizontalLayout_3->addLayout(verticalLayout_5);
+
+        horizontalSpacer_4 = new QSpacerItem(27, 20, QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Minimum);
+
+        horizontalLayout_3->addItem(horizontalSpacer_4);
+
+        stackedWidget->addWidget(page_4);
+
+        verticalLayout->addWidget(stackedWidget);
 
         MainWindow->setCentralWidget(centralwidget);
-        menubar = new QMenuBar(MainWindow);
-        menubar->setObjectName("menubar");
-        menubar->setGeometry(QRect(0, 0, 1184, 19));
-        menuDatei = new QMenu(menubar);
+        menuBar = new QMenuBar(MainWindow);
+        menuBar->setObjectName("menuBar");
+        menuBar->setGeometry(QRect(0, 0, 526, 19));
+        menuDatei = new QMenu(menuBar);
         menuDatei->setObjectName("menuDatei");
-        menuView = new QMenu(menubar);
-        menuView->setObjectName("menuView");
-        MainWindow->setMenuBar(menubar);
-        statusbar = new QStatusBar(MainWindow);
-        statusbar->setObjectName("statusbar");
-        MainWindow->setStatusBar(statusbar);
+        menuDateien = new QMenu(menuDatei);
+        menuDateien->setObjectName("menuDateien");
+        menuLaden_JSON = new QMenu(menuDatei);
+        menuLaden_JSON->setObjectName("menuLaden_JSON");
+        menuSpeichern_JSON = new QMenu(menuDatei);
+        menuSpeichern_JSON->setObjectName("menuSpeichern_JSON");
+        menuType_Here = new QMenu(menuDatei);
+        menuType_Here->setObjectName("menuType_Here");
+        menuFenster = new QMenu(menuBar);
+        menuFenster->setObjectName("menuFenster");
+        MainWindow->setMenuBar(menuBar);
+        statusBar = new QStatusBar(MainWindow);
+        statusBar->setObjectName("statusBar");
+        MainWindow->setStatusBar(statusBar);
 
-        menubar->addAction(menuDatei->menuAction());
-        menubar->addAction(menuView->menuAction());
-        menuDatei->addAction(actionPersonal_csv);
-        menuView->addAction(actionFull_Screen);
-        menuView->addAction(actionMinimize);
-        menuView->addAction(actionNormal);
+        menuBar->addAction(menuDatei->menuAction());
+        menuBar->addAction(menuFenster->menuAction());
+        menuDatei->addAction(menuDateien->menuAction());
+        menuDatei->addAction(menuLaden_JSON->menuAction());
+        menuDatei->addAction(menuSpeichern_JSON->menuAction());
+        menuDatei->addAction(actionBeenden);
+        menuDatei->addAction(menuType_Here->menuAction());
+        menuDateien->addAction(actiontier_json);
+        menuDateien->addAction(actionperson_json);
+        menuLaden_JSON->addAction(actionTiere_laden_JSON);
+        menuLaden_JSON->addAction(actionPersonen_laden_JSON);
+        menuSpeichern_JSON->addAction(actionTiere_speichern_JSON);
+        menuSpeichern_JSON->addAction(actionPersonen_speichern_JSON);
+        menuFenster->addAction(actionFull_screen);
+        menuFenster->addAction(actionMinimize);
+        menuFenster->addAction(actionNormal);
 
         retranslateUi(MainWindow);
+
+        stackedWidget->setCurrentIndex(2);
+
 
         QMetaObject::connectSlotsByName(MainWindow);
     } // setupUi
@@ -657,46 +352,35 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
-        actionPersonal_csv->setText(QCoreApplication::translate("MainWindow", "Personal.csv", nullptr));
-        actionFull_Screen->setText(QCoreApplication::translate("MainWindow", "Full Screen", nullptr));
+        actionTiere_laden_JSON->setText(QCoreApplication::translate("MainWindow", "Tiere", nullptr));
+        actionTiere_speichern_JSON->setText(QCoreApplication::translate("MainWindow", "Tiere", nullptr));
+        actionPersonen_laden_JSON->setText(QCoreApplication::translate("MainWindow", "Personen", nullptr));
+        actionPersonen_speichern_JSON->setText(QCoreApplication::translate("MainWindow", "Personen", nullptr));
+        actionBeenden->setText(QCoreApplication::translate("MainWindow", "Beenden", nullptr));
+        actionFull_screen->setText(QCoreApplication::translate("MainWindow", "Full screen", nullptr));
         actionMinimize->setText(QCoreApplication::translate("MainWindow", "Minimize", nullptr));
         actionNormal->setText(QCoreApplication::translate("MainWindow", "Normal", nullptr));
-        wildtierEingabeGroupBox->setTitle(QCoreApplication::translate("MainWindow", "Wildtier - Eingabe", nullptr));
-        gemAttWildtierGroupBox->setTitle(QCoreApplication::translate("MainWindow", "Gemeinsame Attribute", nullptr));
-        nameWildtierLabel->setText(QCoreApplication::translate("MainWindow", "Name:", nullptr));
-        alterWildtierLabel->setText(QCoreApplication::translate("MainWindow", "Alter:", nullptr));
-        spezAttWildtierGroupBox->setTitle(QCoreApplication::translate("MainWindow", "Spezifische Attribute", nullptr));
-        fellFarbeLabel->setText(QCoreApplication::translate("MainWindow", "Fellfarbe:", nullptr));
-        fluegelspannweiteLabel->setText(QCoreApplication::translate("MainWindow", "Fl\303\274gelspannweite:", nullptr));
-        gifitgLabel->setText(QCoreApplication::translate("MainWindow", "Ist giftig:", nullptr));
-        saeugetierPushButton->setText(QCoreApplication::translate("MainWindow", "Neues Saeugetier", nullptr));
-        vogelPushButton->setText(QCoreApplication::translate("MainWindow", "Neuer Vogel", nullptr));
-        reptilPushButton->setText(QCoreApplication::translate("MainWindow", "Neues Reptil", nullptr));
-        tiereVerwaltungGroupBox->setTitle(QCoreApplication::translate("MainWindow", "Tiere - Verwaltung", nullptr));
-        binaerSpeichernPushButton->setText(QCoreApplication::translate("MainWindow", "Tiere speichern (bin\303\244r)", nullptr));
-        binaerLadenPushButton->setText(QCoreApplication::translate("MainWindow", "Tiere laden (bin\303\244r)", nullptr));
-        personalEingabeGroupBox->setTitle(QCoreApplication::translate("MainWindow", "Personal - Eingabe", nullptr));
-        gemAttPersonalGroupBox->setTitle(QCoreApplication::translate("MainWindow", "Gemeinsame Attribute", nullptr));
-        vornameLabel->setText(QCoreApplication::translate("MainWindow", "Vorname:", nullptr));
-        nachnameLabel->setText(QCoreApplication::translate("MainWindow", "Nachname:", nullptr));
-        persoNumLabel->setText(QCoreApplication::translate("MainWindow", "Personalnummer:", nullptr));
-        gehaltLabel->setText(QCoreApplication::translate("MainWindow", "Gehalt:", nullptr));
-        stundenzahlLabel->setText(QCoreApplication::translate("MainWindow", "Stundenzahl:", nullptr));
-        spezAttPersonalGroupBox->setTitle(QCoreApplication::translate("MainWindow", "Spezifische Attribute", nullptr));
-        revierLabel->setText(QCoreApplication::translate("MainWindow", "Revier:", nullptr));
-        einsatzbereichLabel->setText(QCoreApplication::translate("MainWindow", "Einsatzbereich:", nullptr));
-        abteilungLabel->setText(QCoreApplication::translate("MainWindow", "Abteilung:", nullptr));
-        bueroLabel->setText(QCoreApplication::translate("MainWindow", "B\303\274ro:", nullptr));
-        fachgebietLabel->setText(QCoreApplication::translate("MainWindow", "Fachgebiet:", nullptr));
-        anzahlStudienLabel->setText(QCoreApplication::translate("MainWindow", "Anzahl Studien:", nullptr));
-        rangerPushButton->setText(QCoreApplication::translate("MainWindow", "Neuer Ranger", nullptr));
-        verwaltungPushButton->setText(QCoreApplication::translate("MainWindow", "Neue Verwaltung", nullptr));
-        wissenschaftlerinPushButton->setText(QCoreApplication::translate("MainWindow", "Neue Wissenschaftlerin", nullptr));
-        personalVerwaltungGroupBox->setTitle(QCoreApplication::translate("MainWindow", "Personal - Verwaltung", nullptr));
-        csvSpeichernPushButton->setText(QCoreApplication::translate("MainWindow", "Personen speichern (CSV)", nullptr));
-        csvLadenPushButton->setText(QCoreApplication::translate("MainWindow", "Personen laden (CSV)", nullptr));
-        menuDatei->setTitle(QCoreApplication::translate("MainWindow", "Datei", nullptr));
-        menuView->setTitle(QCoreApplication::translate("MainWindow", "View", nullptr));
+        actiontier_json->setText(QCoreApplication::translate("MainWindow", "tier.json", nullptr));
+        actionperson_json->setText(QCoreApplication::translate("MainWindow", "person.json", nullptr));
+        nationalparkManagerLabel->setText(QCoreApplication::translate("MainWindow", "Nationalpark Manager", nullptr));
+        tierverwaltungPushButton->setText(QCoreApplication::translate("MainWindow", "Tierverwaltung", nullptr));
+        personenverwaltungPushButton->setText(QCoreApplication::translate("MainWindow", "Personenverwaltung", nullptr));
+        zurueckInTierverwaltungsseitePushButton->setText(QCoreApplication::translate("MainWindow", "Zur\303\274ck", nullptr));
+        neuInTierverwaltungsseitePushButton->setText(QCoreApplication::translate("MainWindow", "Neu", nullptr));
+        tierLadenPushButton->setText(QCoreApplication::translate("MainWindow", "Tier laden (JSON)", nullptr));
+        tierSpeichernPushButton->setText(QCoreApplication::translate("MainWindow", "Tier speichern (JSON)", nullptr));
+        tiereImParkLabel->setText(QCoreApplication::translate("MainWindow", "Tiere im Park:", nullptr));
+        zurueckInPersonenverwaltungsseitePushButoon->setText(QCoreApplication::translate("MainWindow", "Zur\303\274ck", nullptr));
+        neuInPersonenVerwaltungsseitePushButton->setText(QCoreApplication::translate("MainWindow", "Neu", nullptr));
+        personenLadenPushButton->setText(QCoreApplication::translate("MainWindow", "Personen laden (JSON)", nullptr));
+        personenSpeichernPushButton->setText(QCoreApplication::translate("MainWindow", "Personen speichern (JSON)", nullptr));
+        mitarbeiterImParkLabel->setText(QCoreApplication::translate("MainWindow", "Mitarbeiter im Park:", nullptr));
+        menuDatei->setTitle(QCoreApplication::translate("MainWindow", "File", nullptr));
+        menuDateien->setTitle(QCoreApplication::translate("MainWindow", "Dateien \303\266ffnen", nullptr));
+        menuLaden_JSON->setTitle(QCoreApplication::translate("MainWindow", "Laden (JSON)", nullptr));
+        menuSpeichern_JSON->setTitle(QCoreApplication::translate("MainWindow", "Speichern (JSON)", nullptr));
+        menuType_Here->setTitle(QCoreApplication::translate("MainWindow", "Type Here", nullptr));
+        menuFenster->setTitle(QCoreApplication::translate("MainWindow", "View", nullptr));
     } // retranslateUi
 
 };

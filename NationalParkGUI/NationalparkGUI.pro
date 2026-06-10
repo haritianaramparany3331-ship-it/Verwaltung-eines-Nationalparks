@@ -15,14 +15,20 @@ PRE_TARGETDEPS += $$OUT_PWD/../Nationalpark/debug/libNationalpark.a
 SOURCES += \
     hilffunktionenGUI.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    personbearbeiten.cpp \
+    tierbearbeitendialog.cpp
 
 HEADERS += \
     hilffunktionenGUI.h \
-    mainwindow.h
+    mainwindow.h \
+    personbearbeiten.h \
+    tierbearbeitendialog.h
 
 FORMS += \
-    mainwindow.ui
+    mainwindow.ui \
+    personbearbeiten.ui \
+    tierbearbeitendialog.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

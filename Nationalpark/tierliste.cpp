@@ -8,7 +8,7 @@
 #include <spezies.h>
 #include "hilffunktionen.h"
 
-std::vector<Spezies*> Tierliste::getFauna() const{
+std::vector<Spezies*>& Tierliste::getFauna(){
     return fauna;
 }
 
@@ -33,71 +33,87 @@ int Tierliste::sizeList(){
 }
 */
 
-void Tierliste::binaerSpeichern(){
-    std::ofstream out("datei.bin", std::ios::binary);
-    streamFehlerBehandeln(out);
-    for (Spezies* spezies : fauna){
-        spezies->serialize(out);
+void Tierliste::tierJsonSpeichern(){
+    json tierArray = json::array();
+    for (auto &tier : fauna){
+        tierArray.push_back(tier->toJson());
     }
-    std::cout<<"Ende der Speicherung"<<std::endl;
+    std::ofstream out("tier.json");
+    streamFehlerBehandeln(out);
+    out << std::setw(4) << tierArray << "\n";
     out.close();
 }
 
-void Tierliste::binaerLaden(){
-    std::ifstream in("datei.bin", std::ios::binary);
-    streamFehlerBehandeln(in);
-    for (Spezies* s : fauna){
-        delete s;
+void Tierliste::tierJsonLaden(){
+    for (auto &tier : fauna){
+        delete tier;
     }
-    fauna.clear();
-    std::cout<<"Jetztige Liste geleert und Binaerdaten aus datei.bin geholt"<<std::endl;
-    Spezies *s = nullptr;
-    while(true){
-        int typ;
-        if(!in.read((char*) &typ, sizeof(int))) break;
+    std::ifstream in("tier.json");
+    streamFehlerBehandeln(in);
+    json tierArray;
+    try{
+        in >> tierArray;
+    }
+    catch(const json::parse_error &e){
+        std::cerr<< "Parsing Fehler" << e.what() << std::endl;
+    }
 
-        std::string bezeichnung;
-        stringBinaerLesen(in, bezeichnung);
-        //bool gefaehrdet;
-        //binaerLesen(in, gefaehrdet);
-        //bool raubtier;
-        //binaerLesen(in, raubtier);
-        int alter;
-        binaerLesen(in, alter);
+    for (const auto &tier : tierArray){
+        std::string typ = tier.at("typ");
+        std::string bezeichnung = tier.at("bezeichnung");
+        bool gefaehrdet = tier.at("gefaehrdet");
+        bool raubtier = tier.at("raubtier");
+        int anzahl = tier.at("anzahl");
+        int alter = tier.at("alter");
 
-        if (typ==1){
-            s = Saeugetier::deserialize(in,
-                                        bezeichnung,
-                                        //gefaehrdet,
-                                        //raubtier,
-                                        alter);
-            insertAnimal(s);
-            std::cout<<"Tier vom Typ Saeugetier in die Liste hinzugefuegt"<<std::endl;
+        if (typ == "Reptil"){
+            bool giftig = tier.at("giftig");
+            double optTemp = tier.at("optimale Temperatur");
+            bool wechselwarm = tier.at("wechselwarm");
+            Reptil *r = new Reptil(bezeichnung,
+                                   gefaehrdet,
+                                   raubtier,
+                                   anzahl,
+                                   alter,
+                                   giftig,
+                                   optTemp,
+                                   wechselwarm);
+            fauna.push_back(r);
         }
-        else if (typ==2){
-            s = Reptil::deserialize(in,
-                                    bezeichnung,
-                                    //gefaehrdet,
-                                    //raubtier,
-                                    alter);
-            insertAnimal(s);
-            std::cout<<"Tier vom Typ Reptil in die Liste hinzugefuegt"<<std::endl;
+        else if (typ == "Saeugetier"){
+            bool rudeltier = tier.at("rudeltier");
+            int tragzeit = tier.at("tragzeit");
+            double durschnittsgewicht = tier.at("durschnittsgewicht");
+            std::string fellfarbe = tier.at("fellfarbe");
+            Saeugetier *s = new Saeugetier(bezeichnung,
+                                   gefaehrdet,
+                                   raubtier,
+                                   anzahl,
+                                   alter,
+                                   rudeltier,
+                                   tragzeit,
+                                   durschnittsgewicht,
+                                   fellfarbe);
+            fauna.push_back(s);
         }
-        else if (typ==3){
-            s = Vogel::deserialize(in,
-                                   bezeichnung,
-                                   //gefaehrdet,
-                                   //raubtier,
-                                   alter);
-            insertAnimal(s);
-            std::cout<<"Tier vom Typ Vogel in die Liste hinzugefuegt"<<std::endl;
+        else if (typ == "Vogel"){
+            bool zugvogel = tier.at("zugvogel");
+            double flugreichweite = tier.at("flugreichweite");
+            double fluegelspannweite = tier.at("fluegelspannweite");
+            Vogel *v = new Vogel(bezeichnung,
+                                   gefaehrdet,
+                                   raubtier,
+                                   anzahl,
+                                   alter,
+                                   zugvogel,
+                                   flugreichweite,
+                                   fluegelspannweite);
+            fauna.push_back(v);
         }
         else{
-            std::cout<<"Unbekannter Typ, stream corrupted, vielleicht wieder speichern dann neu laden. Abbruch!"<<std::endl;
-            break;
+            std::cerr << "FATAL: Unbekannter Typ"<<std::endl;
         }
     }
-    std::cout<<"Ende der Ladung"<<std::endl;
     in.close();
 }
 

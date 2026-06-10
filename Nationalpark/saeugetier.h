@@ -5,35 +5,33 @@
 class Saeugetier : public Spezies
 {
 private:
-    //bool m_rudelTier;
-    //int m_tragzeit;
-    //double m_durschnittsgewicht;
+    bool m_rudelTier;
+    int m_tragzeit;
+    double m_durschnittsgewicht;
     std::string m_fellfarbe;
 public:
     Saeugetier(std::string bezeichnung,
-               //bool gefaehrdet,
-               //bool raubtier,
+               bool gefaehrdet,
+               bool raubtier,
+               int anzahl,
                int alter,
-               //bool rudelTier,
-               //int tragzeit,
-               //double durschnittsgewicht,
-               std::string fellfarbe)
+               bool rudelTier,
+               int tragzeit,
+               double durschnittsgewicht,
+               std::string fellfarbe
+               )
         : Spezies(bezeichnung,
-                  //gefaehrdet,
-                  //raubtier,
+                  gefaehrdet,
+                  raubtier,
+                  anzahl,
                   alter),
+        m_rudelTier(rudelTier),
+        m_tragzeit(tragzeit),
+        m_durschnittsgewicht(durschnittsgewicht),
         m_fellfarbe(fellfarbe)
-        //m_rudelTier(rudelTier),
-        //m_tragzeit(tragzeit),
-        //m_durschnittsgewicht(durschnittsgewicht)
     {};
     ~Saeugetier(){};
-    void serialize(std::ofstream &out) override;
-    static Spezies* deserialize(std::ifstream &in,
-                                std::string &bezeichnung,
-                                //bool &gefaehrdet,
-                                //bool &raubtier,
-                                int &alter);
+    json toJson() const override;
     //void display() override;
     std::string getInfo() override;
 };

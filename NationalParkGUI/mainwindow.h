@@ -22,33 +22,45 @@ public:
     void aktualisierePersonalListWidget();
 
 private slots:
-    void on_saeugetierPushButton_clicked();
+    void on_tierverwaltungPushButton_clicked();
 
-    void on_vogelPushButton_clicked();
+    void on_personenverwaltungPushButton_clicked();
 
-    void on_reptilPushButton_clicked();
+    void on_zurueckInTierverwaltungsseitePushButton_clicked();
 
-    void on_binaerSpeichernPushButton_clicked();
+    void on_zurueckInPersonenverwaltungsseitePushButoon_clicked();
 
-    void on_binaerLadenPushButton_clicked();
+    void on_tierLadenPushButton_clicked();
 
-    void on_rangerPushButton_clicked();
+    void on_tierSpeichernPushButton_clicked();
 
-    void on_verwaltungPushButton_clicked();
+    void on_personenLadenPushButton_clicked();
 
-    void on_wissenschaftlerinPushButton_clicked();
+    void on_personenSpeichernPushButton_clicked();
 
-    void on_csvSpeichernPushButton_clicked();
+    void on_actionTiere_laden_JSON_triggered();
 
-    void on_csvLadenPushButton_clicked();
+    void on_actionTiere_speichern_JSON_triggered();
 
-    void on_actionPersonal_csv_triggered();
+    void on_actionPersonen_laden_JSON_triggered();
 
-    void on_actionFull_Screen_triggered();
+    void on_actionPersonen_speichern_JSON_triggered();
+
+    void on_actionBeenden_triggered();
+
+    void on_actionFull_screen_triggered();
 
     void on_actionMinimize_triggered();
 
     void on_actionNormal_triggered();
+
+    void on_actiontier_json_triggered();
+
+    void on_actionperson_json_triggered();
+
+    void on_neuInPersonenVerwaltungsseitePushButton_clicked();
+
+    void on_neuInTierverwaltungsseitePushButton_clicked();
 
 private:
     Ui::MainWindow *ui;
