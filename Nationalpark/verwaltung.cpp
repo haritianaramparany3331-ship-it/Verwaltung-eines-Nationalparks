@@ -19,3 +19,9 @@ json Verwaltung::toJson() const{
     verwaltung["buero"] = m_buero;
     return verwaltung;
 }
+
+void Verwaltung::ausgabeTooltip(std::ostream &os) const{
+    Angestellter::ausgabeTooltip(os);
+    os << m_abteilung << " "
+       << m_buero;
+}

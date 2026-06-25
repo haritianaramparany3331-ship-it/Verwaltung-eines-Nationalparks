@@ -165,6 +165,7 @@ public:
         actionNormal->setObjectName("actionNormal");
         centralwidget = new QWidget(personBearbeiten);
         centralwidget->setObjectName("centralwidget");
+        centralwidget->setGeometry(QRect(0, 0, 464, 276));
         verticalLayout = new QVBoxLayout(centralwidget);
         verticalLayout->setObjectName("verticalLayout");
         verticalLayout->setContentsMargins(0, 0, 0, 0);
@@ -659,6 +660,7 @@ public:
         menuView->setObjectName("menuView");
         statusbar = new QStatusBar(personBearbeiten);
         statusbar->setObjectName("statusbar");
+        statusbar->setGeometry(QRect(0, 0, 3, 22));
 
         menubar->addAction(menuDatei->menuAction());
         menubar->addAction(menuView->menuAction());
@@ -672,7 +674,7 @@ public:
 
         retranslateUi(personBearbeiten);
 
-        stackedWidget->setCurrentIndex(3);
+        stackedWidget->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(personBearbeiten);

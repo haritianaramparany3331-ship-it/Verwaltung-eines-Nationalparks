@@ -31,9 +31,14 @@ public:
         m_fellfarbe(fellfarbe)
     {};
     ~Saeugetier(){};
+    bool istRudeltier() const { return m_rudelTier; }
+    int getTragzeit() const { return m_tragzeit; }
+    double getDurchschnittsgewicht() const { return m_durschnittsgewicht; }
+    std::string getFellfarbe() const { return m_fellfarbe; }
     json toJson() const override;
     //void display() override;
     std::string getInfo() override;
+    void ausgabeTooltip(std::ostream &os) const override;
 };
 
 #endif // SAEUGETIER_H

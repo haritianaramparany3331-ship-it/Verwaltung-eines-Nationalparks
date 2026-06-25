@@ -27,13 +27,16 @@ public:
         m_alter(alter)
     {};
     virtual ~Spezies(){};
+    std::string getBezeichnung() const { return m_bezeichnung; }
+    bool istGefaehrdet() const { return m_gefaehrdet; }
+    bool istRaubtier() const { return m_raubtier; }
+    int getAnzahl() const { return m_anzahl; }
+    int getAlter() const { return m_alter; }
     void setAnzahl(int &anzahl);
-    int getAnzahl();
     virtual json toJson() const;
     //virtual void display() = 0;
-    std::string getBezeichnung() const;
-    int getAlter() const;
     virtual std::string getInfo() = 0;
+    virtual void ausgabeTooltip(std::ostream &os) const;
 };
 
 #endif // SPEZIES_H

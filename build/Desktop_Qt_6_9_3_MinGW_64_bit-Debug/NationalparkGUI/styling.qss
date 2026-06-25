@@ -229,7 +229,19 @@ QTabBar::tab:selected {
 }
 
 /* ---------- CheckBox / Radio ---------- */
-QCheckBox,
+QCheckBox::indicator {
+    width: 14px;
+    height: 14px;
+    border: 1px solid #888;
+    border-radius: 2px;
+    background-color: white;
+}
+
+QCheckBox::indicator:checked {
+    background-color: #4caf50;   /* sichtbare Füllfarbe statt Haken-Icon */
+    border: 1px solid #2e7d32;
+}
+
 QRadioButton {
     spacing: 8px;
     color: #243B2E;

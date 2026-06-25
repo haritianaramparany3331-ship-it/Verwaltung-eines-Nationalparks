@@ -21,3 +21,9 @@ json Ranger::toJson() const{
     ranger["einsatzbereich"] = m_einsatzbereich;
     return ranger;
 }
+
+void Ranger::ausgabeTooltip(std::ostream &os) const{
+    Angestellter::ausgabeTooltip(os);
+    os << m_revier << " "
+       << m_einsatzbereich;
+}

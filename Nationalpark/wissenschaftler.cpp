@@ -19,3 +19,9 @@ json Wissenschaftler::toJson() const{
     wisstler["studienanzahl"] = m_anzahlStudien;
     return wisstler;
 }
+
+void Wissenschaftler::ausgabeTooltip(std::ostream &os) const{
+    Angestellter::ausgabeTooltip(os);
+    os << m_fachgebiet << " "
+       << m_anzahlStudien;
+}

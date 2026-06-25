@@ -8,11 +8,13 @@ SOURCES += \
         angestellter.cpp \
         hilffunktionen.cpp \
         personalliste.cpp \
+        personalstatistik.cpp \
         ranger.cpp \
         reptil.cpp \
         saeugetier.cpp \
         spezies.cpp \
         tierliste.cpp \
+        tierstatistik.cpp \
         verwaltung.cpp \
         vogel.cpp \
         wissenschaftler.cpp
@@ -22,11 +24,13 @@ HEADERS += \
     hilffunktionen.h \
     json.hpp \
     personalliste.h \
+    personalstatistik.h \
     ranger.h \
     reptil.h \
     saeugetier.h \
     spezies.h \
     tierliste.h \
+    tierstatistik.h \
     verwaltung.h \
     vogel.h \
     wissenschaftler.h

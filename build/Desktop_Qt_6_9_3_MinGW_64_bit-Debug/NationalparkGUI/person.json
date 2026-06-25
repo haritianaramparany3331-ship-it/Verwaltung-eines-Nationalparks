@@ -1,22 +1,92 @@
 [
     {
-        "fachgebiet": "we",
-        "gehalt": 456.0,
-        "nachname": "Koto",
-        "personalnummer": 1123,
-        "studienanzahl": 3,
-        "stundenzahl": 12,
-        "typ": "Wissenschaftler",
-        "vorname": "Fetsy"
+        "einsatzbereich": "Hessen",
+        "gehalt": 3300.0,
+        "nachname": "Müller",
+        "personalnummer": 11234,
+        "revier": "Darmstadt",
+        "stundenzahl": 45,
+        "typ": "Ranger",
+        "vorname": "Alex"
     },
     {
-        "fachgebiet": "ert",
-        "gehalt": 234.0,
-        "nachname": "wrf",
-        "personalnummer": 2345,
-        "studienanzahl": 2,
-        "stundenzahl": 23,
+        "einsatzbereich": "Hessen",
+        "gehalt": 2600.0,
+        "nachname": "Haritiana",
+        "personalnummer": 9087,
+        "revier": "Biebesheim",
+        "stundenzahl": 35,
+        "typ": "Ranger",
+        "vorname": "Ramparany"
+    },
+    {
+        "einsatzbereich": "Hessen",
+        "gehalt": 1400.0,
+        "nachname": "Altenbernd",
+        "personalnummer": 12345,
+        "revier": "Darmstadt",
+        "stundenzahl": 20,
+        "typ": "Ranger",
+        "vorname": "Peter"
+    },
+    {
+        "abteilung": "Chemie",
+        "buero": "Poststraße",
+        "gehalt": 3000.0,
+        "nachname": "Brie",
+        "personalnummer": 9967,
+        "stundenzahl": 40,
+        "typ": "Verwalter",
+        "vorname": "Herr"
+    },
+    {
+        "abteilung": "Physik",
+        "buero": "hda",
+        "gehalt": 2900.0,
+        "nachname": "Jost",
+        "personalnummer": 11342,
+        "stundenzahl": 40,
+        "typ": "Verwalter",
+        "vorname": "Christof"
+    },
+    {
+        "abteilung": "Informatik",
+        "buero": "Postsraße",
+        "gehalt": 1550.0,
+        "nachname": "Riede",
+        "personalnummer": 11198,
+        "stundenzahl": 25,
+        "typ": "Verwalter",
+        "vorname": "Susanne"
+    },
+    {
+        "fachgebiet": "Deutsch",
+        "gehalt": 3400.0,
+        "nachname": "Quark",
+        "personalnummer": 8900,
+        "studienanzahl": 1,
+        "stundenzahl": 45,
         "typ": "Wissenschaftler",
-        "vorname": "rt"
+        "vorname": "Frau"
+    },
+    {
+        "fachgebiet": "Mathe",
+        "gehalt": 2500.0,
+        "nachname": "Hechler",
+        "personalnummer": 14565,
+        "studienanzahl": 3,
+        "stundenzahl": 35,
+        "typ": "Wissenschaftler",
+        "vorname": "Nayilia"
+    },
+    {
+        "fachgebiet": "Physik",
+        "gehalt": 1200.0,
+        "nachname": "Tiana",
+        "personalnummer": 8768,
+        "studienanzahl": 2,
+        "stundenzahl": 16,
+        "typ": "Wissenschaftler",
+        "vorname": "Mr"
     }
 ]

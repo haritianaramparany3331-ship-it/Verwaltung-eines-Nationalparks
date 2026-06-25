@@ -51,7 +51,7 @@ private slots:
 
 private:
     Ui::personBearbeiten *ui;
-    Angestellter* neuePerson;
+    Angestellter* neuePerson = nullptr;
 };
 
 #endif // PERSONBEARBEITEN_H

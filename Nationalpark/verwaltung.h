@@ -23,8 +23,12 @@ public:
         m_abteilung(abteilung),
         m_buero(buero){};
 
+    std::string getAbteilung() const { return m_abteilung; }
+    std::string getBuero() const { return m_buero; }
+
     std::string getInfo() override;
     json toJson() const override;
+    void ausgabeTooltip(std::ostream &os) const override;
 };
 
 #endif // VERWALTUNG_H

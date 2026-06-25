@@ -2,6 +2,7 @@
 #define TIERLISTE_H
 #include "spezies.h"
 #include <vector>
+#include "tierstatistik.h"
 
 class Tierliste
 {
@@ -17,6 +18,7 @@ public:
     void tierJsonLaden();
     //void testDateiErzeugen();
     std::vector<Spezies*> &getFauna();
+    TierStatistik berechneStatistik() const;
 };
 
 #endif // TIERLISTE_H

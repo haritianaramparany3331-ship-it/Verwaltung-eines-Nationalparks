@@ -2,6 +2,7 @@
 #define PERSONALLISTE_H
 #include "angestellter.h"
 #include <vector>
+#include "personalstatistik.h"
 
 class Personalliste
 {
@@ -14,6 +15,7 @@ public:
     std::vector<Angestellter*>& getPersonal();
     void personJsonSpeichern();
     void personJsonLaden();
+    PersonalStatistik berechneStatistik() const;
 };
 
 #endif // PERSONALLISTE_H

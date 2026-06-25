@@ -36,3 +36,11 @@ json Saeugetier::toJson() const{
     saeugetier["fellfarbe"] = m_fellfarbe;
     return saeugetier;
 }
+
+void Saeugetier::ausgabeTooltip(std::ostream &os) const{
+    Spezies::ausgabeTooltip(os);
+    os << m_rudelTier << " "
+       << m_tragzeit << " Monate "
+       << m_durschnittsgewicht << " kg "
+       << m_fellfarbe;
+}

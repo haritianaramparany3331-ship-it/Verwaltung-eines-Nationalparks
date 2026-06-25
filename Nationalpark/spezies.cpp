@@ -4,18 +4,6 @@ void Spezies::setAnzahl(int &anzahl){
     m_anzahl = anzahl;
 }
 
-int Spezies::getAnzahl(){
-    return m_anzahl;
-}
-
-std::string Spezies::getBezeichnung() const{
-    return m_bezeichnung;
-}
-
-int Spezies::getAlter() const{
-    return m_alter;
-}
-
 json Spezies::toJson() const{
     return {
         {"bezeichnung", m_bezeichnung},
@@ -24,5 +12,13 @@ json Spezies::toJson() const{
         {"anzahl", m_anzahl},
         {"alter", m_alter}
     };
+}
+
+void Spezies::ausgabeTooltip(std::ostream &os) const{
+    os << m_bezeichnung << " "
+       << m_gefaehrdet << " "
+       << m_raubtier << " "
+       << m_anzahl << " Stücke "
+       << m_alter << " Jahre alt ";
 }
 

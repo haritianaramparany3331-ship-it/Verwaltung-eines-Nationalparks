@@ -34,3 +34,10 @@ json Vogel::toJson() const{
     vogel["fluegelspannweite"] = m_fluegelspannweite;
     return vogel;
 }
+
+void Vogel::ausgabeTooltip(std::ostream &os) const{
+    Spezies::ausgabeTooltip(os);
+    os << m_zugvogel << " "
+       << m_flugreichweite << " m "
+       << m_fluegelspannweite << " cm";
+}

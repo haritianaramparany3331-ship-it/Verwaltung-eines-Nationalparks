@@ -94,3 +94,17 @@ void Personalliste::personJsonLaden(){
     }
     in.close();
 }
+
+PersonalStatistik Personalliste::berechneStatistik() const{
+    PersonalStatistik p;
+    p.gesamt = static_cast<int>(personal.size());
+    for (const auto &a : personal){
+        if (dynamic_cast<Ranger*>(a)) p.ranger++;
+        if (dynamic_cast<Verwaltung*>(a)) p.verwalter++;
+        if (dynamic_cast<Wissenschaftler*>(a)) p.wissenschaftler++;
+        if (a->getPersonalnummer() <= 10000) p.alteMitarbeiter++;
+        if (a->getGehalt() >= 2500) p.gutesGehalt++;
+        if (a->getStundenzahl() > 30) p.vollzeit++;
+    }
+    return p;
+}

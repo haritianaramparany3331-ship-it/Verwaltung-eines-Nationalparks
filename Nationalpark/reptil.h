@@ -27,9 +27,13 @@ public:
         m_wechselwarm(wechselwarm)
     {};
     ~Reptil(){};
+    bool istGiftig() const { return m_giftig; }
+    double getOptimaleTemperatur() const { return m_optimaleTemperatur; }
+    bool istWechselwarm() const { return m_wechselwarm; }
     json toJson() const override;
     //void display() override;
     std::string getInfo() override;
+    void ausgabeTooltip(std::ostream &os) const override;
 };
 
 #endif // REPTIL_H

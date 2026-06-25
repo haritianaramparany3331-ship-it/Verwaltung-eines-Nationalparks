@@ -127,4 +127,27 @@ void Tierliste::tierJsonLaden(){
 }
 */
 
+TierStatistik Tierliste::berechneStatistik() const{
+    TierStatistik t;
+    t.gesamt = static_cast<int>(fauna.size());
+    for (const auto &s : fauna){
+        if (Reptil *r = dynamic_cast<Reptil*>(s)){
+            t.reptil++;
+            if (r->istGiftig()) t.giftigeReptile++;
+        }
+        if (Saeugetier *sa = dynamic_cast<Saeugetier*>(s)){
+            t.sauegetier++;
+            if (sa->getDurchschnittsgewicht() >= 1000) t.schwereSauegetiere++;
+        }
+        if (Vogel *v = dynamic_cast<Vogel*>(s)){
+            t.vogel++;
+            if (v->getFluegelspannweite() >= 60) t.breiteVögel++;
+        }
+        if (s->istGefaehrdet()) t.gefaehrdeteTiere++;
+        if (s->istRaubtier()) t.raubtiere++;
+        if (s->getAlter() > 20) t.alteTiere++;
+    }
+    return t;
+}
+
 

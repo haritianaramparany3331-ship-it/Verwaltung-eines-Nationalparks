@@ -33,5 +33,12 @@ json Reptil::toJson() const{
     return reptil;
 }
 
+void Reptil::ausgabeTooltip(std::ostream &os) const{
+    Spezies::ausgabeTooltip(os);
+    os << m_giftig << " "
+       << m_optimaleTemperatur << " Grad C "
+       << m_wechselwarm;
+}
+
 
 

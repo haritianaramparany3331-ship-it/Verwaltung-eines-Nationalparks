@@ -2,11 +2,11 @@ debug/hilffunktionenGUI.o
 debug/main.o
 debug/mainwindow.o
 debug/personbearbeiten.o
-debug/persondialog.o
+debug/personsortierendialog.o
 debug/tierbearbeitendialog.o
-debug/tierdialog.o
+debug/tiersortierendialog.o
 debug/moc_mainwindow.o
 debug/moc_personbearbeiten.o
-debug/moc_persondialog.o
+debug/moc_personsortierendialog.o
 debug/moc_tierbearbeitendialog.o
-debug/moc_tierdialog.o
+debug/moc_tiersortierendialog.o

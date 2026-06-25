@@ -22,9 +22,12 @@ public:
                      gehalt),
         m_revier(revier),
         m_einsatzbereich(einsatzbereich){};
+    std::string getRevier() const { return m_revier; }
+    std::string getEinsatzbereich() const { return m_einsatzbereich; }
 
     std::string getInfo() override;
     json toJson() const override;
+    void ausgabeTooltip(std::ostream &os) const override;
 };
 
 #endif // RANGER_H

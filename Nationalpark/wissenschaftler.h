@@ -23,8 +23,12 @@ public:
         m_fachgebiet(fachgebiet),
         m_anzahlStudien(anzahlStudien){};
 
+    std::string getFachgebiet() const { return m_fachgebiet; }
+    int getAnzahlStudien() const { return m_anzahlStudien; }
+
     std::string getInfo() override;
     json toJson() const override;
+    void ausgabeTooltip(std::ostream &os) const override;
 };
 
 #endif // WISSENSCHAFTLER_H

@@ -1,11 +1,13 @@
 debug/angestellter.o
 debug/hilffunktionen.o
 debug/personalliste.o
+debug/personalstatistik.o
 debug/ranger.o
 debug/reptil.o
 debug/saeugetier.o
 debug/spezies.o
 debug/tierliste.o
+debug/tierstatistik.o
 debug/verwaltung.o
 debug/vogel.o
 debug/wissenschaftler.o

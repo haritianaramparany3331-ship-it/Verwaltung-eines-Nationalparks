@@ -9,3 +9,11 @@ json Angestellter::toJson() const{
         {"gehalt", m_gehalt}
     };
 }
+
+void Angestellter::ausgabeTooltip(std::ostream &os) const{
+    os << m_vorname << " "
+       << m_nachname << " "
+       << "Nr. " << m_personalnummer << " "
+       << m_stundenzahl << " Stunden "
+       << m_gehalt << " EUR ";
+}

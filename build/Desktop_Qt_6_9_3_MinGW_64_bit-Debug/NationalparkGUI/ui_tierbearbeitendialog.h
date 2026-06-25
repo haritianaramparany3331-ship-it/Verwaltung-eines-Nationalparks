@@ -180,6 +180,7 @@ public:
         actionNormal->setObjectName("actionNormal");
         centralwidget = new QWidget(tierBearbeitenDialog);
         centralwidget->setObjectName("centralwidget");
+        centralwidget->setGeometry(QRect(0, 0, 464, 332));
         verticalLayout = new QVBoxLayout(centralwidget);
         verticalLayout->setObjectName("verticalLayout");
         verticalLayout->setContentsMargins(0, 0, 0, 0);
@@ -734,6 +735,7 @@ public:
         menuView->setObjectName("menuView");
         statusbar = new QStatusBar(tierBearbeitenDialog);
         statusbar->setObjectName("statusbar");
+        statusbar->setGeometry(QRect(0, 0, 3, 22));
 
         menubar->addAction(menuDatei->menuAction());
         menubar->addAction(menuView->menuAction());
@@ -747,7 +749,7 @@ public:
 
         retranslateUi(tierBearbeitenDialog);
 
-        stackedWidget->setCurrentIndex(3);
+        stackedWidget->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(tierBearbeitenDialog);

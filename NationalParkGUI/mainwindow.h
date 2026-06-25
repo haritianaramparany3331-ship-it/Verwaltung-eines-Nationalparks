@@ -20,6 +20,10 @@ public:
     ~MainWindow();
     void aktualisiereWildtierListWidget();
     void aktualisierePersonalListWidget();
+    void tierNeuBearbeiten();
+    void personNeuBearbeiten();
+    std::vector<Angestellter*> gefiltertePersonalList();
+    std::vector<Spezies*> gefilterteAnimalList();
 
 private slots:
     void on_tierverwaltungPushButton_clicked();
@@ -61,6 +65,30 @@ private slots:
     void on_neuInPersonenVerwaltungsseitePushButton_clicked();
 
     void on_neuInTierverwaltungsseitePushButton_clicked();
+
+    void on_personBearbeitenPushButton_clicked();
+
+    void on_tierBearbeitenPushButton_clicked();
+
+    void on_statistikTierPushButton_clicked();
+
+    void on_statistikPersonPushButton_clicked();
+
+    void on_tierSortierenPushButton_clicked();
+
+    void on_personSortierenPushButton_clicked();
+
+    void on_reptilCheckBox_toggled(bool checked);
+
+    void on_saeugetierCheckBox_toggled(bool checked);
+
+    void on_vogelCheckBox_toggled(bool checked);
+
+    void on_rangerCheckBox_2_toggled(bool checked);
+
+    void on_verwalterCheckBox_3_toggled(bool checked);
+
+    void on_wissCheckBox_toggled(bool checked);
 
 private:
     Ui::MainWindow *ui;

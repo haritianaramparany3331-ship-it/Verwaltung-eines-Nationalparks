@@ -26,9 +26,13 @@ public:
         m_flugreichweite(flugreichweite),
         m_fluegelspannweite(fluegelspannweite){};
     ~Vogel(){};
+    bool istZugvogel() const { return m_zugvogel; }
+    double getFlugreichweite() const { return m_flugreichweite; }
+    double getFluegelspannweite() const { return m_fluegelspannweite; }
     json toJson() const override;
     //void display() override;
     std::string getInfo() override;
+    void ausgabeTooltip(std::ostream &os) const override;
 };
 
 #endif // VOGEL_H
