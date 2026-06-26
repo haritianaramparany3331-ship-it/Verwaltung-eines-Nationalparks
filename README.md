@@ -1,4 +1,4 @@
-# Nationalpark Manager
+# A Nationalpark Manager
 
 A desktop application to manage staff and animals in a national park,
 built with C++ (logic) and Qt Framework (GUI)
