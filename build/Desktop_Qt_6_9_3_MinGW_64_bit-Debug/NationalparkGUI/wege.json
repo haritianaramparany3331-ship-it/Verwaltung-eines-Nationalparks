@@ -1,0 +1,64 @@
+{
+  "wege": [
+    {
+      "start": 1,
+      "ziel": 2,
+      "laenge": 900
+    },
+    {
+      "start": 2,
+      "ziel": 3,
+      "laenge": 600
+    },
+    {
+      "start": 3,
+      "ziel": 4,
+      "laenge": 800
+    },
+    {
+      "start": 4,
+      "ziel": 5,
+      "laenge": 1300
+    },
+    {
+      "start": 5,
+      "ziel": 6,
+      "laenge": 1700
+    },
+    {
+      "start": 6,
+      "ziel": 8,
+      "laenge": 2200
+    },
+    {
+      "start": 8,
+      "ziel": 9,
+      "laenge": 1500
+    },
+    {
+      "start": 9,
+      "ziel": 10,
+      "laenge": 500
+    },
+    {
+      "start": 10,
+      "ziel": 7,
+      "laenge": 2800
+    },
+    {
+      "start": 7,
+      "ziel": 1,
+      "laenge": 1900
+    },
+    {
+      "start": 4,
+      "ziel": 9,
+      "laenge": 2500
+    },
+    {
+      "start": 2,
+      "ziel": 5,
+      "laenge": 2100
+    }
+  ]
+}

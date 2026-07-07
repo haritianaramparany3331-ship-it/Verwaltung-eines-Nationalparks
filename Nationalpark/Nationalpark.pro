@@ -7,6 +7,8 @@ CONFIG -= qt
 SOURCES += \
         angestellter.cpp \
         hilffunktionen.cpp \
+        nationalparkgraph.cpp \
+        orte.cpp \
         personalliste.cpp \
         personalstatistik.cpp \
         ranger.cpp \
@@ -17,12 +19,15 @@ SOURCES += \
         tierstatistik.cpp \
         verwaltung.cpp \
         vogel.cpp \
+        wege.cpp \
         wissenschaftler.cpp
 
 HEADERS += \
     angestellter.h \
     hilffunktionen.h \
     json.hpp \
+    nationalparkgraph.h \
+    orte.h \
     personalliste.h \
     personalstatistik.h \
     ranger.h \
@@ -33,6 +38,7 @@ HEADERS += \
     tierstatistik.h \
     verwaltung.h \
     vogel.h \
+    wege.h \
     wissenschaftler.h
 
 DISTFILES += \

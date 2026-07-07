@@ -1,0 +1,74 @@
+{
+  "orte": [
+    {
+      "id": 1,
+      "name": "NationalparkZentrum Kellerwald",
+      "typ": "Besucherzentrum",
+      "x": 120,
+      "y": 340
+    },
+    {
+      "id": 2,
+      "name": "WildtierPark Edersee",
+      "typ": "Aussichtspunkt",
+      "x": 120,
+      "y": 260
+    },
+    {
+      "id": 3,
+      "name": "Baumkronenweg",
+      "typ": "Aussichtspunkt",
+      "x": 120,
+      "y": 180
+    },
+    {
+      "id": 4,
+      "name": "Rangerstation Hemfurth",
+      "typ": "Rangerstation",
+      "x": 260,
+      "y": 140
+    },
+    {
+      "id": 5,
+      "name": "Hagenstein",
+      "typ": "Aussichtspunkt",
+      "x": 380,
+      "y": 180
+    },
+    {
+      "id": 6,
+      "name": "Quernstkirche",
+      "typ": "Schutzhütte",
+      "x": 500,
+      "y": 140
+    },
+    {
+      "id": 7,
+      "name": "Parkplatz Kirchweg",
+      "typ": "Parkplatz",
+      "x": 120,
+      "y": 460
+    },
+    {
+      "id": 8,
+      "name": "Fahrentriesch",
+      "typ": "Aussichtspunkt",
+      "x": 620,
+      "y": 80
+    },
+    {
+      "id": 9,
+      "name": "Rangerstation Frankenau",
+      "typ": "Rangerstation",
+      "x": 620,
+      "y": 220
+    },
+    {
+      "id": 10,
+      "name": "Parkplatz Frankenau",
+      "typ": "Parkplatz",
+      "x": 620,
+      "y": 360
+    }
+  ]
+}

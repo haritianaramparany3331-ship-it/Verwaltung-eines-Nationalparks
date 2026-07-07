@@ -1,5 +1,7 @@
 debug/angestellter.o
 debug/hilffunktionen.o
+debug/nationalparkgraph.o
+debug/orte.o
 debug/personalliste.o
 debug/personalstatistik.o
 debug/ranger.o
@@ -10,4 +12,5 @@ debug/tierliste.o
 debug/tierstatistik.o
 debug/verwaltung.o
 debug/vogel.o
+debug/wege.o
 debug/wissenschaftler.o

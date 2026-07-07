@@ -41,20 +41,23 @@ public:
     QAction *actionNormal;
     QAction *actiontier_json;
     QAction *actionperson_json;
+    QAction *actionOrteLaden_JSON;
+    QAction *actionWegeLaden_JSON;
     QWidget *centralwidget;
     QHBoxLayout *horizontalLayout_9;
     QStackedWidget *stackedWidget;
     QWidget *hauptseite;
-    QVBoxLayout *verticalLayout_3;
+    QHBoxLayout *horizontalLayout_10;
     QHBoxLayout *horizontalLayout_2;
     QSpacerItem *horizontalSpacer;
-    QVBoxLayout *verticalLayout_2;
+    QVBoxLayout *verticalLayout;
     QSpacerItem *verticalSpacer;
     QLabel *nationalparkManagerLabel;
     QSpacerItem *verticalSpacer_3;
     QHBoxLayout *horizontalLayout;
     QPushButton *tierverwaltungPushButton;
     QPushButton *personenverwaltungPushButton;
+    QPushButton *wegenetzPushButton;
     QSpacerItem *verticalSpacer_2;
     QSpacerItem *horizontalSpacer_2;
     QWidget *tierverwaltungsseite;
@@ -142,36 +145,50 @@ public:
         actiontier_json->setObjectName("actiontier_json");
         actionperson_json = new QAction(MainWindow);
         actionperson_json->setObjectName("actionperson_json");
+        actionOrteLaden_JSON = new QAction(MainWindow);
+        actionOrteLaden_JSON->setObjectName("actionOrteLaden_JSON");
+        actionWegeLaden_JSON = new QAction(MainWindow);
+        actionWegeLaden_JSON->setObjectName("actionWegeLaden_JSON");
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName("centralwidget");
         horizontalLayout_9 = new QHBoxLayout(centralwidget);
         horizontalLayout_9->setObjectName("horizontalLayout_9");
         stackedWidget = new QStackedWidget(centralwidget);
         stackedWidget->setObjectName("stackedWidget");
+        QFont font;
+        font.setBold(true);
+        stackedWidget->setFont(font);
+        stackedWidget->setStyleSheet(QString::fromUtf8("color: rgb(101, 255, 127);"));
         hauptseite = new QWidget();
         hauptseite->setObjectName("hauptseite");
-        verticalLayout_3 = new QVBoxLayout(hauptseite);
-        verticalLayout_3->setObjectName("verticalLayout_3");
+        horizontalLayout_10 = new QHBoxLayout(hauptseite);
+        horizontalLayout_10->setObjectName("horizontalLayout_10");
         horizontalLayout_2 = new QHBoxLayout();
         horizontalLayout_2->setObjectName("horizontalLayout_2");
         horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Minimum);
 
         horizontalLayout_2->addItem(horizontalSpacer);
 
-        verticalLayout_2 = new QVBoxLayout();
-        verticalLayout_2->setObjectName("verticalLayout_2");
+        verticalLayout = new QVBoxLayout();
+        verticalLayout->setObjectName("verticalLayout");
         verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Policy::Minimum, QSizePolicy::Policy::Expanding);
 
-        verticalLayout_2->addItem(verticalSpacer);
+        verticalLayout->addItem(verticalSpacer);
 
         nationalparkManagerLabel = new QLabel(hauptseite);
         nationalparkManagerLabel->setObjectName("nationalparkManagerLabel");
+        QFont font1;
+        font1.setFamilies({QString::fromUtf8("Terminal")});
+        font1.setPointSize(18);
+        font1.setBold(true);
+        nationalparkManagerLabel->setFont(font1);
+        nationalparkManagerLabel->setStyleSheet(QString::fromUtf8("color: rgb(0, 0, 0);"));
 
-        verticalLayout_2->addWidget(nationalparkManagerLabel);
+        verticalLayout->addWidget(nationalparkManagerLabel);
 
         verticalSpacer_3 = new QSpacerItem(20, 40, QSizePolicy::Policy::Minimum, QSizePolicy::Policy::Expanding);
 
-        verticalLayout_2->addItem(verticalSpacer_3);
+        verticalLayout->addItem(verticalSpacer_3);
 
         horizontalLayout = new QHBoxLayout();
         horizontalLayout->setObjectName("horizontalLayout");
@@ -186,21 +203,26 @@ public:
         horizontalLayout->addWidget(personenverwaltungPushButton);
 
 
-        verticalLayout_2->addLayout(horizontalLayout);
+        verticalLayout->addLayout(horizontalLayout);
+
+        wegenetzPushButton = new QPushButton(hauptseite);
+        wegenetzPushButton->setObjectName("wegenetzPushButton");
+
+        verticalLayout->addWidget(wegenetzPushButton);
 
         verticalSpacer_2 = new QSpacerItem(20, 40, QSizePolicy::Policy::Minimum, QSizePolicy::Policy::Expanding);
 
-        verticalLayout_2->addItem(verticalSpacer_2);
+        verticalLayout->addItem(verticalSpacer_2);
 
 
-        horizontalLayout_2->addLayout(verticalLayout_2);
+        horizontalLayout_2->addLayout(verticalLayout);
 
         horizontalSpacer_2 = new QSpacerItem(40, 20, QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Minimum);
 
         horizontalLayout_2->addItem(horizontalSpacer_2);
 
 
-        verticalLayout_3->addLayout(horizontalLayout_2);
+        horizontalLayout_10->addLayout(horizontalLayout_2);
 
         stackedWidget->addWidget(hauptseite);
         tierverwaltungsseite = new QWidget();
@@ -438,6 +460,8 @@ public:
         menuDateien->addAction(actionperson_json);
         menuLaden_JSON->addAction(actionTiere_laden_JSON);
         menuLaden_JSON->addAction(actionPersonen_laden_JSON);
+        menuLaden_JSON->addAction(actionOrteLaden_JSON);
+        menuLaden_JSON->addAction(actionWegeLaden_JSON);
         menuSpeichern_JSON->addAction(actionTiere_speichern_JSON);
         menuSpeichern_JSON->addAction(actionPersonen_speichern_JSON);
         menuFenster->addAction(actionFull_screen);
@@ -446,7 +470,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        stackedWidget->setCurrentIndex(1);
+        stackedWidget->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -465,9 +489,12 @@ public:
         actionNormal->setText(QCoreApplication::translate("MainWindow", "Normal", nullptr));
         actiontier_json->setText(QCoreApplication::translate("MainWindow", "tier.json", nullptr));
         actionperson_json->setText(QCoreApplication::translate("MainWindow", "person.json", nullptr));
-        nationalparkManagerLabel->setText(QCoreApplication::translate("MainWindow", "Nationalpark Manager", nullptr));
+        actionOrteLaden_JSON->setText(QCoreApplication::translate("MainWindow", "Orte", nullptr));
+        actionWegeLaden_JSON->setText(QCoreApplication::translate("MainWindow", "Wege", nullptr));
+        nationalparkManagerLabel->setText(QCoreApplication::translate("MainWindow", "             Nationalpark Manager", nullptr));
         tierverwaltungPushButton->setText(QCoreApplication::translate("MainWindow", "Tierverwaltung", nullptr));
         personenverwaltungPushButton->setText(QCoreApplication::translate("MainWindow", "Personenverwaltung", nullptr));
+        wegenetzPushButton->setText(QCoreApplication::translate("MainWindow", "Wegenetz", nullptr));
         zurueckInTierverwaltungsseitePushButton->setText(QCoreApplication::translate("MainWindow", "Zur\303\274ck", nullptr));
         neuInTierverwaltungsseitePushButton->setText(QCoreApplication::translate("MainWindow", "Neu", nullptr));
         tierLadenPushButton->setText(QCoreApplication::translate("MainWindow", "Tier laden (JSON)", nullptr));

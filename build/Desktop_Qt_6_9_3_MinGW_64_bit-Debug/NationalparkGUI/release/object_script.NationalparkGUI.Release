@@ -5,8 +5,10 @@ release/personbearbeiten.o
 release/personsortierendialog.o
 release/tierbearbeitendialog.o
 release/tiersortierendialog.o
+release/wegenetzfenster.o
 release/moc_mainwindow.o
 release/moc_personbearbeiten.o
 release/moc_personsortierendialog.o
 release/moc_tierbearbeitendialog.o
 release/moc_tiersortierendialog.o
+release/moc_wegenetzfenster.o

@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include "tierliste.h"
 #include "personalliste.h"
+#include "nationalparkgraph.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -90,9 +91,16 @@ private slots:
 
     void on_wissCheckBox_toggled(bool checked);
 
+    void on_wegenetzPushButton_clicked();
+
+    void on_actionOrteLaden_JSON_triggered();
+
+    void on_actionWegeLaden_JSON_triggered();
+
 private:
     Ui::MainWindow *ui;
     Tierliste animalList;
     Personalliste personalList;
+    NationalparkGraph graph;
 };
 #endif // MAINWINDOW_H

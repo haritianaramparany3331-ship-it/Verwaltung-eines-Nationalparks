@@ -29,11 +29,19 @@
    <layout class="QHBoxLayout" name="horizontalLayout_9">
     <item>
      <widget class="QStackedWidget" name="stackedWidget">
+      <property name="font">
+       <font>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(101, 255, 127);</string>
+      </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="hauptseite">
-       <layout class="QVBoxLayout" name="verticalLayout_3">
+       <layout class="QHBoxLayout" name="horizontalLayout_10">
         <item>
          <layout class="QHBoxLayout" name="horizontalLayout_2">
           <item>
@@ -50,7 +58,7 @@
            </spacer>
           </item>
           <item>
-           <layout class="QVBoxLayout" name="verticalLayout_2">
+           <layout class="QVBoxLayout" name="verticalLayout">
             <item>
              <spacer name="verticalSpacer">
               <property name="orientation">
@@ -66,8 +74,18 @@
             </item>
             <item>
              <widget class="QLabel" name="nationalparkManagerLabel">
+              <property name="font">
+               <font>
+                <family>Terminal</family>
+                <pointsize>18</pointsize>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">color: rgb(0, 0, 0);</string>
+              </property>
               <property name="text">
-               <string>Nationalpark Manager</string>
+               <string>             Nationalpark Manager</string>
               </property>
              </widget>
             </item>
@@ -101,6 +119,13 @@
                </widget>
               </item>
              </layout>
+            </item>
+            <item>
+             <widget class="QPushButton" name="wegenetzPushButton">
+              <property name="text">
+               <string>Wegenetz</string>
+              </property>
+             </widget>
             </item>
             <item>
              <spacer name="verticalSpacer_2">
@@ -460,6 +485,8 @@
      </property>
      <addaction name="actionTiere_laden_JSON"/>
      <addaction name="actionPersonen_laden_JSON"/>
+     <addaction name="actionOrteLaden_JSON"/>
+     <addaction name="actionWegeLaden_JSON"/>
     </widget>
     <widget class="QMenu" name="menuSpeichern_JSON">
      <property name="title">
@@ -539,6 +566,16 @@
   <action name="actionperson_json">
    <property name="text">
     <string>person.json</string>
+   </property>
+  </action>
+  <action name="actionOrteLaden_JSON">
+   <property name="text">
+    <string>Orte</string>
+   </property>
+  </action>
+  <action name="actionWegeLaden_JSON">
+   <property name="text">
+    <string>Wege</string>
    </property>
   </action>
  </widget>

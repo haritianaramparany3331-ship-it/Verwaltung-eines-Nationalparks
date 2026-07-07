@@ -5,8 +5,10 @@ debug/personbearbeiten.o
 debug/personsortierendialog.o
 debug/tierbearbeitendialog.o
 debug/tiersortierendialog.o
+debug/wegenetzfenster.o
 debug/moc_mainwindow.o
 debug/moc_personbearbeiten.o
 debug/moc_personsortierendialog.o
 debug/moc_tierbearbeitendialog.o
 debug/moc_tiersortierendialog.o
+debug/moc_wegenetzfenster.o

@@ -19,7 +19,8 @@ SOURCES += \
     personbearbeiten.cpp \
     personsortierendialog.cpp \
     tierbearbeitendialog.cpp \
-    tiersortierendialog.cpp
+    tiersortierendialog.cpp \
+    wegenetzfenster.cpp
 
 HEADERS += \
     hilffunktionenGUI.h \
@@ -27,14 +28,16 @@ HEADERS += \
     personbearbeiten.h \
     personsortierendialog.h \
     tierbearbeitendialog.h \
-    tiersortierendialog.h
+    tiersortierendialog.h \
+    wegenetzfenster.h
 
 FORMS += \
     mainwindow.ui \
     personbearbeiten.ui \
     personsortierendialog.ui \
     tierbearbeitendialog.ui \
-    tiersortierendialog.ui
+    tiersortierendialog.ui \
+    wegenetzfenster.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

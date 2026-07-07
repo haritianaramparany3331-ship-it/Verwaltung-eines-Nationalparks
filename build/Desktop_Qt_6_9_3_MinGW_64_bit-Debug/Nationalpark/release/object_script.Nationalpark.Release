@@ -1,5 +1,7 @@
 release/angestellter.o
 release/hilffunktionen.o
+release/nationalparkgraph.o
+release/orte.o
 release/personalliste.o
 release/personalstatistik.o
 release/ranger.o
@@ -10,4 +12,5 @@ release/tierliste.o
 release/tierstatistik.o
 release/verwaltung.o
 release/vogel.o
+release/wege.o
 release/wissenschaftler.o

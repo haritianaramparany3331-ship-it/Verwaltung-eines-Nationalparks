@@ -23,6 +23,7 @@
 #include "tierstatistik.h"
 #include "tiersortierendialog.h"
 #include "personsortierendialog.h"
+#include "wegenetzfenster.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -416,5 +417,33 @@ std::vector<Spezies*> MainWindow::gefilterteAnimalList(){
         sichtbar.insert(sichtbar.end(), vogel.begin(), vogel.end());
     }
     return sichtbar;
+}
+
+void MainWindow::on_wegenetzPushButton_clicked()
+{
+    wegenetzFenster *wegenetz = new wegenetzFenster(graph, this);
+    ui->statusBar->showMessage("Öffnen des Wegenetzes");
+    if (wegenetz->exec() == QDialog::Accepted){
+        ui->statusBar->showMessage("Zurück zum Hauptmenü", 2000);
+    }
+    else{
+        ui->statusBar->showMessage("Abgebrochen");
+    }
+    delete wegenetz;
+}
+
+
+
+void MainWindow::on_actionOrteLaden_JSON_triggered()
+{
+    graph.ladeOrte();
+    ui->statusBar->showMessage("Orte geladen");
+}
+
+
+void MainWindow::on_actionWegeLaden_JSON_triggered()
+{
+    graph.ladeWege();
+    ui->statusBar->showMessage("Wege geladen");
 }
 
