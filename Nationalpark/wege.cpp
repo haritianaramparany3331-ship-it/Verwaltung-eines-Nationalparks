@@ -12,12 +12,27 @@ int Wege::getLaenge() const{
     return laenge;
 }
 
+bool Wege::istGesperrt() const{
+    return gesperrt;
+}
+
+void Wege::setGesperrt(bool gesperrt){
+    this->gesperrt = gesperrt;
+}
+
+int Wege::gegenueberliegenderOrt(int aktuellerOrt) const
+{
+    return (aktuellerOrt == start) ? ziel : start;
+}
+
 Wege Wege::fromJson(const json &j){
-    return Wege(
+    Wege w(
         j.at("start").get<int>(),
         j.at("ziel").get<int>(),
         j.at("laenge").get<int>()
         );
+    w.setGesperrt(false);
+    return w;
 }
 
 json Wege::toJson() const{

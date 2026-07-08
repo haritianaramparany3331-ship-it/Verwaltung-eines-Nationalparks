@@ -11,6 +11,7 @@ private:
     int start = 0;
     int ziel = 0;
     int laenge = 0;
+    bool gesperrt;
 public:
     Wege() = default;
     Wege(int start,
@@ -22,6 +23,9 @@ public:
     int getStart() const;
     int getZiel() const;
     int getLaenge() const;
+    bool istGesperrt() const;
+    void setGesperrt(bool gesperrt);
+    int gegenueberliegenderOrt(int aktuellerOrt) const;
     static Wege fromJson(const json &j);
     json toJson() const;
 };
